@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "x": 20,
+        "y": 23,
+        "type": "bosses",
+        "name": "Asylum Demon",
+        "description": "First boss bruh",
+        "level": "upper"
+    }
+]

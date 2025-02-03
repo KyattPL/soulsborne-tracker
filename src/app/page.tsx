@@ -1,30 +1,63 @@
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import GameCard from '../components/GameCard';
 
-export default function Home() {
-  const games = [
-    { id: "ds1", name: "Dark Souls 1", image: "/images/ds1.jpg" },
-    { id: "ds2", name: "Dark Souls 2", image: "/images/ds2.jpg" },
-    { id: "ds3", name: "Dark Souls 3", image: "/images/ds3.jpg" },
-    { id: "bb", name: "Bloodborne", image: "/images/bb.jpg" },
-    { id: "er", name: "Elden Ring", image: "/images/er.jpg" },
-  ];
+const games = [
+  {
+    id: 'ds1',
+    title: 'Dark Souls',
+    subtitle: 'Prepare to Die Edition',
+    path: '/ds1',
+    image: '/images/ds1.jpg',
+    description: 'Begin your journey in Lordran, where the Undead curse spreads.'
+  },
+  {
+    id: 'ds2',
+    title: 'Dark Souls II',
+    subtitle: 'Scholar of the First Sin',
+    path: '/ds2',
+    image: '/images/ds2.jpg',
+    description: 'Venture to Drangleic and seek the cure for the undead curse.'
+  },
+  {
+    id: 'ds3',
+    title: 'Dark Souls III',
+    subtitle: 'The Fire Fades Edition',
+    path: '/ds3',
+    image: '/images/ds3.jpg',
+    description: 'Rise from your grave, Ashen One, and link the fire.'
+  },
+  {
+    id: 'bb',
+    title: 'Bloodborne',
+    subtitle: 'The Old Hunters',
+    path: '/bb',
+    image: '/images/bb.jpg',
+    description: 'Hunt your nightmares in the gothic city of Yharnam.'
+  },
+  {
+    id: 'er',
+    title: 'Elden Ring',
+    subtitle: 'Shadow of the Erdtree',
+    path: '/elden',
+    image: '/images/elden.jpg',
+    description: 'Become the Elden Lord in the Lands Between.'
+  },
+]
 
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="space-y-8">
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl font-bold">Welcome, Chosen Undead</h1>
+        <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+          Track your journey through the Soulsborne series. Mark defeated bosses, discovered items, and explored locations.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {games.map((game) => (
-          <Link key={game.id} href={`/${game.id}`}>
-            <Card className="relative overflow-hidden rounded-xl cursor-pointer">
-              <Image src={game.image} alt={game.name} className="w-full h-48 object-cover opacity-80 hover:opacity-100 transition" />
-              <CardContent className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-center py-2">
-                {game.name}
-              </CardContent>
-            </Card>
-          </Link>
+          <GameCard key={game.id} game={game} />
         ))}
       </div>
     </div>
-  );
+  )
 }
