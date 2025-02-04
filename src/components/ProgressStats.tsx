@@ -1,29 +1,43 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import bossData from '../data/bosses.json';
+import { bosses } from '@/data/bosses';
 
 export default function ProgressStats() {
-    const [completedBosses, setCompletedBosses] = useState([]);
+    const [defeatedBosses, setDefeatedBosses] = useState<string[]>([]);
 
     useEffect(() => {
-        const savedBosses = JSON.parse(localStorage.getItem('completedBosses') || '[]');
-        setCompletedBosses(savedBosses);
+        const handleStorageChange = () => {
+            const savedBosses = JSON.parse(localStorage.getItem('defeatedBosses') || '[]');
+            setDefeatedBosses(savedBosses);
+        };
+
+        // Initial load
+        handleStorageChange();
+
+        // Listen for changes
+        window.addEventListener('storage', handleStorageChange);
+        window.addEventListener('localStorageChange', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('localStorageChange', handleStorageChange);
+        };
     }, []);
 
-    const progressPercentage = Math.round((completedBosses.length / bossData.length) * 100);
+    const progressPercentage = Math.round((defeatedBosses.length / bosses.length) * 100);
 
     return (
         <div className="space-y-4">
-            <div className="w-full bg-zinc-700 rounded-full h-4">
+            <div className="w-full bg-zinc-700/50 rounded-full h-4">
                 <div
-                    className="bg-emerald-500 h-4 rounded-full"
+                    className="bg-emerald-500/80 h-4 rounded-full transition-all duration-500"
                     style={{ width: `${progressPercentage}%` }}
                 />
             </div>
-            <div className="flex justify-between">
-                <span className="text-zinc-100">Bosses Defeated: {completedBosses.length} / {bossData.length}</span>
-                <span className="text-zinc-100">Completion: {progressPercentage}%</span>
+            <div className="flex justify-between text-sm">
+                <span className="text-zinc-300">Bosses Defeated: {defeatedBosses.length} / {bosses.length}</span>
+                <span className="text-zinc-300">Completion: {progressPercentage}%</span>
             </div>
         </div>
     );
