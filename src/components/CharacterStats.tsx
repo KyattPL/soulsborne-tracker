@@ -65,7 +65,7 @@ export default function CharacterStats() {
             </CardHeader>
             <CardContent className="p-6">
                 <div className="grid grid-cols-2 gap-6">
-                    <div className="space-y-4">
+                    <div className="space-y-8">
                         <div className="stat-group">
                             <div className="flex justify-between items-center">
                                 <span className="text-zinc-300">Soul Level</span>
@@ -118,7 +118,7 @@ export default function CharacterStats() {
                         </div>
                     </div>
 
-                    <div className="space-y-4">
+                    <div className="space-y-8">
                         {[
                             { name: 'Vitality', key: 'vitality' },
                             { name: 'Endurance', key: 'endurance' },

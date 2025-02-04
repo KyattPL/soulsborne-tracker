@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className={`${garamond.variable} font-sans flex flex-col min-h-screen bg-zinc-900 text-zinc-100`}>
+    <html lang="en" className="h-full overflow-hidden">
+      <body className={`${garamond.variable} font-sans flex flex-col h-[100vh] bg-zinc-900 text-zinc-100`}>
         <Header />
-        <main className="flex-grow container mx-auto px-4 py-8">
+        <main className="flex-grow h-[calc(100vh-8rem)] overflow-hidden container mx-auto px-4 py-8">
           {children}
         </main>
         <Footer />

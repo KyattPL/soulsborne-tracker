@@ -13,7 +13,7 @@ const navigationItems = [
 
 export default function Header() {
     return (
-        <header className="bg-zinc-800 border-b border-zinc-700">
+        <header className="bg-zinc-800 border-b border-zinc-700 h-16">
             <nav className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">

@@ -68,7 +68,7 @@ export default function BossList() {
                             </div>
                             <div className="flex items-center space-x-4">
                                 <div className="flex flex-col items-end">
-                                    <span className="text-zinc-500 text-xs mb-1">Attempts</span>
+                                    <span className="text-zinc-400 text-xs mb-1">Attempts</span>
                                     <div className="flex items-center space-x-2">
                                         <button
                                             onClick={() => modifyAttempts(boss.id, false)}

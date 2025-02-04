@@ -83,7 +83,7 @@ export default function ZoomableMap() {
             </div>
 
             {/* Zoomable Map Container */}
-            <div className="relative w-[574px] h-[400px] bg-zinc-800 rounded-lg overflow-hidden">
+            <div className="relative bg-zinc-800 rounded-lg overflow-hidden">
                 <TransformWrapper
                     initialScale={2}
                     minScale={2}
@@ -126,7 +126,7 @@ export default function ZoomableMap() {
                                     maxHeight: "400px",
                                 }}
                             >
-                                <div className="relative w-[574px] h-[400px]">
+                                <div className="relative h-[400px] w-[666px]">
                                     <Image
                                         src={`/images/ds1-map-${currentLevel}.png`}
                                         alt={`Lordran ${currentLevel} Level Map`}
