@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import Image from 'next/image';
 import mapMarkers from '@/data/mapMarkers.json';
@@ -17,17 +18,14 @@ interface MapMarker {
     type: string;
     name: string;
     description: string;
-    level: string;
 }
 
 export default function ZoomableMap() {
     const [selectedMarker, setSelectedMarker] = useState<MapMarker | null>(null);
     const [activeFilter, setActiveFilter] = useState<'all' | 'bosses' | 'bonfires' | 'items'>('all');
-    const [currentLevel, setCurrentLevel] = useState<'upper' | 'lower'>('upper');
 
     // Filter markers based on both level and active filter
     const filteredMarkers = mapMarkers.filter(marker =>
-        (currentLevel === marker.level) &&
         (activeFilter === 'all' || marker.type === activeFilter)
     );
 
@@ -41,28 +39,6 @@ export default function ZoomableMap() {
 
     return (
         <div className="space-y-4">
-            {/* Level Switch Buttons */}
-            <div className="flex justify-center space-x-4 mb-4">
-                <button
-                    onClick={() => setCurrentLevel('upper')}
-                    className={`px-4 py-2 rounded ${currentLevel === 'upper'
-                        ? 'bg-zinc-600 text-white'
-                        : 'bg-zinc-800 text-zinc-400'
-                        }`}
-                >
-                    Upper Level
-                </button>
-                <button
-                    onClick={() => setCurrentLevel('lower')}
-                    className={`px-4 py-2 rounded ${currentLevel === 'lower'
-                        ? 'bg-zinc-600 text-white'
-                        : 'bg-zinc-800 text-zinc-400'
-                        }`}
-                >
-                    Lower Level
-                </button>
-            </div>
-
             {/* Filter Buttons */}
             <div className="flex justify-center space-x-2 mb-4">
                 {filterButtons.map((button) => (
@@ -126,10 +102,10 @@ export default function ZoomableMap() {
                                     maxHeight: "400px",
                                 }}
                             >
-                                <div className="relative h-[400px] w-[666px]">
+                                <div className="relative h-[400px] w-[420px]">
                                     <Image
-                                        src={`/images/ds1-map-${currentLevel}.png`}
-                                        alt={`Lordran ${currentLevel} Level Map`}
+                                        src={`/images/ds1/ds1-map.png`}
+                                        alt={`Lordran Map`}
                                         className="absolute inset-0 w-full h-full object-contain"
                                         fill
                                     />
@@ -147,7 +123,7 @@ export default function ZoomableMap() {
                                         >
                                             <div
                                                 className={`
-                                                    w-4 h-4 rounded-full 
+                                                    w-2 h-2 rounded-full 
                                                     ${marker.type === 'bosses' ? 'bg-red-500' :
                                                         marker.type === 'bonfires' ? 'bg-orange-500' :
                                                             marker.type === 'items' ? 'bg-blue-500' :
@@ -164,22 +140,30 @@ export default function ZoomableMap() {
                 </TransformWrapper>
 
                 {/* Marker Details Popup */}
-                {selectedMarker && (
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 text-white">
-                        <div className="flex justify-between items-center">
-                            <div>
-                                <h3 className="text-xl font-bold">{selectedMarker.name}</h3>
-                                <p className="text-zinc-300">{selectedMarker.description}</p>
+                <AnimatePresence>
+                    {selectedMarker && (
+                        <motion.div
+                            className="absolute bottom-0 left-0 right-0 bg-black/90 p-4 text-white"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <h3 className="text-xl font-bold">{selectedMarker.name}</h3>
+                                    <p className="text-zinc-300">{selectedMarker.description}</p>
+                                </div>
+                                <button
+                                    onClick={() => setSelectedMarker(null)}
+                                    className="bg-zinc-700 hover:bg-zinc-600 px-3 py-1 rounded"
+                                >
+                                    Close
+                                </button>
                             </div>
-                            <button
-                                onClick={() => setSelectedMarker(null)}
-                                className="bg-zinc-700 hover:bg-zinc-600 px-3 py-1 rounded"
-                            >
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );
