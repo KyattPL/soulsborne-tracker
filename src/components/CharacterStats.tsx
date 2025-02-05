@@ -3,10 +3,15 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Plus, Minus } from 'lucide-react';
+import Image from 'next/image';
 
-interface CharacterStats {
+interface PlayerStats {
     soulLevel: number;
     newGamePlusCount: number;
+    maxWeaponUpgrade: number;
+}
+
+interface CharacterStats {
     vitality: number;
     attunement: number;
     endurance: number;
@@ -15,13 +20,17 @@ interface CharacterStats {
     resistance: number;
     intelligence: number;
     faith: number;
-    maxWeaponUpgrade: number;
 }
 
 export default function CharacterStats() {
-    const [stats, setStats] = useState<CharacterStats>({
+
+    const [playerStats, setPlayerStats] = useState<PlayerStats>({
         soulLevel: 1,
         newGamePlusCount: 0,
+        maxWeaponUpgrade: 0,
+    });
+
+    const [charStats, setCharStats] = useState<CharacterStats>({
         vitality: 10,
         attunement: 10,
         endurance: 10,
@@ -30,21 +39,31 @@ export default function CharacterStats() {
         resistance: 10,
         intelligence: 10,
         faith: 10,
-        maxWeaponUpgrade: 0
     });
 
     useEffect(() => {
-        const savedStats = JSON.parse(localStorage.getItem('characterStats') || 'null');
-        if (savedStats) setStats(savedStats);
+        const savedPlayerStats = JSON.parse(localStorage.getItem('playerStats') || 'null');
+        const savedCharStats = JSON.parse(localStorage.getItem('charStats') || 'null');
+        if (savedPlayerStats) setPlayerStats(savedPlayerStats);
+        if (savedCharStats) setCharStats(savedCharStats);
     }, []);
 
-    const updateStat = (stat: keyof CharacterStats, change: number) => {
+    const updateCharStat = (stat: keyof CharacterStats, change: number) => {
         const newStats = {
-            ...stats,
-            [stat]: Math.max(0, stats[stat] + change)
+            ...charStats,
+            [stat]: Math.max(0, charStats[stat] + change)
         };
-        setStats(newStats);
-        localStorage.setItem('characterStats', JSON.stringify(newStats));
+        setCharStats(newStats);
+        localStorage.setItem('charStats', JSON.stringify(newStats));
+    };
+
+    const updatePlayerStat = (stat: keyof PlayerStats, change: number) => {
+        const newStats = {
+            ...playerStats,
+            [stat]: Math.max(0, playerStats[stat] + change)
+        };
+        setPlayerStats(newStats);
+        localStorage.setItem('playerStats', JSON.stringify(newStats));
     };
 
     const StatButton = ({ onClick, icon: Icon }: { onClick: () => void, icon: typeof Plus }) => (
@@ -59,7 +78,8 @@ export default function CharacterStats() {
     return (
         <Card className="bg-zinc-800/50 border-zinc-700/50 backdrop-blur-sm">
             <CardHeader className="border-b border-zinc-700/50">
-                <CardTitle className="text-xl font-ancient-runes tracking-wider text-amber-500/90">
+                <CardTitle className="text-xl font-ancient-runes tracking-wider text-amber-500/90 flex justify-center items-center gap-8">
+                    <Image src="/images/ds1/charStats.png" alt="DS1 status logo" width={80} height={80} />
                     Character Stats
                 </CardTitle>
             </CardHeader>
@@ -68,15 +88,16 @@ export default function CharacterStats() {
                     <div className="space-y-8">
                         <div className="stat-group">
                             <div className="flex justify-between items-center">
+                                <Image src="/images/ds1/soullvl.png" alt="Soul level icon" width={32} height={32} />
                                 <span className="text-zinc-300">Soul Level</span>
-                                <div className="flex items-center space-x-3">
+                                <div className="flex items-center">
                                     <StatButton
-                                        onClick={() => updateStat('soulLevel', -1)}
+                                        onClick={() => updatePlayerStat('soulLevel', -1)}
                                         icon={Minus}
                                     />
-                                    <span className="text-amber-500 w-8 text-center">{stats.soulLevel}</span>
+                                    <span className="text-amber-500 w-8 text-center">{playerStats.soulLevel}</span>
                                     <StatButton
-                                        onClick={() => updateStat('soulLevel', 1)}
+                                        onClick={() => updatePlayerStat('soulLevel', 1)}
                                         icon={Plus}
                                     />
                                 </div>
@@ -85,15 +106,16 @@ export default function CharacterStats() {
 
                         <div className="stat-group">
                             <div className="flex justify-between items-center">
+                                <Image src="/images/ds1/stat_ng.png" alt="New game plus icon" width={32} height={32} />
                                 <span className="text-zinc-300">NG+ Cycle</span>
-                                <div className="flex items-center space-x-3">
+                                <div className="flex items-center">
                                     <StatButton
-                                        onClick={() => updateStat('newGamePlusCount', -1)}
+                                        onClick={() => updatePlayerStat('newGamePlusCount', -1)}
                                         icon={Minus}
                                     />
-                                    <span className="text-amber-500 w-8 text-center">{stats.newGamePlusCount}</span>
+                                    <span className="text-amber-500 w-8 text-center">{playerStats.newGamePlusCount}</span>
                                     <StatButton
-                                        onClick={() => updateStat('newGamePlusCount', 1)}
+                                        onClick={() => updatePlayerStat('newGamePlusCount', 1)}
                                         icon={Plus}
                                     />
                                 </div>
@@ -102,15 +124,16 @@ export default function CharacterStats() {
 
                         <div className="stat-group">
                             <div className="flex justify-between items-center">
-                                <span className="text-zinc-300">Weapon Level</span>
-                                <div className="flex items-center space-x-3">
+                                <Image src="/images/ds1/stat_weapon.png" alt="Weapon stat icon" width={32} height={32} />
+                                <span className="text-zinc-300">Weapon lvl</span>
+                                <div className="flex items-center">
                                     <StatButton
-                                        onClick={() => updateStat('maxWeaponUpgrade', -1)}
+                                        onClick={() => updatePlayerStat('maxWeaponUpgrade', -1)}
                                         icon={Minus}
                                     />
-                                    <span className="text-amber-500 w-8 text-center">+{stats.maxWeaponUpgrade}</span>
+                                    <span className="text-amber-500 w-8 text-center">+{playerStats.maxWeaponUpgrade}</span>
                                     <StatButton
-                                        onClick={() => updateStat('maxWeaponUpgrade', 1)}
+                                        onClick={() => updatePlayerStat('maxWeaponUpgrade', 1)}
                                         icon={Plus}
                                     />
                                 </div>
@@ -119,23 +142,19 @@ export default function CharacterStats() {
                     </div>
 
                     <div className="space-y-8">
-                        {[
-                            { name: 'Vitality', key: 'vitality' },
-                            { name: 'Endurance', key: 'endurance' },
-                            { name: 'Strength', key: 'strength' },
-                            { name: 'Dexterity', key: 'dexterity' }
-                        ].map(({ name, key }) => (
-                            <div key={key} className="stat-group">
+                        {Object.keys(charStats).map(key => (
+                            <div key={key}>
                                 <div className="flex justify-between items-center">
-                                    <span className="text-zinc-300">{name}</span>
-                                    <div className="flex items-center space-x-3">
+                                    <Image src={`/images/ds1/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
+                                    <span className="text-zinc-300">{key[0].toUpperCase() + key.slice(1)}</span>
+                                    <div className="flex items-center">
                                         <StatButton
-                                            onClick={() => updateStat(key as keyof CharacterStats, -1)}
+                                            onClick={() => updateCharStat(key as keyof CharacterStats, -1)}
                                             icon={Minus}
                                         />
-                                        <span className="text-amber-500 w-8 text-center">{stats[key as keyof CharacterStats]}</span>
+                                        <span className="text-amber-500 w-8 text-center">{charStats[key as keyof CharacterStats]}</span>
                                         <StatButton
-                                            onClick={() => updateStat(key as keyof CharacterStats, 1)}
+                                            onClick={() => updateCharStat(key as keyof CharacterStats, 1)}
                                             icon={Plus}
                                         />
                                     </div>
