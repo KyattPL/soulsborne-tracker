@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Plus, Minus, Trash2 } from 'lucide-react';
 import {
     Dialog,
@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useProgress } from './ProgressProvider';
 
 interface Tracker {
     id: string;
@@ -23,11 +24,12 @@ interface Tracker {
 
 const TRACKER_COLORS = ['emerald', 'blue', 'purple', 'amber', 'rose'] as const;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _unused = "bg-emerald-500 bg-blue-500 bg-purple-500 bg-amber-500 bg-rose-500";
 
 export default function CustomTrackers() {
-    const [trackers, setTrackers] = useState<Tracker[]>([]);
+    const { progress, isUrlProgress, isOnline, canEdit, updateProgress } = useProgress();
+
+    // const [trackers, setTrackers] = useState<Tracker[]>([]);
     const [isOpen, setIsOpen] = useState(false);
 
     const [newTracker, setNewTracker] = useState<{
@@ -40,17 +42,18 @@ export default function CustomTrackers() {
         color: 'emerald'
     });
 
-    useEffect(() => {
-        const savedTrackers = JSON.parse(localStorage.getItem('customTrackers') || '[]');
-        setTrackers(savedTrackers);
-    }, []);
+    // useEffect(() => {
+    //     const savedTrackers = JSON.parse(localStorage.getItem('customTrackers') || '[]');
+    //     setTrackers(savedTrackers);
+    // }, []);
 
-    const saveTrackers = (updatedTrackers: Tracker[]) => {
-        setTrackers(updatedTrackers);
-        localStorage.setItem('customTrackers', JSON.stringify(updatedTrackers));
-    };
+    // const _saveTrackersLocally = (updatedTrackers: Tracker[]) => {
+    //     localStorage.setItem('customTrackers', JSON.stringify(updatedTrackers));
+    // };
 
     const handleAddTracker = () => {
+        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
+        if (isOnline && !canEdit) return;
         if (!newTracker.name || newTracker.total <= 0) return;
 
         const tracker: Tracker = {
@@ -61,7 +64,8 @@ export default function CustomTrackers() {
             color: newTracker.color,
         };
 
-        saveTrackers([...trackers, tracker]);
+        updateProgress({ customTrackers: [...progress.customTrackers, tracker] });
+
         setNewTracker({
             name: '',
             total: 0,
@@ -70,8 +74,11 @@ export default function CustomTrackers() {
         setIsOpen(false);
     };
 
-    const updateProgress = (trackerId: string, increment: boolean) => {
-        const updatedTrackers = trackers.map(tracker => {
+    const updateTrackers = (trackerId: string, increment: boolean) => {
+        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
+        if (isOnline && !canEdit) return;
+
+        const updatedTrackers = progress.customTrackers.map(tracker => {
             if (tracker.id === trackerId) {
                 const newCurrent = increment
                     ? Math.min(tracker.current + 1, tracker.total)
@@ -80,12 +87,16 @@ export default function CustomTrackers() {
             }
             return tracker;
         });
-        saveTrackers(updatedTrackers);
+
+        updateProgress({ customTrackers: [...updatedTrackers] });
     };
 
     const removeTracker = (trackerId: string) => {
-        const updatedTrackers = trackers.filter(t => t.id !== trackerId);
-        saveTrackers(updatedTrackers);
+        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
+        if (isOnline && !canEdit) return;
+
+        const updatedTrackers = progress.customTrackers.filter(t => t.id !== trackerId);
+        updateProgress({ customTrackers: [...updatedTrackers] });
     };
 
     return (
@@ -152,7 +163,7 @@ export default function CustomTrackers() {
             </Dialog>
 
             <div className="space-y-4">
-                {trackers.map(tracker => {
+                {progress.customTrackers.map(tracker => {
                     const progressPercentage = (tracker.current / tracker.total) * 100;
 
                     return (
@@ -171,7 +182,7 @@ export default function CustomTrackers() {
                                     <Button
                                         variant="ghost"
                                         size="icon"
-                                        onClick={() => updateProgress(tracker.id, false)}
+                                        onClick={() => updateTrackers(tracker.id, false)}
                                         className="h-8 w-8 text-zinc-400"
                                     >
                                         <Minus className="h-4 w-4" />
@@ -179,7 +190,7 @@ export default function CustomTrackers() {
                                     <Button
                                         variant="ghost"
                                         size="icon"
-                                        onClick={() => updateProgress(tracker.id, true)}
+                                        onClick={() => updateTrackers(tracker.id, true)}
                                         className="h-8 w-8 text-zinc-400"
                                     >
                                         <Plus className="h-4 w-4" />

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ScrollArea } from './ui/scroll-area';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 
@@ -10,9 +10,20 @@ const ScrollableCard = ({ title, children }: { title: string; children: React.Re
     const [showBottomGradient, setShowBottomGradient] = useState(true);
     const contentRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        const cardArea = contentRef.current?.querySelector('[data-radix-scroll-area-viewport]');
+        const scrollHeight = cardArea?.scrollHeight || 0;
+        const clientHeight = cardArea?.clientHeight || 0;
+
+        if (scrollHeight === clientHeight) {
+            setShowBottomGradient(false);
+        }
+    }, []);
+
     const checkScroll = () => {
         if (contentRef.current) {
             const cardArea = contentRef.current?.querySelector('[data-radix-scroll-area-viewport]');
+
             const scrollTop = cardArea?.scrollTop || 0;
             const scrollHeight = cardArea?.scrollHeight || 0;
             const clientHeight = cardArea?.clientHeight || 0;
@@ -22,7 +33,7 @@ const ScrollableCard = ({ title, children }: { title: string; children: React.Re
     };
 
     return (
-        <ScrollArea type="always" ref={contentRef} onScrollCapture={checkScroll}>
+        <ScrollArea type="always" ref={contentRef} onScrollCapture={checkScroll} className='lg:flex-1'>
             <div
                 className="absolute top-0 h-4 w-full bg-gradient-to-b from-black to-transparent pointer-events-none z-10 transition-opacity duration-300"
                 style={{ opacity: showTopGradient ? 1 : 0 }}

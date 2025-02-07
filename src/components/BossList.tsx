@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import {
     Tooltip,
     TooltipContent,
@@ -9,42 +8,51 @@ import {
 } from '@/components/ui/tooltip';
 import { Check, X, Plus, Minus } from 'lucide-react';
 import { bosses } from '@/data/bosses';
+import { useProgress } from './ProgressProvider';
 
 export default function BossList() {
-    const [defeatedBosses, setDefeatedBosses] = useState<string[]>([]);
-    const [currentAttempts, setCurrentAttempts] = useState<{ [key: string]: number }>({});
+    const { progress, isUrlProgress, isOnline, canEdit, updateProgress } = useProgress();
 
-    useEffect(() => {
-        const savedDefeatedBosses = JSON.parse(localStorage.getItem('defeatedBosses') || '[]');
-        const savedAttempts = JSON.parse(localStorage.getItem('bossAttempts') || '{}');
+    // useEffect(() => {
+    //     const savedDefeatedBosses = JSON.parse(localStorage.getItem('defeatedBosses') || '[]');
+    //     const savedAttempts = JSON.parse(localStorage.getItem('bossAttempts') || '{}');
 
-        setDefeatedBosses(savedDefeatedBosses);
-        setCurrentAttempts(savedAttempts);
-    }, []);
+    //     setDefeatedBosses(savedDefeatedBosses);
+    //     setCurrentAttempts(savedAttempts);
+    // }, []);
 
-    const toggleBossDefeat = (bossId: string) => {
-        const newDefeatedBosses = defeatedBosses.includes(bossId)
-            ? defeatedBosses.filter(id => id !== bossId)
-            : [...defeatedBosses, bossId];
+    const toggleBossDefeat = (bossId: string, bName: string) => {
+        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
+        if (isOnline && !canEdit) return;
 
-        setDefeatedBosses(newDefeatedBosses);
-        localStorage.setItem('defeatedBosses', JSON.stringify(newDefeatedBosses));
+        const index = progress.defeatedBosses.findIndex(b => b.id === bossId);
+        const newArr = progress.defeatedBosses;
 
-        // Dispatch custom event to notify other components
-        window.dispatchEvent(new Event('localStorageChange'));
+        if (index !== -1) {
+            // Remove boss if it exists
+            newArr.splice(index, 1);
+        } else {
+            // Add boss if it doesn't exist
+            newArr.push({ id: bossId, attempts: 0, name: bName });
+        }
+
+        updateProgress({ defeatedBosses: newArr });
+        // localStorage.setItem('defeatedBosses', JSON.stringify(newDefeatedBosses));
+
+        // window.dispatchEvent(new Event('localStorageChange'));
     };
 
     const modifyAttempts = (bossId: string, increment: boolean) => {
-        const currentCount = currentAttempts[bossId] || 0;
-        const newAttempts = {
-            ...currentAttempts,
-            [bossId]: increment
-                ? currentCount + 1
-                : Math.max(0, currentCount - 1)
-        };
+        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
+        if (isOnline && !canEdit) return;
 
-        setCurrentAttempts(newAttempts);
-        localStorage.setItem('bossAttempts', JSON.stringify(newAttempts));
+        const newArr = progress.defeatedBosses;
+
+        const index = newArr.findIndex(b => b.id === bossId);
+        newArr[index].attempts = increment ? newArr[index].attempts + 1 : Math.max(0, newArr[index].attempts - 1);
+
+        updateProgress({ defeatedBosses: newArr });
+        // localStorage.setItem('bossAttempts', JSON.stringify(newAttempts));
     };
 
     return (
@@ -56,7 +64,7 @@ export default function BossList() {
                         className={`
                             border border-zinc-700/50 rounded-lg p-4 
                             transition-all duration-300
-                            ${defeatedBosses.includes(boss.id)
+                            ${progress.defeatedBosses.findIndex(b => b.id === boss.id) > -1
                                 ? 'bg-emerald-900/30'
                                 : 'hover:bg-zinc-700/30'}
                         `}
@@ -76,7 +84,7 @@ export default function BossList() {
                                         >
                                             <Minus size={16} />
                                         </button>
-                                        <span className="text-amber-500 w-8 text-center">{currentAttempts[boss.id] || 0}</span>
+                                        <span className="text-amber-500 w-8 text-center">{progress.defeatedBosses.find(b => b.id === boss.id)?.attempts || 0}</span>
                                         <button
                                             onClick={() => modifyAttempts(boss.id, true)}
                                             className="text-zinc-400 hover:text-white transition-colors"
@@ -88,15 +96,15 @@ export default function BossList() {
                                 <Tooltip>
                                     <TooltipTrigger asChild>
                                         <button
-                                            onClick={() => toggleBossDefeat(boss.id)}
+                                            onClick={() => toggleBossDefeat(boss.id, boss.name)}
                                             className={`
                                                 p-2 rounded-full ml-4 transition-all duration-200
-                                                ${defeatedBosses.includes(boss.id)
+                                                ${progress.defeatedBosses.findIndex(b => b.id === boss.id) > -1
                                                     ? 'bg-emerald-500/80 hover:bg-emerald-500 text-white'
                                                     : 'bg-zinc-700/50 hover:bg-zinc-600/50 text-zinc-400 hover:text-zinc-200'}
                                             `}
                                         >
-                                            {defeatedBosses.includes(boss.id) ? <Check /> : <X />}
+                                            {progress.defeatedBosses.findIndex(b => b.id === boss.id) > -1 ? <Check /> : <X />}
                                         </button>
                                     </TooltipTrigger>
                                     <TooltipContent>
