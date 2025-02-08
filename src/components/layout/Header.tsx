@@ -4,8 +4,6 @@ import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
-import { useProgress } from '../ProgressProvider'
-
 const navigationItems = [
     { name: 'Dark Souls', href: '/ds1' },
     { name: 'Dark Souls II', href: '/ds2' },
@@ -16,8 +14,6 @@ const navigationItems = [
 ];
 
 export default function Header() {
-    const { user, login, logout } = useProgress();
-
     return (
         <header className="bg-zinc-800 border-b border-zinc-700 h-16">
             <nav className="container mx-auto px-4">
@@ -40,10 +36,6 @@ export default function Header() {
                                 {item.name}
                             </Link>
                         ))}
-                    </div>
-
-                    <div className="hidden md:flex space-x-4">
-                        {user === null ? <button onClick={login}>LOG IN</button> : <button onClick={logout}>LOG OUT</button>}
                     </div>
 
                     {/* Mobile Menu Button */}

@@ -6,15 +6,10 @@ import Image from 'next/image';
 import { useProgress } from '@/components/ProgressProvider';
 
 export default function CharacterStats() {
-    const { progress, isUrlProgress, isOnline, canEdit, updateProgress } = useProgress();
-
-    // const _saveStats = (key: 'charStats' | 'playerStats', newStats: typeof progress.charStats | typeof progress.playerStats) => {
-    //     localStorage.setItem(key, JSON.stringify(newStats));
-    // }
+    const { progress, isSharedLink, updateProgress } = useProgress();
 
     const updateCharStat = (stat: keyof typeof progress.charStats, change: number) => {
-        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
-        if (isOnline && !canEdit) return;
+        if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
         const newStats = {
             ...progress.charStats,
@@ -27,8 +22,7 @@ export default function CharacterStats() {
     };
 
     const updatePlayerStat = (stat: keyof typeof progress.playerStats, change: number) => {
-        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
-        if (isOnline && !canEdit) return;
+        if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
         const newStats = {
             ...progress.playerStats,
@@ -44,8 +38,8 @@ export default function CharacterStats() {
         <button
             onClick={onClick}
             className={`bg-zinc-700/50 hover:bg-zinc-600/50 p-1.5 rounded transition-colors duration-200 text-zinc-400 hover:text-zinc-200 
-                ${isUrlProgress ? 'opacity-50 cursor-not-allowed' : ''}`}
-            disabled={isUrlProgress}
+                ${isSharedLink ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={isSharedLink}
         >
             <Icon size={14} />
         </button>
@@ -57,7 +51,7 @@ export default function CharacterStats() {
                 <CardTitle className="text-xl font-ancient-runes tracking-wider text-amber-500/90 flex justify-center items-center gap-4">
                     <Image src="/images/ds1/charStats.png" alt="DS1 status logo" width={80} height={80} />
                     Character Stats
-                    {isUrlProgress && (
+                    {isSharedLink && (
                         <span className="text-sm font-normal text-zinc-400">(Viewing Shared Progress)</span>
                     )}
                 </CardTitle>

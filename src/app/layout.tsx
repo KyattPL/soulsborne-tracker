@@ -21,11 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full overflow-hidden">
       <body className={`${garamond.variable} font-sans flex flex-col h-[100vh] bg-zinc-900 text-zinc-100`}>
-        <ProgressProvider gameKey='ds1'>
-          <Header />
-        </ProgressProvider>
+        <Header />
         <main className="flex-grow h-[calc(100vh-8rem)] overflow-hidden container mx-auto px-4 py-8">
-          {children}
+          <ProgressProvider gameKey='ds1'>
+            {children}
+          </ProgressProvider>
         </main>
         <Footer />
       </body>
