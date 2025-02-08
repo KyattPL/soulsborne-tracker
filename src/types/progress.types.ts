@@ -44,5 +44,23 @@ export interface DarkSouls1Progress extends GameSpecificProgress {
     }>;
 }
 
+const DarkSouls1KeyToStatName: Record<string, string> = {
+    'soulLevel': 'Soul level',
+    'newGamePlusCount': 'NG+ count',
+    'maxWeaponUpgrade': 'Weapon lvl',
+    'vitality': 'Vitality',
+    'attunement': 'Attunement',
+    'endurance': 'Endurance',
+    'strength': 'Strength',
+    'dexterity': 'Dexterity',
+    'resistance': 'Resistance',
+    'intelligence': 'Intelligence',
+    'faith': 'Faith',
+}
+
+export const KeyToStatName: Record<string, Record<string, string>> = {
+    'ds1': DarkSouls1KeyToStatName
+};
+
 export type AllGameProgress =
     | DarkSouls1Progress;

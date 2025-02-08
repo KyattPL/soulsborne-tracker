@@ -10,6 +10,8 @@ export function TwitchChatMonitor() {
     const { isTwitchConnected, twitchChannel, updateProgress } = useProgress();
 
     useEffect(() => {
+        if (!isTwitchConnected) return;
+
         ComfyJS.onCommand = (user, command, message, flags) => {
             if (command === 'updateprogress' && (flags.mod || user.toLowerCase() === twitchChannel.toLowerCase())) {
                 console.log(JSON.parse(decode(message)));
@@ -22,9 +24,9 @@ export function TwitchChatMonitor() {
         return () => {
             ComfyJS.Disconnect();
         };
-    }, [updateProgress, twitchChannel]);
+    }, [updateProgress, twitchChannel, isTwitchConnected]);
 
-    return isTwitchConnected ? (
+    return (isTwitchConnected) ? (
         <iframe className='hidden'
             ref={iframeRef}
             src={`https://www.twitch.tv/embed/${twitchChannel}/chat?parent=${window.location.hostname}`}

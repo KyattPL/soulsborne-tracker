@@ -1,4 +1,4 @@
-import { DarkSouls1Progress, AllGameProgress } from "@/types/database.types";
+import { DarkSouls1Progress, AllGameProgress } from "@/types/progress.types";
 
 const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
     game: 'Dark Souls 1',

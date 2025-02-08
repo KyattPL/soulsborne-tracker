@@ -3,7 +3,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { encode, decode } from 'js-base64';
-import { AllGameProgress } from '@/types/database.types';
+import { AllGameProgress } from '@/types/progress.types';
 import { DEFAULT_PROGRESSES } from '@/data/defaultProgresses';
 
 import _ from 'lodash';

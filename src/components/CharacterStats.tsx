@@ -5,6 +5,8 @@ import { Plus, Minus } from 'lucide-react';
 import Image from 'next/image';
 import { useProgress } from '@/components/ProgressProvider';
 
+import { KeyToStatName } from '@/types/progress.types';
+
 export default function CharacterStats({ gameKey }: { gameKey: string }) {
     const { progress, isSharedLink, updateProgress } = useProgress();
 
@@ -63,7 +65,7 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
                             <div key={key}>
                                 <div className="flex justify-between items-center">
                                     <Image src={`/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
-                                    <span className="text-zinc-300">Weapon lvl</span>
+                                    <span className="text-zinc-300">{KeyToStatName[gameKey][key]}</span>
                                     <div className="flex items-center">
                                         <StatButton
                                             onClick={() => updatePlayerStat(key as keyof typeof progress.playerStats, -1)}
@@ -87,7 +89,7 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
                             <div key={key}>
                                 <div className="flex justify-between items-center">
                                     <Image src={`/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
-                                    <span className="text-zinc-300">{key[0].toUpperCase() + key.slice(1)}</span>
+                                    <span className="text-zinc-300">{KeyToStatName[gameKey][key]}</span>
                                     <div className="flex items-center">
                                         <StatButton
                                             onClick={() => updateCharStat(key as keyof typeof progress.charStats, -1)}

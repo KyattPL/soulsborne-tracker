@@ -17,7 +17,7 @@ import { Label } from "@/components/ui/label";
 import { useProgress } from './ProgressProvider';
 
 const TwitchConnectButton = () => {
-    const { isTwitchConnected, twitchChannel, setIsTwitchConnected, setTwitchChannel } = useProgress();
+    const { isTwitchConnected, twitchChannel, isSharedLink, setIsTwitchConnected, setTwitchChannel } = useProgress();
 
     const [channelName, setChannelName] = useState('');
     const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -34,7 +34,7 @@ const TwitchConnectButton = () => {
         setTwitchChannel('');
     };
 
-    return (
+    return isSharedLink ? <></> : (
         <div className="">
             {isTwitchConnected ? (
                 <div className="flex items-center gap-2">
