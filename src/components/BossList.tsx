@@ -11,19 +11,10 @@ import { bosses } from '@/data/bosses';
 import { useProgress } from './ProgressProvider';
 
 export default function BossList() {
-    const { progress, isUrlProgress, isOnline, canEdit, updateProgress } = useProgress();
-
-    // useEffect(() => {
-    //     const savedDefeatedBosses = JSON.parse(localStorage.getItem('defeatedBosses') || '[]');
-    //     const savedAttempts = JSON.parse(localStorage.getItem('bossAttempts') || '{}');
-
-    //     setDefeatedBosses(savedDefeatedBosses);
-    //     setCurrentAttempts(savedAttempts);
-    // }, []);
+    const { progress, isSharedLink, updateProgress } = useProgress();
 
     const toggleBossDefeat = (bossId: string, bName: string) => {
-        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
-        if (isOnline && !canEdit) return;
+        if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
         const index = progress.defeatedBosses.findIndex(b => b.id === bossId);
         const newArr = progress.defeatedBosses;
@@ -37,14 +28,10 @@ export default function BossList() {
         }
 
         updateProgress({ defeatedBosses: newArr });
-        // localStorage.setItem('defeatedBosses', JSON.stringify(newDefeatedBosses));
-
-        // window.dispatchEvent(new Event('localStorageChange'));
     };
 
     const modifyAttempts = (bossId: string, increment: boolean) => {
-        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
-        if (isOnline && !canEdit) return;
+        if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
         const newArr = progress.defeatedBosses;
 
@@ -52,7 +39,6 @@ export default function BossList() {
         newArr[index].attempts = increment ? newArr[index].attempts + 1 : Math.max(0, newArr[index].attempts - 1);
 
         updateProgress({ defeatedBosses: newArr });
-        // localStorage.setItem('bossAttempts', JSON.stringify(newAttempts));
     };
 
     return (

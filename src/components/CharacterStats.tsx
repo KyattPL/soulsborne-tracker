@@ -5,7 +5,7 @@ import { Plus, Minus } from 'lucide-react';
 import Image from 'next/image';
 import { useProgress } from '@/components/ProgressProvider';
 
-export default function CharacterStats() {
+export default function CharacterStats({ gameKey }: { gameKey: string }) {
     const { progress, isSharedLink, updateProgress } = useProgress();
 
     const updateCharStat = (stat: keyof typeof progress.charStats, change: number) => {
@@ -49,7 +49,7 @@ export default function CharacterStats() {
         <Card className="bg-zinc-800/50 border-zinc-700/50 backdrop-blur-sm h-full">
             <CardHeader className="border-b border-zinc-700/50">
                 <CardTitle className="text-xl font-ancient-runes tracking-wider text-amber-500/90 flex justify-center items-center gap-4">
-                    <Image src="/images/ds1/charStats.png" alt="DS1 status logo" width={80} height={80} />
+                    <Image src={`/images/${gameKey}/charStats.jpg`} alt={`${gameKey} stats logo`} width={80} height={80} />
                     Character Stats
                     {isSharedLink && (
                         <span className="text-sm font-normal text-zinc-400">(Viewing Shared Progress)</span>
@@ -59,66 +59,34 @@ export default function CharacterStats() {
             <CardContent className="p-6">
                 <div className="grid grid-cols-2 gap-6">
                     <div className="space-y-8">
-                        <div className="stat-group">
-                            <div className="flex justify-between items-center">
-                                <Image src="/images/ds1/soullvl.png" alt="Soul level icon" width={32} height={32} />
-                                <span className="text-zinc-300">Soul Level</span>
-                                <div className="flex items-center">
-                                    <StatButton
-                                        onClick={() => updatePlayerStat('soulLevel', -1)}
-                                        icon={Minus}
-                                    />
-                                    <span className="text-amber-500 w-8 text-center">{progress.playerStats.soulLevel}</span>
-                                    <StatButton
-                                        onClick={() => updatePlayerStat('soulLevel', 1)}
-                                        icon={Plus}
-                                    />
+                        {Object.keys(progress.playerStats).map(key => (
+                            <div key={key}>
+                                <div className="flex justify-between items-center">
+                                    <Image src={`/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
+                                    <span className="text-zinc-300">Weapon lvl</span>
+                                    <div className="flex items-center">
+                                        <StatButton
+                                            onClick={() => updatePlayerStat(key as keyof typeof progress.playerStats, -1)}
+                                            icon={Minus}
+                                        />
+                                        <span className="text-amber-500 w-8 text-center">
+                                            {key === 'maxWeaponUpgrade' ? '+' : ''}
+                                            {progress.playerStats[key as keyof typeof progress.playerStats]}
+                                        </span>
+                                        <StatButton
+                                            onClick={() => updatePlayerStat(key as keyof typeof progress.playerStats, 1)}
+                                            icon={Plus}
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="stat-group">
-                            <div className="flex justify-between items-center">
-                                <Image src="/images/ds1/stat_ng.png" alt="New game plus icon" width={32} height={32} />
-                                <span className="text-zinc-300">NG+ Cycle</span>
-                                <div className="flex items-center">
-                                    <StatButton
-                                        onClick={() => updatePlayerStat('newGamePlusCount', -1)}
-                                        icon={Minus}
-                                    />
-                                    <span className="text-amber-500 w-8 text-center">{progress.playerStats.newGamePlusCount}</span>
-                                    <StatButton
-                                        onClick={() => updatePlayerStat('newGamePlusCount', 1)}
-                                        icon={Plus}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="stat-group">
-                            <div className="flex justify-between items-center">
-                                <Image src="/images/ds1/stat_weapon.png" alt="Weapon stat icon" width={32} height={32} />
-                                <span className="text-zinc-300">Weapon lvl</span>
-                                <div className="flex items-center">
-                                    <StatButton
-                                        onClick={() => updatePlayerStat('maxWeaponUpgrade', -1)}
-                                        icon={Minus}
-                                    />
-                                    <span className="text-amber-500 w-8 text-center">+{progress.playerStats.maxWeaponUpgrade}</span>
-                                    <StatButton
-                                        onClick={() => updatePlayerStat('maxWeaponUpgrade', 1)}
-                                        icon={Plus}
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
-
                     <div className="space-y-8">
                         {Object.keys(progress.charStats).map(key => (
                             <div key={key}>
                                 <div className="flex justify-between items-center">
-                                    <Image src={`/images/ds1/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
+                                    <Image src={`/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
                                     <span className="text-zinc-300">{key[0].toUpperCase() + key.slice(1)}</span>
                                     <div className="flex items-center">
                                         <StatButton

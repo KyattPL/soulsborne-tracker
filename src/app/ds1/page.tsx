@@ -10,6 +10,8 @@ import { ProgressProvider } from '@/components/ProgressProvider';
 import ProgressShareLinkGenerator from '@/components/ProgressShareLinkGenerator';
 import SaveProgressButton from '@/components/SaveProgressButton';
 import ResetProgressButton from '@/components/ResetProgressButton';
+import { TwitchChatMonitor } from '@/components/TwitchChatMonitor';
+import TwitchConnectButton from '@/components/TwitchConnectButton';
 
 export default function DS1Page() {
 
@@ -23,6 +25,7 @@ export default function DS1Page() {
                         </h1>
                         <SaveProgressButton />
                         <ResetProgressButton />
+                        <TwitchConnectButton />
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[calc(100%-2rem)]">
@@ -30,7 +33,7 @@ export default function DS1Page() {
                         {/* Left Column - Fixed Height, No Scroll */}
                         <div className='h-full'>
                             <Suspense fallback={<div>Loading Stats...</div>}>
-                                <CharacterStats />
+                                <CharacterStats gameKey='ds1' />
                             </Suspense>
                         </div>
 
@@ -61,6 +64,7 @@ export default function DS1Page() {
                                 </CardContent>
                             </Card>
                             <ProgressShareLinkGenerator />
+                            <TwitchChatMonitor />
                         </div>
                     </div>
                 </ProgressProvider>
