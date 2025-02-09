@@ -9,8 +9,8 @@ const navigationItems = [
     { name: 'Dark Souls II', href: '/ds2' },
     { name: 'Dark Souls III', href: '/ds3' },
     { name: 'Bloodborne', href: '/bb' },
-    { name: 'Elden Ring', href: '/elden' },
-    { name: 'Sekiro', href: '/sekiro' }
+    { name: 'Elden Ring', href: '/elden' }
+    // { name: 'Sekiro', href: '/sekiro' }
 ];
 
 export default function Header() {

@@ -1,4 +1,7 @@
-import { DarkSouls1Progress, DarkSouls2Progress, AllGameProgress, DarkSouls3Progress } from "@/types/progress.types";
+import {
+    DarkSouls1Progress, DarkSouls2Progress, AllGameProgress,
+    DarkSouls3Progress, BloodborneProgress
+} from "@/types/progress.types";
 
 const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
     game: 'Dark Souls 1',
@@ -27,6 +30,8 @@ const DS2_DEFAULT_PROGRESS: DarkSouls2Progress = {
         soulLevel: 1,
         newGamePlusCount: 0,
         maxWeaponUpgrade: 0,
+        estusAmount: 0,
+        estusUpgrade: 0
     },
     charStats: {
         vigor: 10,
@@ -49,6 +54,8 @@ const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
         soulLevel: 1,
         newGamePlusCount: 0,
         maxWeaponUpgrade: 0,
+        estusAmount: 3,
+        estusUpgrade: 0
     },
     charStats: {
         vigor: 10,
@@ -65,8 +72,30 @@ const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
     customTrackers: [],
 };
 
+const BB_DEFAULT_PROGRESS: BloodborneProgress = {
+    game: 'Bloodborne',
+    playerStats: {
+        soulLevel: 1,
+        newGamePlusCount: 0,
+        maxWeaponUpgrade: 0,
+        insight: 0
+    },
+    charStats: {
+        vitality: 10,
+        strength: 10,
+        endurance: 10,
+        skill: 10,
+        bloodtinge: 10,
+        arcane: 10
+    },
+    defeatedBosses: [],
+    customTrackers: [],
+};
+
+
 export const DEFAULT_PROGRESSES: Record<string, AllGameProgress> = {
     'ds1': DS1_DEFAULT_PROGRESS,
     'ds2': DS2_DEFAULT_PROGRESS,
-    'ds3': DS3_DEFAULT_PROGRESS
+    'ds3': DS3_DEFAULT_PROGRESS,
+    'bb': BB_DEFAULT_PROGRESS
 }

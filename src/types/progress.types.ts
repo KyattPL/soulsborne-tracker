@@ -51,6 +51,8 @@ export interface DarkSouls2Progress extends GameSpecificProgress {
         soulLevel: number;
         newGamePlusCount: number;
         maxWeaponUpgrade: number;
+        estusAmount: number;
+        estusUpgrade: number;
     };
     charStats: {
         vigor: number;
@@ -83,6 +85,8 @@ export interface DarkSouls3Progress extends GameSpecificProgress {
         soulLevel: number;
         newGamePlusCount: number;
         maxWeaponUpgrade: number;
+        estusAmount: number;
+        estusUpgrade: number;
     };
     charStats: {
         vigor: number;
@@ -94,6 +98,36 @@ export interface DarkSouls3Progress extends GameSpecificProgress {
         intelligence: number;
         faith: number;
         luck: number;
+    };
+    defeatedBosses: Array<{
+        id: string;
+        name: string;
+        attempts: number;
+    }>;
+    customTrackers: Array<{
+        id: string;
+        name: string;
+        total: number;
+        current: number;
+        color: string;
+    }>;
+}
+
+export interface BloodborneProgress extends GameSpecificProgress {
+    game: 'Bloodborne';
+    playerStats: {
+        soulLevel: number;
+        newGamePlusCount: number;
+        maxWeaponUpgrade: number;
+        insight: number;
+    };
+    charStats: {
+        vitality: number;
+        endurance: number;
+        strength: number;
+        skill: number;
+        bloodtinge: number;
+        arcane: number;
     };
     defeatedBosses: Array<{
         id: string;
@@ -135,7 +169,9 @@ const DarkSouls2KeyToStatName: Record<string, string> = {
     'adaptability': 'Adaptability',
     'intelligence': 'Intelligence',
     'faith': 'Faith',
-    'vigor': 'Vigor'
+    'vigor': 'Vigor',
+    'estusAmount': 'Estus shards',
+    'estusUpgrade': 'Estus lvl'
 };
 
 const DarkSouls3KeyToStatName: Record<string, string> = {
@@ -150,16 +186,33 @@ const DarkSouls3KeyToStatName: Record<string, string> = {
     'luck': 'Luck',
     'intelligence': 'Intelligence',
     'faith': 'Faith',
-    'vigor': 'Vigor'
+    'vigor': 'Vigor',
+    'estusAmount': 'Estus shards',
+    'estusUpgrade': 'Estus lvl'
+};
+
+const BloodborneKeyToStatName: Record<string, string> = {
+    'soulLevel': 'Level',
+    'newGamePlusCount': 'NG+ count',
+    'maxWeaponUpgrade': 'Weapon lvl',
+    'vitality': 'Vitality',
+    'endurance': 'Endurance',
+    'strength': 'Strength',
+    'insight': 'Insight',
+    'skill': 'Skill',
+    'bloodtinge': 'Bloodtinge',
+    'arcane': 'Arcane'
 };
 
 export const KeyToStatName: Record<string, Record<string, string>> = {
     'ds1': DarkSouls1KeyToStatName,
     'ds2': DarkSouls2KeyToStatName,
-    'ds3': DarkSouls3KeyToStatName
+    'ds3': DarkSouls3KeyToStatName,
+    'bb': BloodborneKeyToStatName
 };
 
 export type AllGameProgress =
     | DarkSouls1Progress
     | DarkSouls2Progress
-    | DarkSouls3Progress;
+    | DarkSouls3Progress
+    | BloodborneProgress;
