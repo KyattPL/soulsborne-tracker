@@ -27,11 +27,9 @@ const TRACKER_COLORS = ['emerald', 'blue', 'purple', 'amber', 'rose'] as const;
 const _unused = "bg-emerald-500 bg-blue-500 bg-purple-500 bg-amber-500 bg-rose-500";
 
 export default function CustomTrackers() {
-    const { progress, isUrlProgress, isOnline, canEdit, updateProgress } = useProgress();
+    const { progress, isSharedLink, updateProgress } = useProgress();
 
-    // const [trackers, setTrackers] = useState<Tracker[]>([]);
     const [isOpen, setIsOpen] = useState(false);
-
     const [newTracker, setNewTracker] = useState<{
         name: string;
         total: number;
@@ -42,18 +40,8 @@ export default function CustomTrackers() {
         color: 'emerald'
     });
 
-    // useEffect(() => {
-    //     const savedTrackers = JSON.parse(localStorage.getItem('customTrackers') || '[]');
-    //     setTrackers(savedTrackers);
-    // }, []);
-
-    // const _saveTrackersLocally = (updatedTrackers: Tracker[]) => {
-    //     localStorage.setItem('customTrackers', JSON.stringify(updatedTrackers));
-    // };
-
     const handleAddTracker = () => {
-        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
-        if (isOnline && !canEdit) return;
+        if (isSharedLink) return; // Prevent modifications when viewing shared progress
         if (!newTracker.name || newTracker.total <= 0) return;
 
         const tracker: Tracker = {
@@ -64,7 +52,7 @@ export default function CustomTrackers() {
             color: newTracker.color,
         };
 
-        updateProgress({ customTrackers: [...progress.customTrackers, tracker] });
+        updateProgress({ ...progress, customTrackers: [...progress.customTrackers, tracker] });
 
         setNewTracker({
             name: '',
@@ -75,8 +63,7 @@ export default function CustomTrackers() {
     };
 
     const updateTrackers = (trackerId: string, increment: boolean) => {
-        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
-        if (isOnline && !canEdit) return;
+        if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
         const updatedTrackers = progress.customTrackers.map(tracker => {
             if (tracker.id === trackerId) {
@@ -88,15 +75,14 @@ export default function CustomTrackers() {
             return tracker;
         });
 
-        updateProgress({ customTrackers: [...updatedTrackers] });
+        updateProgress({ ...progress, customTrackers: [...updatedTrackers] });
     };
 
     const removeTracker = (trackerId: string) => {
-        if (isUrlProgress) return; // Prevent modifications when viewing shared progress
-        if (isOnline && !canEdit) return;
+        if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
         const updatedTrackers = progress.customTrackers.filter(t => t.id !== trackerId);
-        updateProgress({ customTrackers: [...updatedTrackers] });
+        updateProgress({ ...progress, customTrackers: [...updatedTrackers] });
     };
 
     return (

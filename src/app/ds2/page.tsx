@@ -33,7 +33,7 @@ export default function DS2Page() {
                         {/* Left Column - Fixed Height, No Scroll */}
                         <div className='h-full'>
                             <Suspense fallback={<div>Loading Stats...</div>}>
-                                <CharacterStats gameKey='ds1' />
+                                <CharacterStats gameKey='ds2' />
                             </Suspense>
                         </div>
 
@@ -41,7 +41,7 @@ export default function DS2Page() {
                         <div className="space-y-6 lg:flex lg:flex-col px-2 h-full overflow-auto">
                             <ScrollableCard title="Boss Progression">
                                 <Suspense fallback={<div>Loading Bosses...</div>}>
-                                    <BossList />
+                                    <BossList gameKey='ds2' />
                                 </Suspense>
                             </ScrollableCard>
                             <ScrollableCard title="Custom Trackers">

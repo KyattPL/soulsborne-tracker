@@ -41,7 +41,7 @@ export default function DS1Page() {
                         <div className="space-y-6 lg:flex lg:flex-col px-2 h-full overflow-auto">
                             <ScrollableCard title="Boss Progression">
                                 <Suspense fallback={<div>Loading Bosses...</div>}>
-                                    <BossList />
+                                    <BossList gameKey='ds1' />
                                 </Suspense>
                             </ScrollableCard>
                             <ScrollableCard title="Custom Trackers">

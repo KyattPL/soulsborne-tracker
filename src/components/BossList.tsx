@@ -10,7 +10,7 @@ import { Check, X, Plus, Minus } from 'lucide-react';
 import { bosses } from '@/data/bosses';
 import { useProgress } from './ProgressProvider';
 
-export default function BossList() {
+export default function BossList({ gameKey }: { gameKey: string }) {
     const { progress, isSharedLink, updateProgress } = useProgress();
 
     const toggleBossDefeat = (bossId: string, bName: string) => {
@@ -44,7 +44,7 @@ export default function BossList() {
     return (
         <TooltipProvider>
             <div className="space-y-4">
-                {bosses.map(boss => (
+                {bosses[gameKey].map(boss => (
                     <div
                         key={boss.id}
                         className={`

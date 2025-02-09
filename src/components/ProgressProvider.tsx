@@ -14,7 +14,7 @@ interface ProgressContextType {
     isUnsavedProgress: boolean;
     isTwitchConnected: boolean;
     twitchChannel: string;
-    updateProgress: (data: Partial<AllGameProgress>) => void;
+    updateProgress: (data: AllGameProgress) => void;
     getShareableLink: () => string;
     loadSharedProgress: (encodedData: string) => void;
     saveProgress: () => void;
@@ -55,7 +55,7 @@ export function ProgressProvider({ children, gameKey = 'ds1' }: { children: Reac
         setIsUnsavedProgress(false);
     };
 
-    const updateProgress = (data: Partial<AllGameProgress>) => {
+    const updateProgress = (data: AllGameProgress) => {
         const newProgress = { ...progress, ...data };
         setProgress(newProgress);
 
