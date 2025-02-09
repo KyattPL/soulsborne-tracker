@@ -77,6 +77,38 @@ export interface DarkSouls2Progress extends GameSpecificProgress {
     }>;
 }
 
+export interface DarkSouls3Progress extends GameSpecificProgress {
+    game: 'Dark Souls 3';
+    playerStats: {
+        soulLevel: number;
+        newGamePlusCount: number;
+        maxWeaponUpgrade: number;
+    };
+    charStats: {
+        vigor: number;
+        attunement: number;
+        endurance: number;
+        vitality: number;
+        strength: number;
+        dexterity: number;
+        intelligence: number;
+        faith: number;
+        luck: number;
+    };
+    defeatedBosses: Array<{
+        id: string;
+        name: string;
+        attempts: number;
+    }>;
+    customTrackers: Array<{
+        id: string;
+        name: string;
+        total: number;
+        current: number;
+        color: string;
+    }>;
+}
+
 const DarkSouls1KeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
@@ -106,11 +138,28 @@ const DarkSouls2KeyToStatName: Record<string, string> = {
     'vigor': 'Vigor'
 };
 
+const DarkSouls3KeyToStatName: Record<string, string> = {
+    'soulLevel': 'Soul level',
+    'newGamePlusCount': 'NG+ count',
+    'maxWeaponUpgrade': 'Weapon lvl',
+    'vitality': 'Vitality',
+    'attunement': 'Attunement',
+    'endurance': 'Endurance',
+    'strength': 'Strength',
+    'dexterity': 'Dexterity',
+    'luck': 'Luck',
+    'intelligence': 'Intelligence',
+    'faith': 'Faith',
+    'vigor': 'Vigor'
+};
+
 export const KeyToStatName: Record<string, Record<string, string>> = {
     'ds1': DarkSouls1KeyToStatName,
-    'ds2': DarkSouls2KeyToStatName
+    'ds2': DarkSouls2KeyToStatName,
+    'ds3': DarkSouls3KeyToStatName
 };
 
 export type AllGameProgress =
     | DarkSouls1Progress
-    | DarkSouls2Progress;
+    | DarkSouls2Progress
+    | DarkSouls3Progress;

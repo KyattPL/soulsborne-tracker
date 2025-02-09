@@ -27,7 +27,7 @@ export default function BossList({ gameKey }: { gameKey: string }) {
             newArr.push({ id: bossId, attempts: 0, name: bName });
         }
 
-        updateProgress({ defeatedBosses: newArr });
+        updateProgress({ ...progress, defeatedBosses: newArr });
     };
 
     const modifyAttempts = (bossId: string, increment: boolean) => {
@@ -38,7 +38,7 @@ export default function BossList({ gameKey }: { gameKey: string }) {
         const index = newArr.findIndex(b => b.id === bossId);
         newArr[index].attempts = increment ? newArr[index].attempts + 1 : Math.max(0, newArr[index].attempts - 1);
 
-        updateProgress({ defeatedBosses: newArr });
+        updateProgress({ ...progress, defeatedBosses: newArr });
     };
 
     return (

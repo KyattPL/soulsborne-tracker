@@ -5,8 +5,8 @@ import { Plus, Minus } from 'lucide-react';
 import Image from 'next/image';
 import { useProgress } from '@/components/ProgressProvider';
 
-import { DarkSouls1Progress, DarkSouls2Progress, KeyToStatName } from '@/types/progress.types';
-import { isDarkSouls1Progress, isDarkSouls2Progress } from '@/utils/progressGuards';
+import { KeyToStatName } from '@/types/progress.types';
+import { updateCharStatGuarded, updatePlayerStatGuarded } from '@/utils/progressGuards';
 
 export default function CharacterStats({ gameKey }: { gameKey: string }) {
     const { progress, isSharedLink, updateProgress } = useProgress();
@@ -15,49 +15,13 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
     const updateCharStat = (stat: string, change: number) => {
         if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
-        let newStats;
-
-        if (isDarkSouls1Progress(progress) && stat in progress.charStats) {
-            newStats = {
-                ...progress.charStats,
-                [stat]: Math.max(0, progress.charStats[stat as keyof DarkSouls1Progress['charStats']] + change),
-            };
-            updateProgress({ ...progress, charStats: newStats });
-        } else if (isDarkSouls2Progress(progress) && stat in progress.charStats) {
-            newStats = {
-                ...progress.charStats,
-                [stat]: Math.max(0, progress.charStats[stat as keyof DarkSouls2Progress['charStats']] + change),
-            };
-
-            updateProgress({ ...progress, charStats: newStats });
-        } else {
-            console.error(`Invalid stat update attempt: ${stat}`);
-            return;
-        }
+        updateCharStatGuarded(stat, progress, change, updateProgress);
     };
 
     const updatePlayerStat = (stat: string, change: number) => {
         if (isSharedLink) return; // Prevent modifications when viewing shared progress
 
-        let newStats;
-
-        if (isDarkSouls1Progress(progress) && stat in progress.playerStats) {
-            newStats = {
-                ...progress.playerStats,
-                [stat]: Math.max(0, progress.playerStats[stat as keyof DarkSouls1Progress['playerStats']] + change),
-            };
-            updateProgress({ ...progress, playerStats: newStats });
-        } else if (isDarkSouls2Progress(progress) && stat in progress.playerStats) {
-            newStats = {
-                ...progress.playerStats,
-                [stat]: Math.max(0, progress.playerStats[stat as keyof DarkSouls2Progress['playerStats']] + change),
-            };
-
-            updateProgress({ ...progress, playerStats: newStats });
-        } else {
-            console.error(`Invalid stat update attempt: ${stat}`);
-            return;
-        }
+        updatePlayerStatGuarded(stat, progress, change, updateProgress);
     };
 
     const StatButton = ({ onClick, icon: Icon }: { onClick: () => void, icon: typeof Plus }) => (

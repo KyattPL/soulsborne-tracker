@@ -239,5 +239,132 @@ export const bosses: Record<string, Boss[]> = {
             "name": "Lud, the King's Pet & Zallen, the King's Pet",
             "location": "Frigid Outskirts"
         }
+    ],
+    "ds3": [
+        {
+            "id": "1",
+            "name": "Iudex Gundyr",
+            "location": "Cemetery of Ash"
+        },
+        {
+            "id": "2",
+            "name": "Vordt of the Boreal Valley",
+            "location": "High Wall of Lothric"
+        },
+        {
+            "id": "3",
+            "name": "Curse-rotted Greatwood",
+            "location": "Undead Settlement"
+        },
+        {
+            "id": "4",
+            "name": "Crystal Sage",
+            "location": "Road of Sacrifices"
+        },
+        {
+            "id": "5",
+            "name": "Deacons of the Deep",
+            "location": "Cathedral of the Deep"
+        },
+        {
+            "id": "6",
+            "name": "Abyss Watchers",
+            "location": "Farron Keep"
+        },
+        {
+            "id": "7",
+            "name": "High Lord Wolnir",
+            "location": "Catacombs of Carthus"
+        },
+        {
+            "id": "8",
+            "name": "Old Demon King",
+            "location": "Smouldering Lake"
+        },
+        {
+            "id": "9",
+            "name": "Pontiff Sulyvahn",
+            "location": "Irithyll of the Boreal Valley"
+        },
+        {
+            "id": "10",
+            "name": "Aldrich, Devourer of Gods",
+            "location": "Anor Londo"
+        },
+        {
+            "id": "11",
+            "name": "Yhorm the Giant",
+            "location": "Profaned Capital"
+        },
+        {
+            "id": "12",
+            "name": "Dancer of the Boreal Valley",
+            "location": "High Wall of Lothric"
+        },
+        {
+            "id": "13",
+            "name": "Oceiros, the Consumed King",
+            "location": "Consumed King's Garden"
+        },
+        {
+            "id": "14",
+            "name": "Champion Gundyr",
+            "location": "Untended Graves"
+        },
+        {
+            "id": "15",
+            "name": "Ancient Wyvern",
+            "location": "Archdragon Peak"
+        },
+        {
+            "id": "16",
+            "name": "The Nameless King",
+            "location": "Archdragon Peak"
+        },
+        {
+            "id": "17",
+            "name": "Dragonslayer Armour",
+            "location": "Lothric Castle"
+        },
+        {
+            "id": "18",
+            "name": "The Twin Princes",
+            "location": "Grand Archives"
+        },
+        {
+            "id": "19",
+            "name": "Soul of Cinder",
+            "location": "Kiln of the First Flame"
+        },
+        {
+            "id": "20",
+            "name": "Sister Friede",
+            "location": "Painted World of Ariandel"
+        },
+        {
+            "id": "21",
+            "name": "Champion's Gravetender & Gravetender Greatwolf",
+            "location": "Painted World of Ariandel"
+        },
+        {
+            "id": "22",
+            "name": "The Demon Prince",
+            "location": "The Dreg Heap"
+        },
+        {
+            "id": "23",
+            "name": "Darkeater Midir",
+            "location": "The Ringed City"
+        },
+        {
+            "id": "24",
+            "name": "Halflight, Spear of the Church",
+            "location": "The Ringed City"
+        },
+        {
+            "id": "25",
+            "name": "Slave Knight Gael",
+            "location": "The Ringed City"
+        }
     ]
 };
