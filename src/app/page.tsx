@@ -6,7 +6,7 @@ const games = [
     title: 'Dark Souls',
     subtitle: 'Prepare to Die Edition',
     path: '/ds1',
-    image: '/images/ds1.jpg',
+    image: '/soulsborne-tracker/images/ds1.jpg',
     description: 'Begin your journey in Lordran, where the Undead curse spreads.'
   },
   {
@@ -14,7 +14,7 @@ const games = [
     title: 'Dark Souls II',
     subtitle: 'Scholar of the First Sin',
     path: '/ds2',
-    image: '/images/ds2.jpg',
+    image: '/soulsborne-tracker/images/ds2.jpg',
     description: 'Venture to Drangleic and seek the cure for the undead curse.'
   },
   {
@@ -22,7 +22,7 @@ const games = [
     title: 'Dark Souls III',
     subtitle: 'The Fire Fades Edition',
     path: '/ds3',
-    image: '/images/ds3.jpg',
+    image: '/soulsborne-tracker/images/ds3.jpg',
     description: 'Rise from your grave, Ashen One, and link the fire.'
   },
   {
@@ -30,15 +30,15 @@ const games = [
     title: 'Bloodborne',
     subtitle: 'The Old Hunters',
     path: '/bb',
-    image: '/images/bb.jpg',
+    image: '/soulsborne-tracker/images/bb.jpg',
     description: 'Hunt your nightmares in the gothic city of Yharnam.'
   },
   {
-    id: 'er',
+    id: 'elden',
     title: 'Elden Ring',
     subtitle: 'Shadow of the Erdtree',
     path: '/elden',
-    image: '/images/elden.jpg',
+    image: '/soulsborne-tracker/images/elden.jpg',
     description: 'Become the Elden Lord in the Lands Between.'
   },
 ]

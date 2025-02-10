@@ -143,6 +143,39 @@ export interface BloodborneProgress extends GameSpecificProgress {
     }>;
 }
 
+export interface EldenRingProgress extends GameSpecificProgress {
+    game: 'Elden Ring';
+    playerStats: {
+        soulLevel: number;
+        newGamePlusCount: number;
+        maxWeaponUpgrade: number;
+        flaskAmount: number;
+        flaskUpgrade: number;
+    };
+    charStats: {
+        vigor: number;
+        mind: number;
+        endurance: number;
+        strength: number;
+        dexterity: number;
+        intelligence: number;
+        faith: number;
+        arcane: number;
+    };
+    defeatedBosses: Array<{
+        id: string;
+        name: string;
+        attempts: number;
+    }>;
+    customTrackers: Array<{
+        id: string;
+        name: string;
+        total: number;
+        current: number;
+        color: string;
+    }>;
+}
+
 const DarkSouls1KeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
@@ -204,15 +237,33 @@ const BloodborneKeyToStatName: Record<string, string> = {
     'arcane': 'Arcane'
 };
 
+const EldenRingKeyToStatName: Record<string, string> = {
+    'soulLevel': 'Soul level',
+    'newGamePlusCount': 'NG+ count',
+    'maxWeaponUpgrade': 'Weapon lvl',
+    'vigor': 'Vigor',
+    'mind': 'Mind',
+    'endurance': 'Endurance',
+    'strength': 'Strength',
+    'dexterity': 'Dexterity',
+    'intelligence': 'Intelligence',
+    'faith': 'Faith',
+    'arcane': 'Arcane',
+    'flaskAmount': 'Flask shards',
+    'flaskUpgrade': 'Flask lvl'
+};
+
 export const KeyToStatName: Record<string, Record<string, string>> = {
     'ds1': DarkSouls1KeyToStatName,
     'ds2': DarkSouls2KeyToStatName,
     'ds3': DarkSouls3KeyToStatName,
-    'bb': BloodborneKeyToStatName
+    'bb': BloodborneKeyToStatName,
+    'elden': EldenRingKeyToStatName
 };
 
 export type AllGameProgress =
     | DarkSouls1Progress
     | DarkSouls2Progress
     | DarkSouls3Progress
-    | BloodborneProgress;
+    | BloodborneProgress
+    | EldenRingProgress;

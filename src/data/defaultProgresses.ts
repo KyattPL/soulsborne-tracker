@@ -1,6 +1,6 @@
 import {
     DarkSouls1Progress, DarkSouls2Progress, AllGameProgress,
-    DarkSouls3Progress, BloodborneProgress
+    DarkSouls3Progress, BloodborneProgress, EldenRingProgress
 } from "@/types/progress.types";
 
 const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
@@ -92,10 +92,34 @@ const BB_DEFAULT_PROGRESS: BloodborneProgress = {
     customTrackers: [],
 };
 
+const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
+    game: 'Elden Ring',
+    playerStats: {
+        soulLevel: 1,
+        newGamePlusCount: 0,
+        maxWeaponUpgrade: 0,
+        flaskAmount: 3,
+        flaskUpgrade: 0
+    },
+    charStats: {
+        vigor: 10,
+        endurance: 10,
+        strength: 10,
+        dexterity: 10,
+        mind: 10,
+        intelligence: 10,
+        faith: 10,
+        arcane: 10
+    },
+    defeatedBosses: [],
+    customTrackers: [],
+};
+
 
 export const DEFAULT_PROGRESSES: Record<string, AllGameProgress> = {
     'ds1': DS1_DEFAULT_PROGRESS,
     'ds2': DS2_DEFAULT_PROGRESS,
     'ds3': DS3_DEFAULT_PROGRESS,
-    'bb': BB_DEFAULT_PROGRESS
+    'bb': BB_DEFAULT_PROGRESS,
+    'elden': ELDEN_DEFAULT_PROGRESS
 }

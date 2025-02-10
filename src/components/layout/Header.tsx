@@ -20,7 +20,7 @@ export default function Header() {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center space-x-2">
-                            <Image src="/images/tracker-logo.png" alt="Soulsborne tracker logo" height={64} width={64} />
+                            <Image src="/soulsborne-tracker/images/tracker-logo.png" alt="Soulsborne tracker logo" height={64} width={64} />
                             <span className="text-xl font-bold">Soulsborne Tracker</span>
                         </Link>
                     </div>

@@ -17,6 +17,14 @@ export default function Todo() {
                     <li>Handle chalice dungeons</li>
                 </ul>
             </div>
+            <div>
+                <h2 className="text-6xl my-4">
+                    Elden Ring:
+                </h2>
+                <ul className="list-disc list-inside text-2xl">
+                    <li>Handle all bosses (many minor ones)</li>
+                </ul>
+            </div>
         </div>
     );
 };

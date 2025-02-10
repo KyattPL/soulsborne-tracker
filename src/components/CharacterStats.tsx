@@ -39,7 +39,7 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
         <Card className="bg-zinc-800/50 border-zinc-700/50 backdrop-blur-sm h-full">
             <CardHeader className="border-b border-zinc-700/50 p-2">
                 <CardTitle className="text-xl font-ancient-runes tracking-wider text-amber-500/90 flex justify-center items-center gap-4">
-                    <Image src={`/images/${gameKey}/charStats.jpg`} alt={`${gameKey} stats logo`} width={80} height={80} />
+                    <Image src={`/soulsborne-tracker/images/${gameKey}/charStats.jpg`} alt={`${gameKey} stats logo`} width={80} height={80} />
                     Character Stats
                     {isSharedLink && (
                         <span className="text-sm font-normal text-zinc-400">(Viewing Shared Progress)</span>
@@ -52,7 +52,7 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
                         {Object.keys(progress.playerStats).map(key => (
                             <div key={key}>
                                 <div className="flex justify-between items-center">
-                                    <Image src={`/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
+                                    <Image src={`/soulsborne-tracker/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
                                     <span className="text-zinc-300">{KeyToStatName[gameKey][key]}</span>
                                     <div className="flex items-center">
                                         <StatButton
@@ -76,7 +76,7 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
                         {Object.keys(progress.charStats).map(key => (
                             <div key={key}>
                                 <div className="flex justify-between items-center">
-                                    <Image src={`/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
+                                    <Image src={`/soulsborne-tracker/images/${gameKey}/stat_${key}.jpg`} alt={`${key} stat icon`} width={32} height={32} />
                                     <span className="text-zinc-300">{KeyToStatName[gameKey][key]}</span>
                                     <div className="flex items-center">
                                         <StatButton

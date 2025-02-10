@@ -104,7 +104,7 @@ export default function ZoomableMap() {
                             >
                                 <div className="relative h-[400px] w-[420px]">
                                     <Image
-                                        src={`/images/ds1/ds1-map.png`}
+                                        src={`/soulsborne-tracker/images/ds1/ds1-map.png`}
                                         alt={`Lordran Map`}
                                         className="absolute inset-0 w-full h-full object-contain"
                                         fill
