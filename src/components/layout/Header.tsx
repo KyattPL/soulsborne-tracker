@@ -5,10 +5,11 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
 const navigationItems = [
+    { name: "Demon's Souls", href: '/des' },
     { name: 'Dark Souls', href: '/ds1' },
     { name: 'Dark Souls II', href: '/ds2' },
-    { name: 'Dark Souls III', href: '/ds3' },
     { name: 'Bloodborne', href: '/bb' },
+    { name: 'Dark Souls III', href: '/ds3' },
     { name: 'Elden Ring', href: '/elden' }
     // { name: 'Sekiro', href: '/sekiro' }
 ];
