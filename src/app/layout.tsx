@@ -5,6 +5,7 @@ import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
 
 import { ProgressProvider } from '@/components/ProgressProvider';
+import { Suspense } from 'react'
 
 const garamond = EB_Garamond({ subsets: ['latin'], weight: '400', variable: '--font-garamond' })
 
@@ -23,9 +24,11 @@ export default function RootLayout({
       <body className={`${garamond.variable} font-sans flex flex-col h-[100vh] bg-zinc-900 text-zinc-100`}>
         <Header />
         <main className="flex-grow h-[calc(100vh-8rem)] overflow-hidden container mx-auto px-4 py-8">
-          <ProgressProvider gameKey='ds1'>
-            {children}
-          </ProgressProvider>
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProgressProvider gameKey='ds1'>
+              {children}
+            </ProgressProvider>
+          </Suspense>
         </main>
         <Footer />
       </body>
