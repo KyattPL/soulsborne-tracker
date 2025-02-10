@@ -4,7 +4,8 @@ export type GameTitle =
     | 'Dark Souls 3'
     | 'Elden Ring'
     | 'Bloodborne'
-    | 'Sekiro';
+    | 'Sekiro'
+    | "Demon's Souls";
 
 export interface GameSpecificProgress {
     // Base interface that can be extended for each game
@@ -176,6 +177,38 @@ export interface EldenRingProgress extends GameSpecificProgress {
     }>;
 }
 
+export interface DemonsSoulsProgress extends GameSpecificProgress {
+    game: "Demon's Souls";
+    playerStats: {
+        soulLevel: number;
+        newGamePlusCount: number;
+        maxWeaponUpgrade: number;
+        charTendency: number;
+    };
+    charStats: {
+        vitality: number;
+        intelligence: number;
+        endurance: number;
+        strength: number;
+        dexterity: number;
+        magic: number;
+        faith: number;
+        luck: number;
+    };
+    defeatedBosses: Array<{
+        id: string;
+        name: string;
+        attempts: number;
+    }>;
+    customTrackers: Array<{
+        id: string;
+        name: string;
+        total: number;
+        current: number;
+        color: string;
+    }>;
+}
+
 const DarkSouls1KeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
@@ -253,12 +286,28 @@ const EldenRingKeyToStatName: Record<string, string> = {
     'flaskUpgrade': 'Flask lvl'
 };
 
+const DemonsSoulsKeyToStatName: Record<string, string> = {
+    'soulLevel': 'Soul level',
+    'newGamePlusCount': 'NG+ count',
+    'maxWeaponUpgrade': 'Weapon lvl',
+    'vitality': 'Vitality',
+    'intelligence': 'Intelligence',
+    'endurance': 'Endurance',
+    'strength': 'Strength',
+    'dexterity': 'Dexterity',
+    'magic': 'Magic',
+    'faith': 'Faith',
+    'luck': 'Luck',
+    'charTendency': 'Char Tendency',
+};
+
 export const KeyToStatName: Record<string, Record<string, string>> = {
     'ds1': DarkSouls1KeyToStatName,
     'ds2': DarkSouls2KeyToStatName,
     'ds3': DarkSouls3KeyToStatName,
     'bb': BloodborneKeyToStatName,
-    'elden': EldenRingKeyToStatName
+    'elden': EldenRingKeyToStatName,
+    'des': DemonsSoulsKeyToStatName
 };
 
 export type AllGameProgress =
@@ -266,4 +315,5 @@ export type AllGameProgress =
     | DarkSouls2Progress
     | DarkSouls3Progress
     | BloodborneProgress
-    | EldenRingProgress;
+    | EldenRingProgress
+    | DemonsSoulsProgress;

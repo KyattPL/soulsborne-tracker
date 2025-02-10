@@ -2,6 +2,14 @@ import GameCard from '../components/GameCard';
 
 const games = [
   {
+    id: 'des',
+    title: "Demon's Souls",
+    subtitle: '2020 Playstation 5 Remake',
+    path: '/des',
+    image: '/soulsborne-tracker/images/des.jpg',
+    description: 'Send The Old One back to its slumber.'
+  },
+  {
     id: 'ds1',
     title: 'Dark Souls',
     subtitle: 'Prepare to Die Edition',
@@ -18,20 +26,20 @@ const games = [
     description: 'Venture to Drangleic and seek the cure for the undead curse.'
   },
   {
-    id: 'ds3',
-    title: 'Dark Souls III',
-    subtitle: 'The Fire Fades Edition',
-    path: '/ds3',
-    image: '/soulsborne-tracker/images/ds3.jpg',
-    description: 'Rise from your grave, Ashen One, and link the fire.'
-  },
-  {
     id: 'bb',
     title: 'Bloodborne',
     subtitle: 'The Old Hunters',
     path: '/bb',
     image: '/soulsborne-tracker/images/bb.jpg',
     description: 'Hunt your nightmares in the gothic city of Yharnam.'
+  },
+  {
+    id: 'ds3',
+    title: 'Dark Souls III',
+    subtitle: 'The Fire Fades Edition',
+    path: '/ds3',
+    image: '/soulsborne-tracker/images/ds3.jpg',
+    description: 'Rise from your grave, Ashen One, and link the fire.'
   },
   {
     id: 'elden',

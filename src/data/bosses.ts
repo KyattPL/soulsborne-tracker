@@ -161,5 +161,24 @@ export const bosses: Record<string, Boss[]> = {
         { "id": "31", "name": "Draconic Tree Sentinel", "location": "Capital Outskirts" },
         { "id": "32", "name": "Sir Gideon Ofnir", "location": "Leyndell, Ashen Capital" },
         { "id": "33", "name": "Elden Beast", "location": "Elden Throne" }
+    ],
+    "des": [
+        { "id": "1", "name": "Phalanx", "location": "Boletarian Palace" },
+        { "id": "2", "name": "Tower Knight", "location": "The Lord's Pass" },
+        { "id": "3", "name": "Penetrator", "location": "Tower Knight Archstone" },
+        { "id": "4", "name": "Old King Allant", "location": "Penetrator Archstone" },
+        { "id": "5", "name": "Armor Spider", "location": "Stonefang Tunnel" },
+        { "id": "6", "name": "Flamelurker", "location": "Armor Spider Archstone" },
+        { "id": "7", "name": "Dragon God", "location": "Flamelurker Archstone" },
+        { "id": "8", "name": "Fool's Idol", "location": "Tower of Latria" },
+        { "id": "9", "name": "Maneater", "location": "Fool's Idol Archstone" },
+        { "id": "10", "name": "Old Monk", "location": "Maneater Archstone" },
+        { "id": "11", "name": "Adjudicator", "location": "Shrine of Storms" },
+        { "id": "12", "name": "Old Hero", "location": "Adjudicator Archstone" },
+        { "id": "13", "name": "Storm King", "location": "Old Hero Archstone" },
+        { "id": "14", "name": "Leechmonger", "location": "Valley of Defilement" },
+        { "id": "15", "name": "Dirty Colossus", "location": "Leechmonger Archstone" },
+        { "id": "16", "name": "Maiden Astraea", "location": "Dirty Colossus Archstone" },
+        { "id": "17", "name": "King Allant", "location": "Below The Nexus" },
     ]
 };
