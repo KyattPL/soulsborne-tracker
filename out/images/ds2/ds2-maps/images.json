@@ -1,0 +1,132 @@
+[
+    {
+        "id": "Aldias_Keep",
+        "name": "Aldias Keep ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Aldias_Keep.png"
+    },
+    {
+        "id": "Brightstone_Cove_Tseldora",
+        "name": "Brightstone Cove Tseldora ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Brightstone_Cove_Tseldora.png"
+    },
+    {
+        "id": "Dark_Chasm_of_Old",
+        "name": "Dark Chasm Of Old ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Dark_Chasm_of_Old.png"
+    },
+    {
+        "id": "Doors_of_Pharros",
+        "name": "Doors Of Pharros ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Doors_of_Pharros.png"
+    },
+    {
+        "id": "Dragons_Sanctum",
+        "name": "Dragons Sanctum ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Dragons_Sanctum.png"
+    },
+    {
+        "id": "Dragon_Aerie_and_Dragon_Shrine",
+        "name": "Dragon Aerie And Dragon Shrine ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Dragon_Aerie_and_Dragon_Shrine.png"
+    },
+    {
+        "id": "Drangleic_Castle",
+        "name": "Drangleic Castle ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Drangleic_Castle.png"
+    },
+    {
+        "id": "Earthen_Peak",
+        "name": "Earthen Peak ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Earthen_Peak.png"
+    },
+    {
+        "id": "Forest_of__Fallen_Giants",
+        "name": "Forest Of  Fallen Giants ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Forest_of__Fallen_Giants.png"
+    },
+    {
+        "id": "Frigid_Outskirts",
+        "name": "Frigid Outskirts ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Frigid_Outskirts.png"
+    },
+    {
+        "id": "Grave_of_Giants",
+        "name": "Grave Of Giants ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Grave_of_Giants.png"
+    },
+    {
+        "id": "Harvest_Valley",
+        "name": "Harvest Valley ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Harvest_Valley.png"
+    },
+    {
+        "id": "Heides_Tower_of_Flame",
+        "name": "Heides Tower Of Flame ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Heides_Tower_of_Flame.png"
+    },
+    {
+        "id": "Huntsmans_Copse",
+        "name": "Huntsmans Copse ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Huntsmans_Copse.png"
+    },
+    {
+        "id": "Iron_Keep",
+        "name": "Iron Keep ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Iron_Keep.png"
+    },
+    {
+        "id": "Lost_Bastille",
+        "name": "Lost Bastille ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Lost_Bastille.png"
+    },
+    {
+        "id": "Majula",
+        "name": "Majula ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Majula.png"
+    },
+    {
+        "id": "Memories",
+        "name": "Memories ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Memories.png"
+    },
+    {
+        "id": "No_Mans_Wharf",
+        "name": "No Mans Wharf ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/No_Mans_Wharf.png"
+    },
+    {
+        "id": "Shaded_Woods",
+        "name": "Shaded Woods ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Shaded_Woods.png"
+    },
+    {
+        "id": "Shrine_of_Amana",
+        "name": "Shrine Of Amana ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Shrine_of_Amana.png"
+    },
+    {
+        "id": "Shulva_Sanctum_City",
+        "name": "Shulva Sanctum City ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Shulva_Sanctum_City.png"
+    },
+    {
+        "id": "Sinner'S_Rise",
+        "name": "Sinner's Rise ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Sinner'S_Rise.png"
+    },
+    {
+        "id": "The_Gutter",
+        "name": "The Gutter ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/The_Gutter.png"
+    },
+    {
+        "id": "Things_Betwixt",
+        "name": "Things Betwixt ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Things_Betwixt.png"
+    },
+    {
+        "id": "Undead_Crypt",
+        "name": "Undead Crypt ",
+        "imagePath": "/soulsborne-tracker/images/ds2/ds2-maps/Undead_Crypt.png"
+    }
+]

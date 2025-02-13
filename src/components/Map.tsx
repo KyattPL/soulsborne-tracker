@@ -1,170 +1,165 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import Image from 'next/image';
-import mapMarkers from '@/data/mapMarkers.json';
+import { createPortal } from 'react-dom';
 import {
     ZoomIn,
     ZoomOut,
     RefreshCw,
+    Maximize2,
+    X
 } from 'lucide-react';
 
-interface MapMarker {
-    id: number;
-    x: number;
-    y: number;
-    type: string;
-    name: string;
-    description: string;
-}
+import { MAPS } from '@/data/maps';
 
-export default function ZoomableMap() {
-    const [selectedMarker, setSelectedMarker] = useState<MapMarker | null>(null);
-    const [activeFilter, setActiveFilter] = useState<'all' | 'bosses' | 'bonfires' | 'items'>('all');
+const MapModal = ({ isOpen, onClose, children }: { isOpen: boolean; onClose: () => void; children: React.ReactNode }) => {
+    if (!isOpen) return null;
 
-    // Filter markers based on both level and active filter
-    const filteredMarkers = mapMarkers.filter(marker =>
-        (activeFilter === 'all' || marker.type === activeFilter)
+    return createPortal(
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center"
+            onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                    onClose();
+                }
+            }}
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+        >
+            <motion.div
+                className="absolute inset-0 bg-black/80"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+            />
+
+            <motion.div
+                className="relative bg-zinc-800 rounded-lg overflow-hidden z-[9999] w-[90vw] h-[90vh]"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", duration: 0.3 }}
+            >
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 z-[9999] bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full transition-colors"
+                    aria-label="Close fullscreen"
+                >
+                    <X size={20} className="text-white" />
+                </button>
+                {children}
+            </motion.div>
+        </motion.div>,
+        document.body
+    );
+};
+
+export default function ZoomableMap({ gameKey }: { gameKey: string }) {
+    const [selectedMap, setSelectedMap] = useState(MAPS[gameKey][0]);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const MapContent = ({ isModalView = false }) => (
+        <TransformWrapper
+            initialScale={1.5}
+            minScale={1}
+            maxScale={7}
+            centerOnInit={true}
+            panning={{
+                velocityDisabled: true
+            }}
+            wheel={{
+                step: 0.5
+            }}
+        >
+            {({ zoomIn, zoomOut, resetTransform }) => (
+                <>
+                    <div className={`absolute ${isModalView ? 'top-16' : 'top-4'} right-4 z-50 flex flex-col space-y-2`}>
+                        <button
+                            onClick={() => zoomIn()}
+                            className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full transition-colors"
+                            aria-label="Zoom in"
+                        >
+                            <ZoomIn size={20} className="text-white" />
+                        </button>
+                        <button
+                            onClick={() => zoomOut()}
+                            className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full transition-colors"
+                            aria-label="Zoom out"
+                        >
+                            <ZoomOut size={20} className="text-white" />
+                        </button>
+                        <button
+                            onClick={() => resetTransform()}
+                            className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full transition-colors"
+                            aria-label="Reset zoom"
+                        >
+                            <RefreshCw size={20} className="text-white" />
+                        </button>
+                        {!isModalView && (
+                            <button
+                                onClick={() => setIsFullscreen(true)}
+                                className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full transition-colors"
+                                aria-label="Enter fullscreen"
+                            >
+                                <Maximize2 size={20} className="text-white" />
+                            </button>
+                        )}
+                    </div>
+
+                    <TransformComponent wrapperStyle={{ height: '100%', width: '100%' }} contentStyle={{ height: '100%', width: '100%' }}>
+                        <div className="w-full h-full relative">
+                            <Image
+                                src={selectedMap.imagePath}
+                                alt={`${selectedMap.name} Map`}
+                                className="object-contain"
+                                fill
+                            />
+                        </div>
+                    </TransformComponent>
+                </>
+            )}
+        </TransformWrapper>
     );
 
-    // Filter button configuration
-    const filterButtons = [
-        { value: 'all', label: 'All', color: 'bg-green-500' },
-        { value: 'bosses', label: 'Bosses', color: 'bg-red-500' },
-        { value: 'bonfires', label: 'Bonfires', color: 'bg-orange-500' },
-        { value: 'items', label: 'Key Items', color: 'bg-blue-500' }
-    ];
-
     return (
-        <div className="space-y-4">
-            {/* Filter Buttons */}
-            <div className="flex justify-center space-x-2 mb-4">
-                {filterButtons.map((button) => (
-                    <button
-                        key={button.value}
-                        onClick={() => setActiveFilter(button.value as typeof activeFilter)}
-                        className={`
-                            px-3 py-1 rounded-full flex items-center space-x-2
-                            ${activeFilter === button.value
-                                ? `${button.color} text-white`
-                                : 'bg-zinc-800 text-zinc-400'}
-                        `}
-                    >
-                        <span className={`w-2 h-2 rounded-full ${button.color}`} />
-                        <span>{button.label}</span>
-                    </button>
+        <div className="w-full space-y-4">
+            <select
+                value={selectedMap.id}
+                onChange={(e) => {
+                    const newMap = MAPS[gameKey].find(map => map.id === e.target.value);
+                    if (newMap) setSelectedMap(newMap);
+                }}
+                className="w-full bg-zinc-800 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-600"
+            >
+                {MAPS[gameKey].map((map) => (
+                    <option key={map.id} value={map.id}>
+                        {map.name}
+                    </option>
                 ))}
+            </select>
+
+            {/* Normal View */}
+            <div className="relative bg-zinc-800 rounded-lg overflow-hidden h-[300px]">
+                <MapContent />
             </div>
 
-            {/* Zoomable Map Container */}
-            <div className="relative bg-zinc-800 rounded-lg overflow-hidden">
-                <TransformWrapper
-                    initialScale={2}
-                    minScale={2}
-                    maxScale={7}
-                    centerOnInit={true}
-                    panning={{
-                        velocityDisabled: true
-                    }}
-                    wheel={{
-                        step: 0.5
-                    }}
-                >
-                    {({ zoomIn, zoomOut, resetTransform }) => (
-                        <>
-                            {/* Zoom Controls */}
-                            <div className="absolute top-4 right-4 z-50 flex flex-col space-y-2">
-                                <button
-                                    onClick={() => zoomIn()}
-                                    className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full"
-                                >
-                                    <ZoomIn size={20} className="text-white" />
-                                </button>
-                                <button
-                                    onClick={() => zoomOut()}
-                                    className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full"
-                                >
-                                    <ZoomOut size={20} className="text-white" />
-                                </button>
-                                <button
-                                    onClick={() => resetTransform()}
-                                    className="bg-zinc-700 hover:bg-zinc-600 p-2 rounded-full"
-                                >
-                                    <RefreshCw size={20} className="text-white" />
-                                </button>
-                            </div>
-
-                            {/* Transformed Map Component */}
-                            <TransformComponent
-                                wrapperStyle={{
-                                    maxHeight: "400px",
-                                }}
-                            >
-                                <div className="relative h-[400px] w-[420px]">
-                                    <Image
-                                        src={`/soulsborne-tracker/images/ds1/ds1-map.png`}
-                                        alt={`Lordran Map`}
-                                        className="absolute inset-0 w-full h-full object-contain"
-                                        fill
-                                    />
-
-                                    {/* Markers */}
-                                    {filteredMarkers.map(marker => (
-                                        <div
-                                            key={marker.id}
-                                            className="absolute cursor-pointer group"
-                                            style={{
-                                                left: `${marker.x}%`,
-                                                top: `${marker.y}%`
-                                            }}
-                                            onClick={() => setSelectedMarker(marker)}
-                                        >
-                                            <div
-                                                className={`
-                                                    w-2 h-2 rounded-full 
-                                                    ${marker.type === 'bosses' ? 'bg-red-500' :
-                                                        marker.type === 'bonfires' ? 'bg-orange-500' :
-                                                            marker.type === 'items' ? 'bg-blue-500' :
-                                                                'bg-green-500'}
-                                                    group-hover:scale-150 transition-transform
-                                                `}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </TransformComponent>
-                        </>
-                    )}
-                </TransformWrapper>
-
-                {/* Marker Details Popup */}
-                <AnimatePresence>
-                    {selectedMarker && (
-                        <motion.div
-                            className="absolute bottom-0 left-0 right-0 bg-black/90 p-4 text-white"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <div className="flex justify-between items-center">
-                                <div>
-                                    <h3 className="text-xl font-bold">{selectedMarker.name}</h3>
-                                    <p className="text-zinc-300">{selectedMarker.description}</p>
-                                </div>
-                                <button
-                                    onClick={() => setSelectedMarker(null)}
-                                    className="bg-zinc-700 hover:bg-zinc-600 px-3 py-1 rounded"
-                                >
-                                    Close
-                                </button>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
+            {/* Fullscreen Modal */}
+            <AnimatePresence>
+                {isFullscreen && (
+                    <MapModal
+                        isOpen={isFullscreen}
+                        onClose={() => setIsFullscreen(false)}
+                    >
+                        <MapContent isModalView />
+                    </MapModal>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

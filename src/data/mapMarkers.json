@@ -4,7 +4,6 @@
         "x": 20,
         "y": 23,
         "type": "bosses",
-        "name": "Asylum Demon",
-        "description": "Location: Undead Asylum"
+        "name": "Asylum Demon"
     }
 ]

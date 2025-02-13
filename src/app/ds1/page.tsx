@@ -59,11 +59,11 @@ export default function DS1Page() {
                                 </CardHeader>
                                 <CardContent>
                                     <Suspense fallback={<div>Loading Map...</div>}>
-                                        <Map />
+                                        <Map gameKey='ds1' />
                                     </Suspense>
                                 </CardContent>
                             </Card>
-                            <ProgressShareLinkGenerator />
+                            <ProgressShareLinkGenerator gameKey='ds1' />
                             <TwitchChatMonitor />
                         </div>
                     </div>

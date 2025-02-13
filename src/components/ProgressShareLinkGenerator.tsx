@@ -11,14 +11,14 @@ import { Copy } from 'lucide-react';
 
 import { useProgress } from '@/components/ProgressProvider';
 
-export default function ProgressShareLinkGenerator() {
+export default function ProgressShareLinkGenerator({ gameKey }: { gameKey: string }) {
     const { isSharedLink, progress } = useProgress();
     const [shareLink, setShareLink] = useState('');
     const [isCopied, setIsCopied] = useState(false);
 
     const generateShareableLink = () => {
         const encodedData = encode(JSON.stringify(progress));
-        const link = `${window.location.origin}/ds1?p=${encodedData}`;
+        const link = `${window.location.origin}/${gameKey}?p=${encodedData}`;
 
         setShareLink(link);
     };

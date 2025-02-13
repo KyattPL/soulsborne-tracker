@@ -59,11 +59,11 @@ export default function DESPage() {
                                 </CardHeader>
                                 <CardContent>
                                     <Suspense fallback={<div>Loading Map...</div>}>
-                                        <Map />
+                                        <Map gameKey='des' />
                                     </Suspense>
                                 </CardContent>
                             </Card>
-                            <ProgressShareLinkGenerator />
+                            <ProgressShareLinkGenerator gameKey='des' />
                             <TwitchChatMonitor />
                         </div>
                     </div>

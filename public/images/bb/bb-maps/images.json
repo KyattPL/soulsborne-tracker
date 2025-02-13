@@ -1,0 +1,107 @@
+[
+    {
+        "id": "Byrgenwerth",
+        "name": "Byrgenwerth ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Byrgenwerth.png"
+    },
+    {
+        "id": "Cathedral_Ward",
+        "name": "Cathedral Ward ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Cathedral_Ward.png"
+    },
+    {
+        "id": "Central_Yharnam",
+        "name": "Central Yharnam ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Central_Yharnam.png"
+    },
+    {
+        "id": "Fishing_Hamlet",
+        "name": "Fishing Hamlet ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Fishing_Hamlet.png"
+    },
+    {
+        "id": "Forbidden_Woods",
+        "name": "Forbidden Woods ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Forbidden_Woods.png"
+    },
+    {
+        "id": "Forsaken_Castle_Cainhurst",
+        "name": "Forsaken Castle Cainhurst ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Forsaken_Castle_Cainhurst.png"
+    },
+    {
+        "id": "Healing_Church_and_Abandoned_Old_Workshop",
+        "name": "Healing Church And Abandoned Old Workshop ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Healing_Church_and_Abandoned_Old_Workshop.png"
+    },
+    {
+        "id": "Hemwick_Charnel_Lane",
+        "name": "Hemwick Charnel Lane ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Hemwick_Charnel_Lane.png"
+    },
+    {
+        "id": "Hunters_Dream",
+        "name": "Hunters Dream ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Hunters_Dream.png"
+    },
+    {
+        "id": "Hunter_Nightmare",
+        "name": "Hunter Nightmare ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Hunter_Nightmare.png"
+    },
+    {
+        "id": "Hypogean_Gaol",
+        "name": "Hypogean Gaol ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Hypogean_Gaol.png"
+    },
+    {
+        "id": "Lecture_Building",
+        "name": "Lecture Building ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Lecture_Building.png"
+    },
+    {
+        "id": "Nightmare_Frontier_Part1",
+        "name": "Nightmare Frontier Part1 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Nightmare_Frontier_Part1.png"
+    },
+    {
+        "id": "Nightmare_Frontier_Part2",
+        "name": "Nightmare Frontier Part2 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Nightmare_Frontier_Part2.png"
+    },
+    {
+        "id": "Nightmare_of_Mensis",
+        "name": "Nightmare Of Mensis ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Nightmare_of_Mensis.png"
+    },
+    {
+        "id": "Old_Yharnam_Part1",
+        "name": "Old Yharnam Part1 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Old_Yharnam_Part1.png"
+    },
+    {
+        "id": "Old_Yharnam_Part2",
+        "name": "Old Yharnam Part2 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Old_Yharnam_Part2.png"
+    },
+    {
+        "id": "Research_Hall_Part1",
+        "name": "Research Hall Part1 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Research_Hall_Part1.png"
+    },
+    {
+        "id": "Research_Hall_Part2",
+        "name": "Research Hall Part2 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Research_Hall_Part2.png"
+    },
+    {
+        "id": "Yahargul_Unseen_Village_Part1",
+        "name": "Yahargul Unseen Village Part1 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Yahargul_Unseen_Village_Part1.png"
+    },
+    {
+        "id": "Yahargul_Unseen_Village_Part2",
+        "name": "Yahargul Unseen Village Part2 ",
+        "imagePath": "/soulsborne-tracker/images/bb/bb-maps/Yahargul_Unseen_Village_Part2.png"
+    }
+]

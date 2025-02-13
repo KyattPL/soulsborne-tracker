@@ -1,0 +1,132 @@
+[
+    {
+        "id": "Anor_Londo",
+        "name": "Anor Londo",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Anor_Londo.png"
+    },
+    {
+        "id": "Anor_Londo_Castle",
+        "name": "Anor Londo Castle",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Anor_Londo_Castle.png"
+    },
+    {
+        "id": "Ash_Lake",
+        "name": "Ash Lake",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Ash_Lake.png"
+    },
+    {
+        "id": "Blighttown_Swamp",
+        "name": "Blighttown Swamp",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Blighttown_Swamp.png"
+    },
+    {
+        "id": "Blighttown_Upper",
+        "name": "Blighttown Upper",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Blighttown_Upper.png"
+    },
+    {
+        "id": "Crystal_Cave",
+        "name": "Crystal Cave",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Crystal_Cave.png"
+    },
+    {
+        "id": "Darkroot_Basin",
+        "name": "Darkroot Basin",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Darkroot_Basin.png"
+    },
+    {
+        "id": "Darkroot_Garden",
+        "name": "Darkroot Garden",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Darkroot_Garden.png"
+    },
+    {
+        "id": "Demon_Ruins",
+        "name": "Demon Ruins",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Demon_Ruins.png"
+    },
+    {
+        "id": "Duke%27s_Archives",
+        "name": "Duke%27s Archives",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Duke%27s_Archives.png"
+    },
+    {
+        "id": "Firelink_Shrine",
+        "name": "Firelink Shrine",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Firelink_Shrine.png"
+    },
+    {
+        "id": "Great_Hollow",
+        "name": "Great Hollow",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Great_Hollow.png"
+    },
+    {
+        "id": "Lost_Izalith",
+        "name": "Lost Izalith",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Lost_Izalith.png"
+    },
+    {
+        "id": "Lower_Undead_Burg",
+        "name": "Lower Undead Burg",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Lower_Undead_Burg.png"
+    },
+    {
+        "id": "New_Londo",
+        "name": "New Londo",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/New_Londo.png"
+    },
+    {
+        "id": "Painted_World",
+        "name": "Painted World",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Painted_World.png"
+    },
+    {
+        "id": "Quelaag%27s_Domain",
+        "name": "Quelaag%27s Domain",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Quelaag%27s_Domain.png"
+    },
+    {
+        "id": "Sen%27s_Fortress",
+        "name": "Sen%27s Fortress",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Sen%27s_Fortress.png"
+    },
+    {
+        "id": "Sen%27s_Fortress_Roof",
+        "name": "Sen%27s Fortress Roof",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Sen%27s_Fortress_Roof.png"
+    },
+    {
+        "id": "The_Catacombs",
+        "name": "The Catacombs",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/The_Catacombs.png"
+    },
+    {
+        "id": "The_Depths",
+        "name": "The Depths",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/The_Depths.png"
+    },
+    {
+        "id": "Tomb_of_the_Giants",
+        "name": "Tomb of the Giants",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Tomb_of_the_Giants.png"
+    },
+    {
+        "id": "Undead_Asylum",
+        "name": "Undead Asylum",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Undead_Asylum.png"
+    },
+    {
+        "id": "Undead_Burg",
+        "name": "Undead Burg",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Undead_Burg.png"
+    },
+    {
+        "id": "Undead_Parish",
+        "name": "Undead Parish",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Undead_Parish.png"
+    },
+    {
+        "id": "Undead_Parish_Int",
+        "name": "Undead Parish Int",
+        "imagePath": "/soulsborne-tracker/images/ds1/ds1-maps/Undead_Parish_Int.png"
+    }
+]

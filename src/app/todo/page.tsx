@@ -6,8 +6,8 @@ export default function Todo() {
                     Overall:
                 </h2>
                 <ul className="list-disc list-inside text-2xl">
-                    <li>Handle maps for all games (DS1, DS2, DS3, BB, ELDEN)</li>
                     <li>More game-specific trackers like Ashes of War, Blood gems etc.</li>
+                    <li>Twitch better commands</li>
                 </ul>
             </div>
             <div>

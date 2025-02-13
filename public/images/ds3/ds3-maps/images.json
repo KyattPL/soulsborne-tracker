@@ -1,0 +1,232 @@
+[
+    {
+        "id": "Anor Londo",
+        "name": "Anor londo ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Anor Londo.png"
+    },
+    {
+        "id": "Archdragon Peak 1",
+        "name": "Archdragon peak 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Archdragon Peak 1.png"
+    },
+    {
+        "id": "Archdragon Peak 2",
+        "name": "Archdragon peak 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Archdragon Peak 2.png"
+    },
+    {
+        "id": "Catacombs of Carthus",
+        "name": "Catacombs of carthus ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Catacombs of Carthus.png"
+    },
+    {
+        "id": "Cathedral of the Deep 1",
+        "name": "Cathedral of the deep 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Cathedral of the Deep 1.png"
+    },
+    {
+        "id": "Cathedral of the Deep 2",
+        "name": "Cathedral of the deep 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Cathedral of the Deep 2.png"
+    },
+    {
+        "id": "Cathedral of the Deep 3",
+        "name": "Cathedral of the deep 3 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Cathedral of the Deep 3.png"
+    },
+    {
+        "id": "Cathedral of the Deep 4",
+        "name": "Cathedral of the deep 4 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Cathedral of the Deep 4.png"
+    },
+    {
+        "id": "Cemetery of Ash",
+        "name": "Cemetery of ash ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Cemetery of Ash.png"
+    },
+    {
+        "id": "Consumed Kings Garden",
+        "name": "Consumed kings garden ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Consumed Kings Garden.png"
+    },
+    {
+        "id": "Dreg Heap 1",
+        "name": "Dreg heap 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Dreg Heap 1.png"
+    },
+    {
+        "id": "Dreg Heap 2",
+        "name": "Dreg heap 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Dreg Heap 2.png"
+    },
+    {
+        "id": "Dreg Heap 3",
+        "name": "Dreg heap 3 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Dreg Heap 3.png"
+    },
+    {
+        "id": "Farron Keep 1",
+        "name": "Farron keep 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Farron Keep 1.png"
+    },
+    {
+        "id": "Farron Keep 2",
+        "name": "Farron keep 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Farron Keep 2.png"
+    },
+    {
+        "id": "Firelink Shrine",
+        "name": "Firelink shrine ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Firelink Shrine.png"
+    },
+    {
+        "id": "Grand Archives 1",
+        "name": "Grand archives 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Grand Archives 1.png"
+    },
+    {
+        "id": "Grand Archives 2",
+        "name": "Grand archives 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Grand Archives 2.png"
+    },
+    {
+        "id": "Grand Archives 3",
+        "name": "Grand archives 3 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Grand Archives 3.png"
+    },
+    {
+        "id": "High Wall of Lothric 1",
+        "name": "High wall of lothric 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/High Wall of Lothric 1.png"
+    },
+    {
+        "id": "High Wall of Lothric 2",
+        "name": "High wall of lothric 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/High Wall of Lothric 2.png"
+    },
+    {
+        "id": "Irithyll Dungeon 1",
+        "name": "Irithyll dungeon 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Irithyll Dungeon 1.png"
+    },
+    {
+        "id": "Irithyll Dungeon 2",
+        "name": "Irithyll dungeon 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Irithyll Dungeon 2.png"
+    },
+    {
+        "id": "Irithyll of the Boreal Valley 1",
+        "name": "Irithyll of the boreal valley 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Irithyll of the Boreal Valley 1.png"
+    },
+    {
+        "id": "Irithyll of the Boreal Valley 2",
+        "name": "Irithyll of the boreal valley 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Irithyll of the Boreal Valley 2.png"
+    },
+    {
+        "id": "Irithyll of the Boreal Valley 3",
+        "name": "Irithyll of the boreal valley 3 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Irithyll of the Boreal Valley 3.png"
+    },
+    {
+        "id": "Irithyll of the Boreal Valley 4",
+        "name": "Irithyll of the boreal valley 4 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Irithyll of the Boreal Valley 4.png"
+    },
+    {
+        "id": "Kiln of the First Flame",
+        "name": "Kiln of the first flame ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Kiln of the First Flame.png"
+    },
+    {
+        "id": "Lothric Castle 1",
+        "name": "Lothric castle 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Lothric Castle 1.png"
+    },
+    {
+        "id": "Lothric Castle 2",
+        "name": "Lothric castle 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Lothric Castle 2.png"
+    },
+    {
+        "id": "Lothric Castle 3",
+        "name": "Lothric castle 3 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Lothric Castle 3.png"
+    },
+    {
+        "id": "Painted World of Ariandel 1",
+        "name": "Painted world of ariandel 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Painted World of Ariandel 1.png"
+    },
+    {
+        "id": "Painted World of Ariandel 2",
+        "name": "Painted world of ariandel 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Painted World of Ariandel 2.png"
+    },
+    {
+        "id": "Painted World of Ariandel 3",
+        "name": "Painted world of ariandel 3 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Painted World of Ariandel 3.png"
+    },
+    {
+        "id": "Painted World of Ariandel 4",
+        "name": "Painted world of ariandel 4 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Painted World of Ariandel 4.png"
+    },
+    {
+        "id": "Profaned Capital 1",
+        "name": "Profaned capital 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Profaned Capital 1.png"
+    },
+    {
+        "id": "Profaned Capital 2",
+        "name": "Profaned capital 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Profaned Capital 2.png"
+    },
+    {
+        "id": "Ringed City 1",
+        "name": "Ringed city 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Ringed City 1.png"
+    },
+    {
+        "id": "Ringed City 2",
+        "name": "Ringed city 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Ringed City 2.png"
+    },
+    {
+        "id": "Ringed City 3",
+        "name": "Ringed city 3 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Ringed City 3.png"
+    },
+    {
+        "id": "Road of Sacrifices ",
+        "name": "Road of sacrifices  ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Road of Sacrifices .png"
+    },
+    {
+        "id": "Smouldering Lake 1",
+        "name": "Smouldering lake 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Smouldering Lake 1.png"
+    },
+    {
+        "id": "Smouldering Lake 2",
+        "name": "Smouldering lake 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Smouldering Lake 2.png"
+    },
+    {
+        "id": "Undead Settlement 1",
+        "name": "Undead settlement 1 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Undead Settlement 1.png"
+    },
+    {
+        "id": "Undead Settlement 2",
+        "name": "Undead settlement 2 ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Undead Settlement 2.png"
+    },
+    {
+        "id": "Untended Graves",
+        "name": "Untended graves ",
+        "imagePath": "/soulsborne-tracker/images/ds3/ds3-maps/Untended Graves.png"
+    }
+]

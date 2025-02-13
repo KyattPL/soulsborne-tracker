@@ -59,11 +59,11 @@ export default function DS3Page() {
                                 </CardHeader>
                                 <CardContent>
                                     <Suspense fallback={<div>Loading Map...</div>}>
-                                        <Map />
+                                        <Map gameKey='ds3' />
                                     </Suspense>
                                 </CardContent>
                             </Card>
-                            <ProgressShareLinkGenerator />
+                            <ProgressShareLinkGenerator gameKey='ds3' />
                             <TwitchChatMonitor />
                         </div>
                     </div>

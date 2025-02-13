@@ -59,11 +59,11 @@ export default function BBPage() {
                                 </CardHeader>
                                 <CardContent>
                                     <Suspense fallback={<div>Loading Map...</div>}>
-                                        <Map />
+                                        <Map gameKey='bb' />
                                     </Suspense>
                                 </CardContent>
                             </Card>
-                            <ProgressShareLinkGenerator />
+                            <ProgressShareLinkGenerator gameKey='bb' />
                             <TwitchChatMonitor />
                         </div>
                     </div>

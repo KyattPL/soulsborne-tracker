@@ -15,7 +15,7 @@ export function TwitchChatMonitor() {
         ComfyJS.onCommand = (user, command, message, flags) => {
             if (command === 'updateprogress' && (flags.mod || user.toLowerCase() === twitchChannel.toLowerCase())) {
                 console.log(JSON.parse(decode(message)));
-                // updateProgress(JSON.parse(decode(message)));
+                updateProgress(JSON.parse(decode(message)));
             }
         };
 

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import BossList from '@/components/BossList';
 import CharacterStats from '@/components/CharacterStats';
-import Map from '@/components/Map';
+import EldenMap from '@/components/EldenMap';
 import CustomTrackers from '@/components/CustomTrackers';
 import ScrollableCard from '@/components/ScrollableCard';
 import { ProgressProvider } from '@/components/ProgressProvider';
@@ -59,11 +59,11 @@ export default function EldenPage() {
                                 </CardHeader>
                                 <CardContent>
                                     <Suspense fallback={<div>The Lands Between Map...</div>}>
-                                        <Map />
+                                        <EldenMap />
                                     </Suspense>
                                 </CardContent>
                             </Card>
-                            <ProgressShareLinkGenerator />
+                            <ProgressShareLinkGenerator gameKey='elden' />
                             <TwitchChatMonitor />
                         </div>
                     </div>
