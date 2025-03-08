@@ -32,10 +32,11 @@ export interface DarkSouls1Progress extends GameSpecificProgress {
         intelligence: number;
         faith: number;
     };
-    defeatedBosses: Array<{
+    bossesAttempts: Array<{
         id: string;
         name: string;
         attempts: number;
+        defeated: boolean;
     }>;
     customTrackers: Array<{
         id: string;
@@ -66,10 +67,11 @@ export interface DarkSouls2Progress extends GameSpecificProgress {
         intelligence: number;
         faith: number;
     };
-    defeatedBosses: Array<{
+    bossesAttempts: Array<{
         id: string;
         name: string;
         attempts: number;
+        defeated: boolean;
     }>;
     customTrackers: Array<{
         id: string;
@@ -100,10 +102,11 @@ export interface DarkSouls3Progress extends GameSpecificProgress {
         faith: number;
         luck: number;
     };
-    defeatedBosses: Array<{
+    bossesAttempts: Array<{
         id: string;
         name: string;
         attempts: number;
+        defeated: boolean;
     }>;
     customTrackers: Array<{
         id: string;
@@ -130,10 +133,11 @@ export interface BloodborneProgress extends GameSpecificProgress {
         bloodtinge: number;
         arcane: number;
     };
-    defeatedBosses: Array<{
+    bossesAttempts: Array<{
         id: string;
         name: string;
         attempts: number;
+        defeated: boolean;
     }>;
     customTrackers: Array<{
         id: string;
@@ -163,10 +167,11 @@ export interface EldenRingProgress extends GameSpecificProgress {
         faith: number;
         arcane: number;
     };
-    defeatedBosses: Array<{
+    bossesAttempts: Array<{
         id: string;
         name: string;
         attempts: number;
+        defeated: boolean;
     }>;
     customTrackers: Array<{
         id: string;
@@ -195,10 +200,11 @@ export interface DemonsSoulsProgress extends GameSpecificProgress {
         faith: number;
         luck: number;
     };
-    defeatedBosses: Array<{
+    bossesAttempts: Array<{
         id: string;
         name: string;
         attempts: number;
+        defeated: boolean;
     }>;
     customTrackers: Array<{
         id: string;

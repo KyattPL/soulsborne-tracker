@@ -21,7 +21,7 @@ const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
         intelligence: 10,
         faith: 10,
     },
-    defeatedBosses: [],
+    bossesAttempts: [],
     customTrackers: [],
 };
 
@@ -45,7 +45,7 @@ const DS2_DEFAULT_PROGRESS: DarkSouls2Progress = {
         intelligence: 10,
         faith: 10,
     },
-    defeatedBosses: [],
+    bossesAttempts: [],
     customTrackers: [],
 };
 
@@ -69,7 +69,7 @@ const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
         intelligence: 10,
         faith: 10,
     },
-    defeatedBosses: [],
+    bossesAttempts: [],
     customTrackers: [],
 };
 
@@ -89,7 +89,7 @@ const BB_DEFAULT_PROGRESS: BloodborneProgress = {
         bloodtinge: 10,
         arcane: 10
     },
-    defeatedBosses: [],
+    bossesAttempts: [],
     customTrackers: [],
 };
 
@@ -112,7 +112,7 @@ const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
         faith: 10,
         arcane: 10
     },
-    defeatedBosses: [],
+    bossesAttempts: [],
     customTrackers: [],
 };
 
@@ -134,7 +134,7 @@ const DES_DEFAULT_PROGRESS: DemonsSoulsProgress = {
         faith: 10,
         luck: 10
     },
-    defeatedBosses: [],
+    bossesAttempts: [],
     customTrackers: [],
 };
 

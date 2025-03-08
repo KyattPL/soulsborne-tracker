@@ -51,12 +51,13 @@ export function ProgressProvider({ children, gameKey = 'ds1' }: { children: Reac
 
     const resetProgress = () => {
         localStorage.removeItem(`${gameKey}-progress`);
-        setProgress(DEFAULT_PROGRESSES[gameKey]);
+        const defaultProgress = DEFAULT_PROGRESSES[gameKey];
+        setProgress(defaultProgress);
         setIsUnsavedProgress(false);
     };
 
     const updateProgress = (data: AllGameProgress) => {
-        const newProgress = { ...progress, ...data };
+        const newProgress = _.cloneDeep({ ...progress, ...data });
         setProgress(newProgress);
 
         const saved = localStorage.getItem(`${gameKey}-progress`);

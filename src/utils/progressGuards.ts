@@ -1,4 +1,7 @@
-import { AllGameProgress, BloodborneProgress, DarkSouls1Progress, DarkSouls2Progress, DarkSouls3Progress, EldenRingProgress } from "@/types/progress.types";
+import {
+    AllGameProgress, BloodborneProgress, DarkSouls1Progress, DarkSouls2Progress, DarkSouls3Progress,
+    EldenRingProgress, DemonsSoulsProgress
+} from "@/types/progress.types";
 
 export const isDarkSouls1Progress = (progress: AllGameProgress): progress is DarkSouls1Progress => {
     return progress.game === 'Dark Souls 1';
@@ -19,6 +22,11 @@ export const isBloodborneProgress = (progress: AllGameProgress): progress is Blo
 export const isEldenRingProgress = (progress: AllGameProgress): progress is EldenRingProgress => {
     return progress.game === 'Elden Ring';
 };
+
+export const isDemonsSoulsProgress = (progress: AllGameProgress): progress is DemonsSoulsProgress => {
+    return progress.game === "Demon's Souls";
+};
+
 
 export const updateCharStatGuarded = (stat: string, progress: AllGameProgress, change: number, updateProgress: (data: AllGameProgress) => void) => {
     let newStats;
@@ -54,6 +62,13 @@ export const updateCharStatGuarded = (stat: string, progress: AllGameProgress, c
         newStats = {
             ...progress.charStats,
             [stat]: Math.max(0, progress.charStats[stat as keyof EldenRingProgress['charStats']] + change),
+        };
+
+        updateProgress({ ...progress, charStats: newStats });
+    } else if (isDemonsSoulsProgress(progress) && stat in progress.charStats) {
+        newStats = {
+            ...progress.charStats,
+            [stat]: Math.max(0, progress.charStats[stat as keyof DemonsSoulsProgress['charStats']] + change),
         };
 
         updateProgress({ ...progress, charStats: newStats });
@@ -97,6 +112,13 @@ export const updatePlayerStatGuarded = (stat: string, progress: AllGameProgress,
         newStats = {
             ...progress.playerStats,
             [stat]: Math.max(0, progress.playerStats[stat as keyof EldenRingProgress['playerStats']] + change),
+        };
+
+        updateProgress({ ...progress, playerStats: newStats });
+    } else if (isDemonsSoulsProgress(progress) && stat in progress.playerStats) {
+        newStats = {
+            ...progress.playerStats,
+            [stat]: Math.max(0, progress.playerStats[stat as keyof DemonsSoulsProgress['playerStats']] + change),
         };
 
         updateProgress({ ...progress, playerStats: newStats });
