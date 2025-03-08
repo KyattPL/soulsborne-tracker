@@ -27,7 +27,7 @@ export default function Header() {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden lg:flex items-center space-x-4">
                         {navigationItems.map((item) => (
                             <Link
                                 key={item.href}
@@ -40,7 +40,7 @@ export default function Header() {
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden">
+                    <div className="lg:hidden">
                         <Button variant="ghost" size="icon">
                             <Menu className="h-6 w-6" />
                         </Button>

@@ -36,10 +36,10 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
     );
 
     return (
-        <Card className="bg-zinc-800/50 border-zinc-700/50 backdrop-blur-sm h-full">
+        <Card className="bg-zinc-800/50 border-zinc-700/50 backdrop-blur-sm">
             <CardHeader className="border-b border-zinc-700/50 p-2">
                 <CardTitle className="text-xl font-ancient-runes tracking-wider text-amber-500/90 flex justify-center items-center gap-4">
-                    <Image src={`/soulsborne-tracker/images/${gameKey}/charStats.jpg`} alt={`${gameKey} stats logo`} width={80} height={80} />
+                    <Image src={`/soulsborne-tracker/images/${gameKey}/charStats.jpg`} alt={`${gameKey} stats logo`} style={{ width: 60, height: 80 }} width={60} height={80} />
                     Character Stats
                     {isSharedLink && (
                         <span className="text-sm font-normal text-zinc-400">(Viewing Shared Progress)</span>

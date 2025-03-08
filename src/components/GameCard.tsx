@@ -30,12 +30,6 @@ export default function GameCard({ game }: GameCardProps) {
                 <Card className="overflow-hidden bg-zinc-800 border-zinc-700 h-full transition-colors hover:border-orange-500/50">
                     <CardContent className="p-0">
                         <div className="aspect-video relative">
-                            {/* Game image */}
-                            {/* <div
-                                className="w-full h-full bg-cover bg-center"
-                                style={{ backgroundImage: game.image }}
-                            /> */}
-
                             <Image src={game.image} alt={game.description} width="1080" height="720" />
 
                             {/* Gradient overlay */}
@@ -45,13 +39,11 @@ export default function GameCard({ game }: GameCardProps) {
                             />
 
                             {/* Content overlay */}
-                            <div className="absolute inset-0 p-4 flex flex-col justify-end bg-slate-900 bg-opacity-30">
+                            <div className="absolute inset-0 p-6 flex flex-col justify-end bg-slate-900 bg-opacity-30">
+                                <div />
                                 <h2 className="text-2xl text-zinc-100 font-bold">{game.title}</h2>
                                 <p className="text text-orange-400">{game.subtitle}</p>
-                                <p className={` text-zinc-300 mt-2 transition-opacity duration-300
-                  ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-                                    {game.description}
-                                </p>
+                                <div />
                             </div>
                         </div>
                     </CardContent>
