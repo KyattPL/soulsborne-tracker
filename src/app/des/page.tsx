@@ -19,7 +19,7 @@ export default function DESPage() {
         <div className="flex-1 flex flex-col overflow-auto">
             <div className="max-w-screen-2xl w-full mx-auto p-6">
                 <ProgressProvider gameKey='des'>
-                    <div className="flex flex-col mb-4 lg:mb-0 lg:flex-row gap-6">
+                    <div className="flex flex-col mb-4 lg:mb-0 lg:flex-row gap-6 lg:items-start">
                         <h1 className="text-3xl font-bold mb-6 text-zinc-100">
                             Demon&apos;s Souls - Progress Tracker
                         </h1>

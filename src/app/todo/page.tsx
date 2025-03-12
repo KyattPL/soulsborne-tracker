@@ -7,8 +7,7 @@ export default function Todo() {
                 </h2>
                 <ul className="list-disc list-inside text-2xl">
                     <li>More game-specific trackers like Ashes of War, Blood gems etc.</li>
-                    <li>Twitch better commands</li>
-                    <li>Maybe change default progress stats</li>
+                    <li>Twitch commands guide</li>
                 </ul>
             </div>
             <div>

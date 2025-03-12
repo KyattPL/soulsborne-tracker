@@ -45,7 +45,7 @@ export default function CustomTrackers() {
         if (!newTracker.name || newTracker.total <= 0) return;
 
         const tracker: Tracker = {
-            id: Date.now().toString(),
+            id: "tracker-" + (progress.customTrackers.length + 1),
             name: newTracker.name,
             total: newTracker.total,
             current: 0,
