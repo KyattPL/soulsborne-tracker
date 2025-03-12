@@ -32,7 +32,7 @@ export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
 
         // Command handler that uses the ref to access latest handlers
         ComfyJS.onCommand = (user, command, message, flags) => {
-            if (flags.mod || user.toLowerCase() === twitchChannel.toLowerCase()) {
+            if (flags.mod || flags.broadcaster) {
                 // Get commands with latest handlers from ref
                 const chatCommands = getChatCommands(handlersRef.current);
                 const cmd = chatCommands.find(c => c.name === command);
@@ -44,8 +44,19 @@ export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
             }
         };
 
+
         // Connect to Twitch
         ComfyJS.Init(twitchChannel);
+
+        // https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/
+        // TLDR trzeba zrobić przycisk + jakoś odpakować #access_token z URL
+        // wtedy można zrobić init pod kanał i oauthPassword
+
+        // chyba scopes: user:write:chat, channel:bot
+        // clientId: 8hxfohcuc3cwyzhv9a95p3igpfxa1q
+
+        // to use ComfyJS.Say("Elo") :
+        // ComfyJS.Init(twitchChannel, oauthPassword)
 
         // Cleanup on unmount or channel change
         return () => {
