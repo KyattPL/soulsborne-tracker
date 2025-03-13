@@ -12,6 +12,7 @@ export function getChatCommands(handlers: {
     modifyBossAttempt: (bossId: string, amount: number) => void;
     toggleBossDone: (bossId: string) => void;
     modifyCustomTracker: (id: string, amount: number) => void;
+    sendShareableLink: () => void;
 }): ChatCommand[] {
     return [
         {
@@ -61,5 +62,12 @@ export function getChatCommands(handlers: {
                 handlers.modifyCustomTracker(trackerId, Number(amount));
             },
         },
+        {
+            name: "getprogress",
+            description: "Get shareable link for streamer's progres. Usage: !getprogress",
+            execute: (_user, _args) => {
+                handlers.sendShareableLink();
+            }
+        }
     ];
 }

@@ -1,7 +1,9 @@
+import ComfyJS from "comfy.js";
 import { useProgress } from "@/components/ProgressProvider";
 
 import { updateCharStatGuarded, updatePlayerStatGuarded } from "@/utils/progressGuards";
 import { bosses } from "@/data/bosses";
+
 
 export function useChatCommands() {
     const { progress, updateProgress } = useProgress();
@@ -60,11 +62,16 @@ export function useChatCommands() {
         updateProgress({ ...progress, customTrackers: [...updatedTrackers] });
     }
 
+    function sendShareableLink() {
+        ComfyJS.Say("elo", null);
+    }
+
     return {
         modifyCharStat,
         modifyPlayerStat,
         modifyBossAttempt,
         toggleBossDone,
         modifyCustomTracker,
+        sendShareableLink
     };
 }

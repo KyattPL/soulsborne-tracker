@@ -1,6 +1,6 @@
 // TwitchChatMonitor.tsx
 'use client';
-import { memo, useRef, useEffect } from 'react';
+import { memo, useRef, useEffect, useState } from 'react';
 import ComfyJS from 'comfy.js';
 import { useProgress } from './ProgressProvider';
 import { useChatCommands } from '../hooks/useChatCommands';
@@ -10,6 +10,7 @@ import { getChatCommands } from '../utils/chatCommands';
 export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const { isTwitchConnected, twitchChannel } = useProgress();
+    const [twitchToken, setTwitchToken] = useState<string>('');
     const handlers = useChatCommands();
     const handlersRef = useRef(handlers);
     const connectionRef = useRef<boolean>(false);
@@ -19,10 +20,19 @@ export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
         handlersRef.current = handlers;
     }, [handlers]);
 
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const token = sessionStorage.getItem('twitchToken');
+            if (token) {
+                setTwitchToken(token);
+            }
+        }
+    }, []);
+
     // Handle the Twitch connection with stable dependencies
     useEffect(() => {
         // Return early if Twitch is not connected
-        if (!isTwitchConnected) return;
+        if (!isTwitchConnected || !twitchChannel) return;
 
         // Avoid reconnecting if already connected
         if (connectionRef.current) return;
@@ -44,19 +54,14 @@ export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
             }
         };
 
-
-        // Connect to Twitch
-        ComfyJS.Init(twitchChannel);
-
-        // https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/
-        // TLDR trzeba zrobić przycisk + jakoś odpakować #access_token z URL
-        // wtedy można zrobić init pod kanał i oauthPassword
-
-        // chyba scopes: user:write:chat, channel:bot
-        // clientId: 8hxfohcuc3cwyzhv9a95p3igpfxa1q
-
-        // to use ComfyJS.Say("Elo") :
-        // ComfyJS.Init(twitchChannel, oauthPassword)
+        // Connect to Twitch - use token if available
+        if (twitchToken) {
+            ComfyJS.Init(twitchChannel, `oauth:${twitchToken}`);
+            console.log("Connected with authorization token - chat messages can be sent");
+        } else {
+            ComfyJS.Init(twitchChannel);
+            console.log("Connected without authorization token - can only receive messages");
+        }
 
         // Cleanup on unmount or channel change
         return () => {
@@ -64,7 +69,41 @@ export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
             connectionRef.current = false;
             ComfyJS.Disconnect();
         };
-    }, [isTwitchConnected, twitchChannel]); // Stable dependencies
+    }, [isTwitchConnected, twitchChannel, twitchToken]); // Stable dependencies
+
+    // Listen for storage events to detect token changes in other tabs/windows
+    useEffect(() => {
+        const handleStorageChange = () => {
+            const token = sessionStorage.getItem('twitchToken');
+            setTwitchToken(token || '');
+
+            // If connection exists and token changed, reconnect
+            if (connectionRef.current && isTwitchConnected && twitchChannel) {
+                ComfyJS.Disconnect();
+                connectionRef.current = false;
+
+                // This will trigger the connection effect
+                setTimeout(() => {
+                    if (token) {
+                        ComfyJS.Init(twitchChannel, token);
+                    } else {
+                        ComfyJS.Init(twitchChannel);
+                    }
+                    connectionRef.current = true;
+                }, 100);
+            }
+        };
+
+        if (typeof window !== 'undefined') {
+            window.addEventListener('storage', handleStorageChange);
+        }
+
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('storage', handleStorageChange);
+            }
+        };
+    }, [isTwitchConnected, twitchChannel]);
 
     if (!isTwitchConnected) {
         return null;
@@ -75,7 +114,7 @@ export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
             className='hidden'
             ref={iframeRef}
             src={`https://www.twitch.tv/embed/${twitchChannel}/chat?parent=${window.location.hostname}`}
-            height="200"
+            height="800"
             width="300"
         />
     );

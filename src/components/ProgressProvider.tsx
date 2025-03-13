@@ -14,6 +14,7 @@ interface ProgressContextType {
     isUnsavedProgress: boolean;
     isTwitchConnected: boolean;
     twitchChannel: string;
+    twitchToken: string;
     updateProgress: (data: AllGameProgress) => void;
     getShareableLink: () => string;
     loadSharedProgress: (encodedData: string) => void;
@@ -21,6 +22,7 @@ interface ProgressContextType {
     resetProgress: () => void;
     setIsTwitchConnected: (isConnected: boolean) => void;
     setTwitchChannel: (name: string) => void;
+    setTwitchToken: (token: string) => void;
 }
 
 const ProgressContext = createContext<ProgressContextType | null>(null);
@@ -32,6 +34,7 @@ export function ProgressProvider({ children, gameKey = 'ds1' }: { children: Reac
     const [isUnsavedProgress, setIsUnsavedProgress] = useState(false);
     const [isTwitchConnected, setIsTwitchConnected] = useState(false);
     const [twitchChannel, setTwitchChannel] = useState('');
+    const [twitchToken, setTwitchToken] = useState('');
 
     useEffect(() => {
         const sharedProgress = searchParams.get('p');
@@ -89,13 +92,15 @@ export function ProgressProvider({ children, gameKey = 'ds1' }: { children: Reac
             isUnsavedProgress,
             isTwitchConnected,
             twitchChannel,
+            twitchToken,
             updateProgress,
             getShareableLink,
             loadSharedProgress,
             saveProgress,
             resetProgress,
             setIsTwitchConnected,
-            setTwitchChannel
+            setTwitchChannel,
+            setTwitchToken
         }}
         >
             {children}
