@@ -40,6 +40,33 @@ export const TwitchChatMonitor = memo(function TwitchChatMonitor() {
 
         console.log(`Connecting to Twitch chat for channel: ${twitchChannel}`);
 
+        const maxReconnectAttempts = 5;
+        let reconnectAttemptsRef = 0;
+
+        const reconnect = () => {
+            if (reconnectAttemptsRef >= maxReconnectAttempts) {
+                console.error("Max reconnect attempts reached");
+                return;
+            }
+
+            const delay = Math.min(1000 * Math.pow(2, reconnectAttemptsRef), 30000);
+            console.log(`Attempting to reconnect in ${delay}ms (attempt ${reconnectAttemptsRef + 1})`);
+
+            setTimeout(() => {
+                reconnectAttemptsRef += 1;
+                if (twitchToken) {
+                    ComfyJS.Init(twitchChannel, twitchToken);
+                } else {
+                    ComfyJS.Init(twitchChannel);
+                }
+            }, delay);
+        };
+
+        ComfyJS.onError = (error) => {
+            console.error("Connection error:", error);
+            reconnect();
+        };
+
         // Command handler that uses the ref to access latest handlers
         ComfyJS.onCommand = (user, command, message, flags) => {
             if (flags.mod || flags.broadcaster) {

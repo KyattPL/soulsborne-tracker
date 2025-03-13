@@ -70,11 +70,11 @@ export default function TwitchAuthButton() {
 
     return (
         <Button
-            variant={isAuthorized ? "destructive" : "default"}
+            variant="default"
             onClick={isAuthorized ? handleLogout : handleAuth}
-            className="whitespace-nowrap"
+            className="whitespace-nowrap bg-purple-900/80 hover:bg-purple-800 text-purple-100 border border-purple-800/50 shadow-lg backdrop-blur-sm transition-all duration-200"
         >
-            {isAuthorized ? "Disconnect Twitch Chat" : "Authorize Twitch Chat"}
+            {isAuthorized ? "Disconnect Twitch" : "Authorize Twitch"}
         </Button>
     );
 }

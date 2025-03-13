@@ -1,11 +1,12 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { EB_Garamond } from 'next/font/google'
 import './globals.css'
+
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
-
+import HelpButton from '@/components/HelpButton'
 import { ProgressProvider } from '@/components/ProgressProvider';
-import { Suspense } from 'react'
 
 const garamond = EB_Garamond({ subsets: ['latin'], weight: '400', variable: '--font-garamond' })
 
@@ -29,6 +30,7 @@ export default function RootLayout({
               {children}
             </ProgressProvider>
           </Suspense>
+          <HelpButton />
         </main>
         <Footer />
       </body>

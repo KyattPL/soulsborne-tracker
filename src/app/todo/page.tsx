@@ -11,8 +11,9 @@ export default function Todo() {
                     <li>NPCs met / missions</li>
                     <li>Bonfire / lantern / archstone tracking</li>
                     <li>Worn rings</li>
-                    <li>Twitch commands guide</li>
-                    <li>Twitch command to get the shareable link</li>
+                    <li>Popup to clarify when connected to Twitch</li>
+                    <li>Change boss ids</li>
+                    <li>Show usage for commands in /commands/page.tsx</li>
                 </ul>
             </div>
             <div>

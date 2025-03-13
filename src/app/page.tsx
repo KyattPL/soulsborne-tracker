@@ -62,7 +62,7 @@ export default function HomePage() {
                 </p>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center md:absolute top-10 right-8">
                 <TwitchAuthButton />
             </div>
 

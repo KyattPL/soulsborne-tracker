@@ -55,7 +55,7 @@ export function getChatCommands(handlers: {
         },
         {
             name: "track",
-            description: "Modify custom tracker. Usage: !track humanity +1",
+            description: "Modify custom tracker. Usage: !track tracker-1 +1",
             execute: (user, args) => {
                 const [trackerId, amount] = args;
                 if (!trackerId || isNaN(Number(amount))) return;
@@ -64,7 +64,7 @@ export function getChatCommands(handlers: {
         },
         {
             name: "getprogress",
-            description: "Get shareable link for streamer's progres. Usage: !getprogress",
+            description: "Get shareable link for streamer's progress. Usage: !getprogress",
             execute: (_user, _args) => {
                 handlers.sendShareableLink();
             }
