@@ -69,7 +69,7 @@ export default function HelpButton() {
                                 <li>!playerstat - Modify a player stat. Usage: !playerstat soulLevel +2</li>
                                 <li>!boss - Modify boss attempts. Usage: !boss asylum-demon +1</li>
                                 <li>!bossdone - Toggle boss completion. Usage: !bossdone asylum-demon</li>
-                                <li>!track - Modify custom tracker. Usage: !track tracker-1 +1</li>
+                                <li>!track - Modify custom tracker. Usage: !track 1 +1</li>
                                 <li>!getprogress - Get shareable link for streamer&apos;s progress. Usage: !getprogress
                                     <br />
                                     <b>(WARNING: Requires Home Page Twitch Auth to send progress back to the chat)</b>

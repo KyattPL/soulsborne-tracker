@@ -180,11 +180,11 @@ export default function CommandsPage() {
                                 <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
                                     <div className="flex items-start gap-4">
                                         <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!bossdone &lt;boss-id&gt;</code>
-                                        <p className="text-zinc-300">Toggle boss defeated status</p>
+                                        <p className="text-zinc-300">Toggle boss defeated status. Usage: !bossdone phalanx</p>
                                     </div>
                                     <div className="flex items-start gap-4">
                                         <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!boss &lt;boss-id&gt; &lt;value&gt;</code>
-                                        <p className="text-zinc-300">Update number of attempts for a boss</p>
+                                        <p className="text-zinc-300">Update number of attempts for a boss. Usage: !boss phalanx +4</p>
                                     </div>
                                 </div>
                             </AccordionContent>
@@ -195,11 +195,11 @@ export default function CommandsPage() {
                                 <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
                                     <div className="flex items-start gap-4">
                                         <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!playerstat &lt;stat-key&gt; &lt;value&gt;</code>
-                                        <p className="text-zinc-300">Update player stat value</p>
+                                        <p className="text-zinc-300">Update player stat value. Usage: !playerstat soulLevel +5</p>
                                     </div>
                                     <div className="flex items-start gap-4">
                                         <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!charstat &lt;stat-key&gt; &lt;value&gt;</code>
-                                        <p className="text-zinc-300">Update character stat value</p>
+                                        <p className="text-zinc-300">Update character stat value. Usage: !charstat vitality +3</p>
                                     </div>
                                 </div>
                             </AccordionContent>
@@ -210,7 +210,10 @@ export default function CommandsPage() {
                                 <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
                                     <div className="flex items-start gap-4">
                                         <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!track &lt;tracker-id&gt; &lt;value&gt;</code>
-                                        <p className="text-zinc-300">Update tracker value</p>
+                                        <p className="text-zinc-300">Update tracker value. Usage: !track 1 +2 (First tracker
+                                            gets id of &apos;1&apos;, second of &apos;2&apos; and so on - removing the first
+                                            tracker will change the id of the second one to &apos;1&apos;).
+                                        </p>
                                     </div>
                                 </div>
                             </AccordionContent>
@@ -221,7 +224,9 @@ export default function CommandsPage() {
                                 <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
                                     <div className="flex items-start gap-4">
                                         <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!getprogress</code>
-                                        <p className="text-zinc-300">Get link to the progress site</p>
+                                        <p className="text-zinc-300">Get link to the progress site. Usage: !getprogress (link should be sent to
+                                            to chat assuming user Authorized Twitch on the home page).
+                                        </p>
                                     </div>
                                 </div>
                             </AccordionContent>

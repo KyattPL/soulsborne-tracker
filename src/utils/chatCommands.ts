@@ -55,10 +55,10 @@ export function getChatCommands(handlers: {
         },
         {
             name: "track",
-            description: "Modify custom tracker. Usage: !track tracker-1 +1",
+            description: "Modify custom tracker. Usage: !track 1 +1",
             execute: (user, args) => {
                 const [trackerId, amount] = args;
-                if (!trackerId || isNaN(Number(amount))) return;
+                if (!trackerId || isNaN(Number(amount)) || isNaN(Number(trackerId))) return;
                 handlers.modifyCustomTracker(trackerId, Number(amount));
             },
         },

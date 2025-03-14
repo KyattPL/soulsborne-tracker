@@ -3,6 +3,7 @@ import { useProgress } from "@/components/ProgressProvider";
 
 import { updateCharStatGuarded, updatePlayerStatGuarded } from "@/utils/progressGuards";
 import { bosses } from "@/data/bosses";
+import { encode } from "js-base64";
 
 
 export function useChatCommands() {
@@ -49,21 +50,19 @@ export function useChatCommands() {
     }
 
     function modifyCustomTracker(id: string, amount: number) {
-        const updatedTrackers = progress.customTrackers.map(tracker => {
-            if (tracker.id === id) {
-                let newCurrent = tracker.current + amount;
-                if (newCurrent < 0) newCurrent = 0;
-                if (newCurrent > tracker.total) newCurrent = tracker.total;
-                return { ...tracker, current: newCurrent };
-            }
-            return tracker;
-        });
+        const index = Number(id);
+
+        const updatedTrackers = progress.customTrackers;
+        updatedTrackers[index].current += amount;
+
+        if (updatedTrackers[index].current < 0) updatedTrackers[index].current = 0;
+        if (updatedTrackers[index].current > updatedTrackers[index].total) updatedTrackers[index].current = updatedTrackers[index].total;
 
         updateProgress({ ...progress, customTrackers: [...updatedTrackers] });
     }
 
     function sendShareableLink() {
-        ComfyJS.Say("elo", null);
+        ComfyJS.Say(encode(JSON.stringify(progress), true), null);
     }
 
     return {

@@ -17,7 +17,7 @@ export default function ProgressShareLinkGenerator({ gameKey }: { gameKey: strin
     const [isCopied, setIsCopied] = useState(false);
 
     const generateShareableLink = () => {
-        const encodedData = encode(JSON.stringify(progress));
+        const encodedData = encode(JSON.stringify(progress), true);
         const link = `${window.location.origin}/${gameKey}?p=${encodedData}`;
 
         setShareLink(link);

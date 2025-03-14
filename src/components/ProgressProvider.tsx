@@ -72,7 +72,7 @@ export function ProgressProvider({ children, gameKey = 'ds1' }: { children: Reac
     };
 
     const getShareableLink = () => {
-        const encoded = encode(JSON.stringify(progress));
+        const encoded = encode(JSON.stringify(progress), true);
         return `${window.location.origin}${window.location.pathname}?p=${encoded}`;
     };
 

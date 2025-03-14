@@ -12,8 +12,6 @@ export default function Todo() {
                     <li>Bonfire / lantern / archstone tracking</li>
                     <li>Worn rings</li>
                     <li>Popup to clarify when connected to Twitch</li>
-                    <li>Change boss ids</li>
-                    <li>Show usage for commands in /commands/page.tsx</li>
                 </ul>
             </div>
             <div>
