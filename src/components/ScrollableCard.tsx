@@ -33,7 +33,7 @@ const ScrollableCard = ({ title, children }: { title: string; children: React.Re
     };
 
     return (
-        <ScrollArea type="always" ref={contentRef} onScrollCapture={checkScroll} className='h-72'>
+        <ScrollArea type="always" ref={contentRef} onScrollCapture={checkScroll} className='w-full h-[46rem]'>
             <div
                 className="absolute top-0 h-4 w-full bg-gradient-to-b from-black to-transparent pointer-events-none z-10 transition-opacity duration-300"
                 style={{ opacity: showTopGradient ? 1 : 0 }}

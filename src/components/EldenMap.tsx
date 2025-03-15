@@ -57,7 +57,7 @@ export default function EldenMap() {
         <div className="w-full space-y-4">
 
             {/* Normal View */}
-            <div className="relative bg-zinc-800 rounded-lg overflow-hidden h-[300px]">
+            <div className="relative bg-zinc-800 rounded-lg overflow-hidden">
                 {!isFullscreen && (
                     <button
                         onClick={() => setIsFullscreen(true)}
@@ -67,8 +67,8 @@ export default function EldenMap() {
                         <Maximize2 size={20} className="text-white" />
                     </button>
                 )}
-                <iframe src="https://mapgenie.io/elden-ring/maps/the-lands-between?embed=light" height="500"
-                    style={{ position: "relative", width: "100%" }}>
+                <iframe src="https://mapgenie.io/elden-ring/maps/the-lands-between?embed=light"
+                    className='relative w-full md:h-[400px] lg:h-[440px] xl:h-[620px]'>
                 </iframe>
             </div>
 
@@ -79,8 +79,7 @@ export default function EldenMap() {
                         isOpen={isFullscreen}
                         onClose={() => setIsFullscreen(false)}
                     >
-                        <iframe src="https://mapgenie.io/elden-ring/maps/the-lands-between?embed=light" height="100%"
-                            style={{ position: "relative", width: "100%" }}>
+                        <iframe src="https://mapgenie.io/elden-ring/maps/the-lands-between?embed=light" className='relative w-full h-full'>
                         </iframe>
                     </MapModal>
                 )}

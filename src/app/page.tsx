@@ -54,7 +54,7 @@ const games = [
 
 export default function HomePage() {
     return (
-        <div className="space-y-8 overflow-y-auto h-full w-full overflow-x-hidden">
+        <div className="container space-y-8 overflow-y-auto h-full w-full overflow-x-hidden py-8 px-4">
             <div className="text-center space-y-4">
                 <h1 className="text-4xl font-bold">Welcome, Chosen Undead</h1>
                 <p className="text-lg text-zinc-400 max-w-2xl mx-auto">

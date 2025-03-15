@@ -145,7 +145,7 @@ export default function ZoomableMap({ gameKey }: { gameKey: string }) {
             </select>
 
             {/* Normal View */}
-            <div className="relative bg-zinc-800 rounded-lg overflow-hidden h-[300px]">
+            <div className="relative bg-zinc-800 rounded-lg overflow-hidden md:h-[380px] lg:h-[420px] xl:h-[600px]">
                 <MapContent />
             </div>
 

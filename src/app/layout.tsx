@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className="overflow-hidden">
       <body className={`${garamond.variable} font-sans flex flex-col h-[100vh] bg-zinc-900 text-zinc-100`}>
         <Header />
-        <main className="flex-grow flex flex-col overflow-auto container mx-auto px-4 py-8">
+        <main className="flex-grow flex flex-col overflow-auto mx-auto">
           <Suspense fallback={<div>Loading...</div>}>
             <ProgressProvider gameKey='ds1'>
               {children}
