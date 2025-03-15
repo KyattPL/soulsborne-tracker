@@ -60,7 +60,7 @@ export default function CharacterStats({ gameKey }: { gameKey: string }) {
                                             icon={Minus}
                                         />
                                         <span className="text-amber-500 w-8 text-center">
-                                            {key === 'maxWeaponUpgrade' || key === 'estusUpgrade' ? '+' : ''}
+                                            {key === 'weaponUpgradeLvl' || key === 'estusUpgrade' || key === 'spiritAshUpgradeLvl' ? '+' : ''}
                                             {progress.playerStats[key as keyof typeof progress.playerStats]}
                                         </span>
                                         <StatButton

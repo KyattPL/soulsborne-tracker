@@ -9,7 +9,7 @@ const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
-        maxWeaponUpgrade: 0,
+        weaponUpgradeLvl: 0,
     },
     charStats: {
         vitality: 10,
@@ -30,7 +30,7 @@ const DS2_DEFAULT_PROGRESS: DarkSouls2Progress = {
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
-        maxWeaponUpgrade: 0,
+        weaponUpgradeLvl: 0,
         estusAmount: 0,
         estusUpgrade: 0
     },
@@ -54,7 +54,7 @@ const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
-        maxWeaponUpgrade: 0,
+        weaponUpgradeLvl: 0,
         estusAmount: 3,
         estusUpgrade: 0
     },
@@ -78,7 +78,7 @@ const BB_DEFAULT_PROGRESS: BloodborneProgress = {
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
-        maxWeaponUpgrade: 0,
+        weaponUpgradeLvl: 0,
         insight: 0
     },
     charStats: {
@@ -98,9 +98,10 @@ const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
-        maxWeaponUpgrade: 0,
+        weaponUpgradeLvl: 0,
         flaskAmount: 3,
-        flaskUpgrade: 0
+        flaskUpgrade: 0,
+        spiritAshUpgradeLvl: 0
     },
     charStats: {
         vigor: 10,
@@ -121,7 +122,7 @@ const DES_DEFAULT_PROGRESS: DemonsSoulsProgress = {
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
-        maxWeaponUpgrade: 0,
+        weaponUpgradeLvl: 0,
         charTendency: 3,
     },
     charStats: {

@@ -20,7 +20,7 @@ export interface DarkSouls1Progress extends GameSpecificProgress {
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
-        maxWeaponUpgrade: number;
+        weaponUpgradeLvl: number;
     };
     charStats: {
         vitality: number;
@@ -52,7 +52,7 @@ export interface DarkSouls2Progress extends GameSpecificProgress {
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
-        maxWeaponUpgrade: number;
+        weaponUpgradeLvl: number;
         estusAmount: number;
         estusUpgrade: number;
     };
@@ -87,7 +87,7 @@ export interface DarkSouls3Progress extends GameSpecificProgress {
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
-        maxWeaponUpgrade: number;
+        weaponUpgradeLvl: number;
         estusAmount: number;
         estusUpgrade: number;
     };
@@ -122,7 +122,7 @@ export interface BloodborneProgress extends GameSpecificProgress {
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
-        maxWeaponUpgrade: number;
+        weaponUpgradeLvl: number;
         insight: number;
     };
     charStats: {
@@ -153,9 +153,10 @@ export interface EldenRingProgress extends GameSpecificProgress {
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
-        maxWeaponUpgrade: number;
+        weaponUpgradeLvl: number;
         flaskAmount: number;
         flaskUpgrade: number;
+        spiritAshUpgradeLvl: number;
     };
     charStats: {
         vigor: number;
@@ -187,7 +188,7 @@ export interface DemonsSoulsProgress extends GameSpecificProgress {
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
-        maxWeaponUpgrade: number;
+        weaponUpgradeLvl: number;
         charTendency: number;
     };
     charStats: {
@@ -218,7 +219,7 @@ export interface DemonsSoulsProgress extends GameSpecificProgress {
 const DarkSouls1KeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
-    'maxWeaponUpgrade': 'Weapon lvl',
+    'weaponUpgradeLvl': 'Weapon lvl',
     'vitality': 'Vitality',
     'attunement': 'Attunement',
     'endurance': 'Endurance',
@@ -232,7 +233,7 @@ const DarkSouls1KeyToStatName: Record<string, string> = {
 const DarkSouls2KeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
-    'maxWeaponUpgrade': 'Weapon lvl',
+    'weaponUpgradeLvl': 'Weapon lvl',
     'vitality': 'Vitality',
     'attunement': 'Attunement',
     'endurance': 'Endurance',
@@ -249,7 +250,7 @@ const DarkSouls2KeyToStatName: Record<string, string> = {
 const DarkSouls3KeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
-    'maxWeaponUpgrade': 'Weapon lvl',
+    'weaponUpgradeLvl': 'Weapon lvl',
     'vitality': 'Vitality',
     'attunement': 'Attunement',
     'endurance': 'Endurance',
@@ -266,7 +267,7 @@ const DarkSouls3KeyToStatName: Record<string, string> = {
 const BloodborneKeyToStatName: Record<string, string> = {
     'soulLevel': 'Level',
     'newGamePlusCount': 'NG+ count',
-    'maxWeaponUpgrade': 'Weapon lvl',
+    'weaponUpgradeLvl': 'Weapon lvl',
     'vitality': 'Vitality',
     'endurance': 'Endurance',
     'strength': 'Strength',
@@ -279,7 +280,7 @@ const BloodborneKeyToStatName: Record<string, string> = {
 const EldenRingKeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
-    'maxWeaponUpgrade': 'Weapon lvl',
+    'weaponUpgradeLvl': 'Weapon lvl',
     'vigor': 'Vigor',
     'mind': 'Mind',
     'endurance': 'Endurance',
@@ -289,13 +290,14 @@ const EldenRingKeyToStatName: Record<string, string> = {
     'faith': 'Faith',
     'arcane': 'Arcane',
     'flaskAmount': 'Flask shards',
-    'flaskUpgrade': 'Flask lvl'
+    'flaskUpgrade': 'Flask lvl',
+    'spiritAshUpgradeLvl': 'Spirit Ash lvl'
 };
 
 const DemonsSoulsKeyToStatName: Record<string, string> = {
     'soulLevel': 'Soul level',
     'newGamePlusCount': 'NG+ count',
-    'maxWeaponUpgrade': 'Weapon lvl',
+    'weaponUpgradeLvl': 'Weapon lvl',
     'vitality': 'Vitality',
     'intelligence': 'Intelligence',
     'endurance': 'Endurance',
