@@ -127,3 +127,8 @@ export const updatePlayerStatGuarded = (stat: string, progress: AllGameProgress,
         return;
     }
 }
+
+export const getEqItemIdGuarded = (progress: AllGameProgress, slotKey: string): string => {
+    if (isDarkSouls1Progress(progress)) return progress.equipment?.[slotKey] || "none";
+    return "BAD_SLOT_KEY";
+}

@@ -5,7 +5,7 @@ import './globals.css'
 
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
-import HelpButton from '@/components/HelpButton'
+import HelpButton from '@/components/buttons/HelpButton'
 import { ProgressProvider } from '@/components/ProgressProvider';
 
 const garamond = EB_Garamond({ subsets: ['latin'], weight: '400', variable: '--font-garamond' })

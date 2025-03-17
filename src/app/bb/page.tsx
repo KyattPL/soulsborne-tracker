@@ -8,11 +8,11 @@ import Map from '@/components/Map';
 import CustomTrackers from '@/components/CustomTrackers';
 import ScrollableCard from '@/components/ScrollableCard';
 import { ProgressProvider } from '@/components/ProgressProvider';
-import ProgressShareLinkGenerator from '@/components/ProgressShareLinkGenerator';
-import SaveProgressButton from '@/components/SaveProgressButton';
-import ResetProgressButton from '@/components/ResetProgressButton';
-import { TwitchChatMonitor } from '@/components/TwitchChatMonitor';
-import TwitchConnectButton from '@/components/TwitchConnectButton';
+import ProgressShareLinkGenerator from '@/components/buttons/ProgressShareLinkGenerator';
+import SaveProgressButton from '@/components/buttons/SaveProgressButton';
+import ResetProgressButton from '@/components/buttons/ResetProgressButton';
+import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
+import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 
 export default function BBPage() {
 

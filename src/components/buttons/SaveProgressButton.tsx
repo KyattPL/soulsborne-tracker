@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 
-import { useProgress } from './ProgressProvider';
-import { Button } from './ui/button';
+import { useProgress } from '@/components/ProgressProvider';
+import { Button } from '@/components/ui/button';
 import { Save } from 'lucide-react';
 
 

@@ -1,5 +1,5 @@
 import GameCard from '../components/GameCard';
-import TwitchAuthButton from '@/components/TwitchAuthButton';
+import TwitchAuthButton from '@/components/twitch/TwitchAuthButton';
 
 const games = [
     {

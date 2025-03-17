@@ -6,6 +6,7 @@ import {
 
 const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
     game: 'Dark Souls 1',
+    equipment: {},
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
@@ -27,6 +28,7 @@ const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
 
 const DS2_DEFAULT_PROGRESS: DarkSouls2Progress = {
     game: 'Dark Souls 2',
+    equipment: {},
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
@@ -51,6 +53,7 @@ const DS2_DEFAULT_PROGRESS: DarkSouls2Progress = {
 
 const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
     game: 'Dark Souls 3',
+    equipment: {},
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
@@ -75,6 +78,7 @@ const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
 
 const BB_DEFAULT_PROGRESS: BloodborneProgress = {
     game: 'Bloodborne',
+    equipment: {},
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
@@ -95,6 +99,7 @@ const BB_DEFAULT_PROGRESS: BloodborneProgress = {
 
 const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
     game: 'Elden Ring',
+    equipment: {},
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,
@@ -119,6 +124,7 @@ const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
 
 const DES_DEFAULT_PROGRESS: DemonsSoulsProgress = {
     game: "Demon's Souls",
+    equipment: {},
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,

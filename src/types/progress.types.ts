@@ -1,3 +1,5 @@
+import { DarkSouls1Equipment } from "./equipment.types";
+
 export type GameTitle =
     | 'Dark Souls 1'
     | 'Dark Souls 2'
@@ -7,16 +9,31 @@ export type GameTitle =
     | 'Sekiro'
     | "Demon's Souls";
 
+// Base interface that can be extended for each game
 export interface GameSpecificProgress {
-    // Base interface that can be extended for each game
-    id?: string;
     game: GameTitle;
     charStats: object;
+    playerStats: object;
+    equipment: object;
+    bossesAttempts: Array<{
+        id: string;
+        name: string;
+        attempts: number;
+        defeated: boolean;
+    }>;
+    customTrackers: Array<{
+        id: string;
+        name: string;
+        total: number;
+        current: number;
+        color: string;
+    }>;
 }
 
 // Dark Souls 1 Specific Progress
 export interface DarkSouls1Progress extends GameSpecificProgress {
     game: 'Dark Souls 1';
+    equipment: DarkSouls1Equipment;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
@@ -32,19 +49,6 @@ export interface DarkSouls1Progress extends GameSpecificProgress {
         intelligence: number;
         faith: number;
     };
-    bossesAttempts: Array<{
-        id: string;
-        name: string;
-        attempts: number;
-        defeated: boolean;
-    }>;
-    customTrackers: Array<{
-        id: string;
-        name: string;
-        total: number;
-        current: number;
-        color: string;
-    }>;
 }
 
 export interface DarkSouls2Progress extends GameSpecificProgress {
@@ -67,19 +71,6 @@ export interface DarkSouls2Progress extends GameSpecificProgress {
         intelligence: number;
         faith: number;
     };
-    bossesAttempts: Array<{
-        id: string;
-        name: string;
-        attempts: number;
-        defeated: boolean;
-    }>;
-    customTrackers: Array<{
-        id: string;
-        name: string;
-        total: number;
-        current: number;
-        color: string;
-    }>;
 }
 
 export interface DarkSouls3Progress extends GameSpecificProgress {
@@ -102,19 +93,6 @@ export interface DarkSouls3Progress extends GameSpecificProgress {
         faith: number;
         luck: number;
     };
-    bossesAttempts: Array<{
-        id: string;
-        name: string;
-        attempts: number;
-        defeated: boolean;
-    }>;
-    customTrackers: Array<{
-        id: string;
-        name: string;
-        total: number;
-        current: number;
-        color: string;
-    }>;
 }
 
 export interface BloodborneProgress extends GameSpecificProgress {
@@ -133,19 +111,6 @@ export interface BloodborneProgress extends GameSpecificProgress {
         bloodtinge: number;
         arcane: number;
     };
-    bossesAttempts: Array<{
-        id: string;
-        name: string;
-        attempts: number;
-        defeated: boolean;
-    }>;
-    customTrackers: Array<{
-        id: string;
-        name: string;
-        total: number;
-        current: number;
-        color: string;
-    }>;
 }
 
 export interface EldenRingProgress extends GameSpecificProgress {
@@ -168,19 +133,6 @@ export interface EldenRingProgress extends GameSpecificProgress {
         faith: number;
         arcane: number;
     };
-    bossesAttempts: Array<{
-        id: string;
-        name: string;
-        attempts: number;
-        defeated: boolean;
-    }>;
-    customTrackers: Array<{
-        id: string;
-        name: string;
-        total: number;
-        current: number;
-        color: string;
-    }>;
 }
 
 export interface DemonsSoulsProgress extends GameSpecificProgress {
@@ -201,19 +153,6 @@ export interface DemonsSoulsProgress extends GameSpecificProgress {
         faith: number;
         luck: number;
     };
-    bossesAttempts: Array<{
-        id: string;
-        name: string;
-        attempts: number;
-        defeated: boolean;
-    }>;
-    customTrackers: Array<{
-        id: string;
-        name: string;
-        total: number;
-        current: number;
-        color: string;
-    }>;
 }
 
 const DarkSouls1KeyToStatName: Record<string, string> = {

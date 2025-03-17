@@ -2,7 +2,7 @@
 import { RotateCcw } from 'lucide-react'
 import React from 'react'
 
-import { Button } from './ui/button'
+import { Button } from '@/components/ui/button';
 import {
     AlertDialog,
     AlertDialogAction,
@@ -15,7 +15,7 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-import { useProgress } from './ProgressProvider';
+import { useProgress } from '@/components/ProgressProvider';
 
 const ResetProgressButton = () => {
     const { resetProgress, isSharedLink } = useProgress();

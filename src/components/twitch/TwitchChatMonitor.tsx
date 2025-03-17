@@ -2,9 +2,9 @@
 'use client';
 import { memo, useRef, useEffect, useState } from 'react';
 import ComfyJS from 'comfy.js';
-import { useProgress } from './ProgressProvider';
-import { useChatCommands } from '../hooks/useChatCommands';
-import { getChatCommands } from '../utils/chatCommands';
+import { useProgress } from '../ProgressProvider';
+import { useChatCommands } from '../../hooks/useChatCommands';
+import { getChatCommands } from '../../utils/chatCommands';
 
 // This component is memoized to prevent re-renders when progress changes
 export const TwitchChatMonitor = memo(function TwitchChatMonitor() {

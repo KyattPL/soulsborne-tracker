@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useProgress } from './ProgressProvider';
+import { useProgress } from '../ProgressProvider';
 
 const TwitchConnectButton = () => {
     const { isTwitchConnected, twitchChannel, isSharedLink, setIsTwitchConnected, setTwitchChannel } = useProgress();
