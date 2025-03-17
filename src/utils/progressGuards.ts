@@ -130,5 +130,10 @@ export const updatePlayerStatGuarded = (stat: string, progress: AllGameProgress,
 
 export const getEqItemIdGuarded = (progress: AllGameProgress, slotKey: string): string => {
     if (isDarkSouls1Progress(progress)) return progress.equipment?.[slotKey] || "none";
+    if (isDarkSouls2Progress(progress)) return progress.equipment?.[slotKey] || "none";
+    if (isDarkSouls3Progress(progress)) return progress.equipment?.[slotKey] || "none";
+    if (isDemonsSoulsProgress(progress)) return progress.equipment?.[slotKey] || "none";
+    if (isBloodborneProgress(progress)) return progress.equipment?.[slotKey] || "none";
+    if (isEldenRingProgress(progress)) return progress.equipment?.[slotKey] || "none";
     return "BAD_SLOT_KEY";
 }

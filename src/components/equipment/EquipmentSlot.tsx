@@ -62,7 +62,7 @@ export default function EquipmentSlot({ gameKey, slotKey, label, category }: Equ
                             className={`flex-1 justify-between bg-zinc-700/30 border-zinc-600/50 hover:bg-zinc-600/50 hover:text-zinc-200
                 ${isSharedLink ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
-                            <span className="truncate">
+                            <span className="truncate text-zinc-200">
                                 {currentItem?.name || 'None'}
                             </span>
                             <ChevronDown size={16} />

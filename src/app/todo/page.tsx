@@ -9,11 +9,8 @@ export default function Todo() {
                         Overall:
                     </h2>
                     <ul className="list-disc list-inside text-2xl">
-                        <li>Covenants ? (which one is active)</li>
-                        <li>Gathered items (A LOT of work for that, that includes spells/weapons/rings/items etc.)</li>
                         <li>NPCs met / missions</li>
                         <li>Bonfire / lantern / archstone tracking</li>
-                        <li>Worn rings</li>
                         <li>Popup to clarify when connected to Twitch</li>
                     </ul>
                 </div>
@@ -33,7 +30,6 @@ export default function Todo() {
                     <ul className="list-disc list-inside text-2xl">
                         <li>Handle chalice dungeons</li>
                         <li>Track blood gems</li>
-                        <li>Caryll runes (similar to rings in souls)</li>
                     </ul>
                 </div>
                 <div>

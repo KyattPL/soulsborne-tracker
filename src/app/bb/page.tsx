@@ -13,6 +13,7 @@ import SaveProgressButton from '@/components/buttons/SaveProgressButton';
 import ResetProgressButton from '@/components/buttons/ResetProgressButton';
 import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
+import Equipment from '@/components/equipment/Equipment';
 
 export default function BBPage() {
 
@@ -59,6 +60,9 @@ export default function BBPage() {
                                 <TabsTrigger value="maps" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Maps
                                 </TabsTrigger>
+                                <TabsTrigger value="equipment" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Equipment
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -90,8 +94,17 @@ export default function BBPage() {
                                 </Card>
                             </TabsContent>
 
+                            {/* Equipment Tab */}
+                            <TabsContent value="equipment" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading equipment...</div>}>
+                                    <ScrollableCard title="Equipment">
+                                        <Equipment gameKey='bb' />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
                             {/* Custom Tab */}
-                            <TabsContent value="custom" className="mt-0">
+                            <TabsContent value="custom" className="mt-2">
                                 <ScrollableCard title="Custom Trackers">
                                     <Suspense fallback={<div>Loading Trackers...</div>}>
                                         <CustomTrackers />

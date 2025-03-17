@@ -104,7 +104,7 @@ export default function DS1Page() {
                             </TabsContent>
 
                             {/* Custom Tab */}
-                            <TabsContent value="custom" className="mt-0">
+                            <TabsContent value="custom" className="mt-2">
                                 <ScrollableCard title="Custom Trackers">
                                     <Suspense fallback={<div>Loading Trackers...</div>}>
                                         <CustomTrackers />

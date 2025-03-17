@@ -1,4 +1,7 @@
-import { DarkSouls1Equipment } from "./equipment.types";
+import {
+    DarkSouls1Equipment, DarkSouls2Equipment, DarkSouls3Equipment,
+    DemonsSoulsEquipment, BloodborneEquipment, EldenRingEquipment
+} from "./equipment.types";
 
 export type GameTitle =
     | 'Dark Souls 1'
@@ -53,6 +56,7 @@ export interface DarkSouls1Progress extends GameSpecificProgress {
 
 export interface DarkSouls2Progress extends GameSpecificProgress {
     game: 'Dark Souls 2';
+    equipment: DarkSouls2Equipment;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
@@ -75,6 +79,7 @@ export interface DarkSouls2Progress extends GameSpecificProgress {
 
 export interface DarkSouls3Progress extends GameSpecificProgress {
     game: 'Dark Souls 3';
+    equipment: DarkSouls3Equipment;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
@@ -97,6 +102,7 @@ export interface DarkSouls3Progress extends GameSpecificProgress {
 
 export interface BloodborneProgress extends GameSpecificProgress {
     game: 'Bloodborne';
+    equipment: BloodborneEquipment;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
@@ -115,6 +121,7 @@ export interface BloodborneProgress extends GameSpecificProgress {
 
 export interface EldenRingProgress extends GameSpecificProgress {
     game: 'Elden Ring';
+    equipment: EldenRingEquipment;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
@@ -137,6 +144,7 @@ export interface EldenRingProgress extends GameSpecificProgress {
 
 export interface DemonsSoulsProgress extends GameSpecificProgress {
     game: "Demon's Souls";
+    equipment: DemonsSoulsEquipment;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
