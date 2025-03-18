@@ -1,0 +1,402 @@
+[
+    {
+        "id": "Dagger",
+        "name": "Dagger",
+        "category": "Daggers"
+    },
+    {
+        "id": "Parrying+Dagger",
+        "name": "Parrying Dagger",
+        "category": "Daggers"
+    },
+    {
+        "id": "Secret+Dagger",
+        "name": "Secret Dagger",
+        "category": "Daggers"
+    },
+    {
+        "id": "Baby's+Nail",
+        "name": "Baby's Nail",
+        "category": "Daggers"
+    },
+    {
+        "id": "Blueblood+Sword",
+        "name": "Blueblood Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Broad+Sword",
+        "name": "Broad Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Broken+Sword",
+        "name": "Broken Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Long+Sword",
+        "name": "Long Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Knight+Sword",
+        "name": "Knight Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Kris+Blade",
+        "name": "Kris Blade",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Penetrating+Sword",
+        "name": "Penetrating Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Rune+Sword",
+        "name": "Rune Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Short+Sword",
+        "name": "Short Sword",
+        "category": "Straight Swords"
+    },
+    {
+        "id": "Bastard+Sword",
+        "name": "Bastard Sword",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Claymore",
+        "name": "Claymore",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Demonbrandt",
+        "name": "Demonbrandt",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Flamberge",
+        "name": "Flamberge",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Large+Sword+of+Moonlight",
+        "name": "Large Sword of Moonlight",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Northern+Regalia",
+        "name": "Northern Regalia",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Morion+Blade",
+        "name": "Morion Blade",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Soulbrandt",
+        "name": "Soulbrandt",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Storm+Ruler",
+        "name": "Storm Ruler",
+        "category": "Large Swords"
+    },
+    {
+        "id": "Dragon+Bone+Smasher",
+        "name": "Dragon Bone Smasher",
+        "category": "Very Large Swords"
+    },
+    {
+        "id": "Great+Sword",
+        "name": "Great Sword",
+        "category": "Very Large Swords"
+    },
+    {
+        "id": "Blind",
+        "name": "Blind",
+        "category": "Curved Swords"
+    },
+    {
+        "id": "Falchion",
+        "name": "Falchion",
+        "category": "Curved Swords"
+    },
+    {
+        "id": "Kilij",
+        "name": "Kilij",
+        "category": "Curved Swords"
+    },
+    {
+        "id": "Large+Sword+of+Searching",
+        "name": "Large Sword of Searching",
+        "category": "Curved Swords"
+    },
+    {
+        "id": "Scimitar",
+        "name": "Scimitar",
+        "category": "Curved Swords"
+    },
+    {
+        "id": "Shotel",
+        "name": "Shotel",
+        "category": "Curved Swords"
+    },
+    {
+        "id": "Hiltless",
+        "name": "Hiltless",
+        "category": "Katanas"
+    },
+    {
+        "id": "Magic+Sword+Makoto",
+        "name": "Magic Sword \"Makoto\"",
+        "category": "Katanas"
+    },
+    {
+        "id": "Uchigatana",
+        "name": "Uchigatana",
+        "category": "Katanas"
+    },
+    {
+        "id": "Epee+Rapier",
+        "name": "Epee Rapier",
+        "category": "Thrusting Swords"
+    },
+    {
+        "id": "Estoc",
+        "name": "Estoc",
+        "category": "Thrusting Swords"
+    },
+    {
+        "id": "Geri's+Stiletto",
+        "name": "Geri's Stiletto",
+        "category": "Thrusting Swords"
+    },
+    {
+        "id": "Needle+of+Eternal+Agony",
+        "name": "Needle of Eternal Agony",
+        "category": "Thrusting Swords"
+    },
+    {
+        "id": "Mail+Breaker",
+        "name": "Mail Breaker",
+        "category": "Thrusting Swords"
+    },
+    {
+        "id": "Rapier",
+        "name": "Rapier",
+        "category": "Thrusting Swords"
+    },
+    {
+        "id": "Spiral+Rapier",
+        "name": "Spiral Rapier",
+        "category": "Thrusting Swords"
+    },
+    {
+        "id": "Battle+Axe",
+        "name": "Battle Axe",
+        "category": "Axes"
+    },
+    {
+        "id": "Guillotine+Axe",
+        "name": "Guillotine Axe",
+        "category": "Axes"
+    },
+    {
+        "id": "Crescent+Axe",
+        "name": "Crescent Axe",
+        "category": "Large Axes"
+    },
+    {
+        "id": "Dozer+Axe",
+        "name": "Dozer Axe",
+        "category": "Large Axes"
+    },
+    {
+        "id": "Great+Axe",
+        "name": "Great Axe",
+        "category": "Large Axes"
+    },
+    {
+        "id": "Ritual+Blade",
+        "name": "Ritual Blade",
+        "category": "Large Axes"
+    },
+    {
+        "id": "Club",
+        "name": "Club",
+        "category": "Hammers"
+    },
+    {
+        "id": "Mace",
+        "name": "Mace",
+        "category": "Hammers"
+    },
+    {
+        "id": "Morning+Star",
+        "name": "Morning Star",
+        "category": "Hammers"
+    },
+    {
+        "id": "Pickaxe",
+        "name": "Pickaxe",
+        "category": "Hammers"
+    },
+    {
+        "id": "War+Pick",
+        "name": "War Pick",
+        "category": "Hammers"
+    },
+    {
+        "id": "Bramd",
+        "name": "Bramd",
+        "category": "Large Hammers"
+    },
+    {
+        "id": "Great+Club",
+        "name": "Great Club",
+        "category": "Large Hammers"
+    },
+    {
+        "id": "Meat+Cleaver",
+        "name": "Meat Cleaver",
+        "category": "Large Hammers"
+    },
+    {
+        "id": "Claws",
+        "name": "Claws",
+        "category": "Fist Weapons"
+    },
+    {
+        "id": "Hands+of+God",
+        "name": "Hands of God",
+        "category": "Fist Weapons"
+    },
+    {
+        "id": "Iron+Knuckles",
+        "name": "Iron Knuckles",
+        "category": "Fist Weapons"
+    },
+    {
+        "id": "Istarelle",
+        "name": "Istarelle",
+        "category": "Spears"
+    },
+    {
+        "id": "Scraping+Spear",
+        "name": "Scraping Spear",
+        "category": "Spears"
+    },
+    {
+        "id": "Short+Spear",
+        "name": "Short Spear",
+        "category": "Spears"
+    },
+    {
+        "id": "Winged+Spear",
+        "name": "Winged Spear",
+        "category": "Spears"
+    },
+    {
+        "id": "Halberd",
+        "name": "Halberd",
+        "category": "Polearms"
+    },
+    {
+        "id": "Mirdan+Hammer",
+        "name": "Mirdan Hammer",
+        "category": "Polearms"
+    },
+    {
+        "id": "Phosphorescent+Pole",
+        "name": "Phosphorescent Pole",
+        "category": "Polearms"
+    },
+    {
+        "id": "War+Scythe",
+        "name": "War Scythe",
+        "category": "Polearms"
+    },
+    {
+        "id": "Reaper+Scythe",
+        "name": "Reaper Scythe",
+        "category": "Polearms"
+    },
+    {
+        "id": "Compound+Long+Bow",
+        "name": "Compound Long Bow",
+        "category": "Bows"
+    },
+    {
+        "id": "Compound+Short+Bow",
+        "name": "Compound Short Bow",
+        "category": "Bows"
+    },
+    {
+        "id": "Lava+Bow",
+        "name": "Lava Bow",
+        "category": "Bows"
+    },
+    {
+        "id": "Long+Bow",
+        "name": "Long Bow",
+        "category": "Bows"
+    },
+    {
+        "id": "Short+Bow",
+        "name": "Short Bow",
+        "category": "Bows"
+    },
+    {
+        "id": "White+Bow",
+        "name": "White Bow",
+        "category": "Bows"
+    },
+    {
+        "id": "Gargoyle+Crossbow",
+        "name": "Gargoyle Crossbow",
+        "category": "Crossbows"
+    },
+    {
+        "id": "Heavy+Crossbow",
+        "name": "Heavy Crossbow",
+        "category": "Crossbows"
+    },
+    {
+        "id": "Light+Crossbow",
+        "name": "Light Crossbow",
+        "category": "Crossbows"
+    },
+    {
+        "id": "Insanity+Catalyst",
+        "name": "Insanity Catalyst",
+        "category": "Catalysts"
+    },
+    {
+        "id": "Silver+Catalyst",
+        "name": "Silver Catalyst",
+        "category": "Catalysts"
+    },
+    {
+        "id": "Wooden+Catalyst",
+        "name": "Wooden Catalyst",
+        "category": "Catalysts"
+    },
+    {
+        "id": "Talisman+of+Beasts",
+        "name": "Talisman of Beasts",
+        "category": "Talismans"
+    },
+    {
+        "id": "Talisman+of+God",
+        "name": "Talisman of God",
+        "category": "Talismans"
+    }
+]
