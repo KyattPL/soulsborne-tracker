@@ -1,13 +1,13 @@
 // equipmentImageTest.ts
 import fs from 'fs';
 import path from 'path';
-import { DES_EQ_ITEMS } from '../data/equipment/des_eq';
+import { DS1_EQ_ITEMS } from '../data/equipment/ds1_eq';
 
-const EXPECTED_PATH = 'public/images/des/eqItems';
+const EXPECTED_PATH = 'public/images/ds1/eqItems';
 
 function testEquipmentImages() {
     // Get all equipment items from your dataset
-    const allItems = DES_EQ_ITEMS;
+    const allItems = DS1_EQ_ITEMS;
     const missingImagesByCategory: Record<string, Array<{ id: string, name: string }>> = {};
     const publicDir = path.join(process.cwd(), EXPECTED_PATH);
 
