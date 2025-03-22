@@ -57,7 +57,7 @@ export default function EquipmentSlot({ gameKey, slotKey, label, category }: Equ
                 <div className={`w-12 h-12 bg-zinc-700/50 rounded-md overflow-hidden flex items-center justify-center`}>
                     {currentItemId && currentItemId !== 'none' ? (
                         <Image
-                            src={`/soulsborne-tracker/images/${gameKey}/eqItems/${category}_${currentItemId}.jpg`}
+                            src={`/soulsborne-tracker/images/${gameKey}/eqItems/${category}/${currentItemId}.jpg`}
                             alt={`${label} icon`}
                             width={48}
                             height={48}

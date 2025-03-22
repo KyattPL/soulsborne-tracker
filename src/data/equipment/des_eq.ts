@@ -89,11 +89,10 @@ const weapons: EquipmentItem[] = [
 ];
 
 const shields: EquipmentItem[] = [
-    { "id": "buckler", "name": "Buckler", "category": "weapon" },
+    { "id": "buckler-shield", "name": "Buckler", "category": "weapon" },
     { "id": "leather-shield", "name": "Leather Shield", "category": "weapon" },
     { "id": "rune-shield", "name": "Rune Shield", "category": "weapon" },
     { "id": "dregling-shield", "name": "Dregling Shield", "category": "weapon" },
-    { "id": "slave's-shield", "name": "Slave's Shield", "category": "weapon" },
     { "id": "soldier's-shield", "name": "Soldier's Shield", "category": "weapon" },
     { "id": "wooden-shield", "name": "Wooden Shield", "category": "weapon" },
     { "id": "dark-silver-shield", "name": "Dark Silver Shield", "category": "weapon" },
@@ -115,7 +114,7 @@ const spells: EquipmentItem[] = [
     { "id": "curse-weapon", "name": "Curse Weapon", "category": "spells" },
     { "id": "death-cloud", "name": "Death Cloud", "category": "spells" },
     { "id": "enchant-weapon", "name": "Enchant Weapon", "category": "spells" },
-    { "id": "demon's-prank", "name": "Familiar's Prank", "category": "spells" },
+    { "id": "familiars-prank", "name": "Familiar's Prank", "category": "spells" },
     { "id": "fireball", "name": "Fireball", "category": "spells" },
     { "id": "fire-spray", "name": "Fire Spray", "category": "spells" },
     { "id": "firestorm", "name": "Firestorm", "category": "spells" },

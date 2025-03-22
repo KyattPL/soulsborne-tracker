@@ -242,12 +242,6 @@ const DarkSouls3Sections: EquipmentSection[] = [
 
 const DemonsSoulsSections: EquipmentSection[] = [
     {
-        category: 'covenant',
-        slots: [
-            { key: 'covenant', label: 'Covenant' }
-        ],
-    },
-    {
         category: 'weapon',
         slots: [
             { key: 'left1', label: 'Left 1' },
@@ -567,7 +561,6 @@ export interface DarkSouls3Equipment {
 
 export interface DemonsSoulsEquipment {
     [key: string]: string | undefined;
-    covenant?: string;
     left1?: string;
     left2?: string;
     right1?: string;
