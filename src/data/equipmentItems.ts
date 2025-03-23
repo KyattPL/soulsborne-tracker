@@ -1,6 +1,7 @@
 import { DES_EQ_ITEMS } from "./equipment/des_eq";
 import { DS1_EQ_ITEMS } from "./equipment/ds1_eq";
 import { DS2_EQ_ITEMS } from "./equipment/ds2_eq";
+import { DS3_EQ_ITEMS } from "./equipment/ds3_eq";
 
 export interface EquipmentItem {
     id: string;
@@ -8,11 +9,6 @@ export interface EquipmentItem {
     category: 'covenant' | 'weapon' | 'firearm' | 'rune' | 'armor' | 'consumables' | 'arrows' | 'bolts' | 'rings' | 'spells' | 'talisman' | 'spiritAsh';
     optionalKey?: 'armorHead' | 'armorChest' | 'armorArms' | 'armorLegs';
 }
-
-const DS3_EQ_ITEMS: Array<EquipmentItem> = [
-    { id: 'homeward-bone', name: 'Homeward bone', category: 'consumables' },
-    { id: 'crown-of-dusk', name: 'Crown of Dusk', category: 'armor', optionalKey: 'armorHead' }
-];
 
 const BB_EQ_ITEMS: Array<EquipmentItem> = [
     { id: 'homeward-bone', name: 'Homeward bone', category: 'consumables' },
