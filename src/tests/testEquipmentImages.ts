@@ -50,6 +50,10 @@ function testEquipmentImages() {
 
         // Print results by category
         Object.entries(missingImagesByCategory).forEach(([category, items]) => {
+            // if (category !== 'armor') {
+            //     return;
+            // }
+
             console.error(`\n== CATEGORY: ${category.toUpperCase()} (${items.length} missing) ==`);
 
             items.forEach(item => {

@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:images": "ts-node --project tsconfig.tests.json ./src/tests/testEquipmentImages.ts",
-    "test": "npm run test:images"
+    "test:items-to-images": "ts-node --project tsconfig.tests.json ./src/tests/testEquipmentImages.ts",
+    "test:images-to-items": "ts-node --project tsconfig.tests.json ./src/tests/testImageToItemMatch.ts",
+    "test": "npm run test:items-to-images && npm run test:images-to-items"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
