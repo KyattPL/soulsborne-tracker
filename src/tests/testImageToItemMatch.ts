@@ -2,13 +2,13 @@
 import fs from 'fs';
 import path from 'path';
 import { EquipmentItem } from '../data/equipmentItems';
-import { DS2_EQ_ITEMS } from '../data/equipment/ds2_eq';
+import { DS3_EQ_ITEMS } from '../data/equipment/ds3_eq';
 
-const EXPECTED_PATH = 'public/images/ds2/eqItems';
+const EXPECTED_PATH = 'public/images/ds3/eqItems';
 
 function testImagesMatchItems() {
     // Get all equipment items from your dataset
-    const allItems: EquipmentItem[] = DS2_EQ_ITEMS;
+    const allItems: EquipmentItem[] = DS3_EQ_ITEMS;
     const allItemIds = new Set(allItems.map(item => item.id));
 
     const publicDir = path.join(process.cwd(), EXPECTED_PATH);

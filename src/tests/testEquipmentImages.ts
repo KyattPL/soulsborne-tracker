@@ -1,13 +1,13 @@
 // equipmentImageTest.ts
 import fs from 'fs';
 import path from 'path';
-import { DS2_EQ_ITEMS } from '../data/equipment/ds2_eq';
+import { DS3_EQ_ITEMS } from '../data/equipment/ds3_eq';
 
-const EXPECTED_PATH = 'public/images/ds2/eqItems';
+const EXPECTED_PATH = 'public/images/ds3/eqItems';
 
 function testEquipmentImages() {
     // Get all equipment items from your dataset
-    const allItems = DS2_EQ_ITEMS;
+    const allItems = DS3_EQ_ITEMS;
     const missingImagesByCategory: Record<string, Array<{ id: string, name: string }>> = {};
     const publicDir = path.join(process.cwd(), EXPECTED_PATH);
 
@@ -50,9 +50,9 @@ function testEquipmentImages() {
 
         // Print results by category
         Object.entries(missingImagesByCategory).forEach(([category, items]) => {
-            // if (category !== 'armor') {
-            //     return;
-            // }
+            if (category !== 'armor') {
+                return;
+            }
 
             console.error(`\n== CATEGORY: ${category.toUpperCase()} (${items.length} missing) ==`);
 
