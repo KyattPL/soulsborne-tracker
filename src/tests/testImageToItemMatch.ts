@@ -1,17 +1,17 @@
 // src/tests/testImageToItemMatch.ts
 import fs from 'fs';
 import path from 'path';
-import { EquipmentItem } from '@/data/equipmentItems';
-import { DES_EQ_ITEMS } from '@/data/equipment/des_eq';
+import { EquipmentItem } from '../data/equipmentItems';
+import { DS2_EQ_ITEMS } from '../data/equipment/ds2_eq';
 
-const PATH = 'public/images/des/eqItems';
+const EXPECTED_PATH = 'public/images/ds2/eqItems';
 
 function testImagesMatchItems() {
     // Get all equipment items from your dataset
-    const allItems: EquipmentItem[] = DES_EQ_ITEMS;
+    const allItems: EquipmentItem[] = DS2_EQ_ITEMS;
     const allItemIds = new Set(allItems.map(item => item.id));
 
-    const publicDir = path.join(process.cwd(), PATH);
+    const publicDir = path.join(process.cwd(), EXPECTED_PATH);
     const unmatchedImagesByCategory: Record<string, string[]> = {};
 
     // Read all categories in the images directory
@@ -47,7 +47,7 @@ function testImagesMatchItems() {
 
             images.forEach(imageId => {
                 console.error(`- Missing item for image: ${imageId}`);
-                console.error(`  Image path: ${PATH}/${category}/${imageId}.jpg`);
+                console.error(`  Image path: ${EXPECTED_PATH}/${category}/${imageId}.jpg`);
             });
         });
 
