@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 # Set the folder path
-folder_path = r"F:\WWW-dev\soulsborne-tracker\public\images\ds3\eqItems\armor"
+folder_path = r"F:\WWW-dev\soulsborne-tracker\public\images\bb\eqItems\armor"
 output_folder = os.path.join(folder_path, "converted_jpgs")
 
 # Create output folder if it doesn't exist
