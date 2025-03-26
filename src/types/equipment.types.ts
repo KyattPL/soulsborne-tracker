@@ -351,7 +351,7 @@ const BloodborneSections: EquipmentSection[] = [
         ]
     },
     {
-        category: 'runes',
+        category: 'rune',
         slots: [
             { key: 'rune1', label: 'Caryll rune 1' },
             { key: 'rune2', label: 'Caryll rune 2' },
@@ -422,7 +422,7 @@ const EldenRingSections: EquipmentSection[] = [
         ]
     },
     {
-        category: 'talismans',
+        category: 'talisman',
         slots: [
             { key: 'talisman1', label: 'Talisman 1' },
             { key: 'talisman2', label: 'Talisman 2' },

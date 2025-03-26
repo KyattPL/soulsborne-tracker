@@ -1783,10 +1783,7 @@ const chests: EquipmentItem[] = [
 ];
 
 const gauntlets: EquipmentItem[] = [
-    { "id": "dryleaf-robe", "name": "Dryleaf Robe", "category": "armor", "optionalKey": "armorArms" },
-    { "id": "dryleaf-robe-altered", "name": "Dryleaf Robe (Altered)", "category": "armor", "optionalKey": "armorArms" },
     { "id": "gaiuss-gauntlets", "name": "Gaius's Gauntlets", "category": "armor", "optionalKey": "armorArms" },
-    { "id": "ledas-armor", "name": "Leda's Armor", "category": "armor", "optionalKey": "armorArms" },
     { "id": "oathseeker-knight-gauntlets", "name": "Oathseeker Knight Gauntlets", "category": "armor", "optionalKey": "armorArms" },
     { "id": "verdigris-gauntlets", "name": "Verdigris Gauntlets", "category": "armor", "optionalKey": "armorArms" },
     { "id": "iron-rivet-gauntlets", "name": "Iron Rivet Gauntlets", "category": "armor", "optionalKey": "armorArms" },
@@ -1912,10 +1909,7 @@ const gauntlets: EquipmentItem[] = [
 ];
 
 const leggings: EquipmentItem[] = [
-    { "id": "dryleaf-robe", "name": "Dryleaf Robe", "category": "armor", "optionalKey": "armorLegs" },
-    { "id": "dryleaf-robe-altered", "name": "Dryleaf Robe (Altered)", "category": "armor", "optionalKey": "armorLegs" },
     { "id": "gaiuss-greaves", "name": "Gaius's Greaves", "category": "armor", "optionalKey": "armorLegs" },
-    { "id": "ledas-armor", "name": "Leda's Armor", "category": "armor", "optionalKey": "armorLegs" },
     { "id": "oathseeker-knight-greaves", "name": "Oathseeker Knight Greaves", "category": "armor", "optionalKey": "armorLegs" },
     { "id": "verdigris-greaves", "name": "Verdigris Greaves", "category": "armor", "optionalKey": "armorLegs" },
     { "id": "iron-rivet-greaves", "name": "Iron Rivet Greaves", "category": "armor", "optionalKey": "armorLegs" },
