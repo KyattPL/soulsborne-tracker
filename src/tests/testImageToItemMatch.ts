@@ -2,13 +2,13 @@
 import fs from 'fs';
 import path from 'path';
 import { EquipmentItem } from '../data/equipmentItems';
-import { BB_EQ_ITEMS } from '../data/equipment/bb_eq';
+import { ELDEN_EQ_ITEMS } from '../data/equipment/elden_eq';
 
-const EXPECTED_PATH = 'public/images/bb/eqItems';
+const EXPECTED_PATH = 'public/images/elden/eqItems';
 
 function testImagesMatchItems() {
     // Get all equipment items from your dataset
-    const allItems: EquipmentItem[] = BB_EQ_ITEMS;
+    const allItems: EquipmentItem[] = ELDEN_EQ_ITEMS;
     const allItemIds = new Set(allItems.map(item => item.id));
 
     const publicDir = path.join(process.cwd(), EXPECTED_PATH);

@@ -1,13 +1,13 @@
 // equipmentImageTest.ts
 import fs from 'fs';
 import path from 'path';
-import { BB_EQ_ITEMS } from '../data/equipment/bb_eq';
+import { ELDEN_EQ_ITEMS } from '../data/equipment/elden_eq';
 
-const EXPECTED_PATH = 'public/images/bb/eqItems';
+const EXPECTED_PATH = 'public/images/elden/eqItems';
 
 function testEquipmentImages() {
     // Get all equipment items from your dataset
-    const allItems = BB_EQ_ITEMS;
+    const allItems = ELDEN_EQ_ITEMS;
     const missingImagesByCategory: Record<string, Array<{ id: string, name: string }>> = {};
     const publicDir = path.join(process.cwd(), EXPECTED_PATH);
 
@@ -50,9 +50,9 @@ function testEquipmentImages() {
 
         // Print results by category
         Object.entries(missingImagesByCategory).forEach(([category, items]) => {
-            // if (category !== 'armor') {
-            //     return;
-            // }
+            if (category !== 'weapon') {
+                return;
+            }
 
             console.error(`\n== CATEGORY: ${category.toUpperCase()} (${items.length} missing) ==`);
 
