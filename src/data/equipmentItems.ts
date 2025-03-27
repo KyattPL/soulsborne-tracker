@@ -12,7 +12,7 @@ export interface EquipmentItem {
     optionalKey?: 'armorHead' | 'armorChest' | 'armorArms' | 'armorLegs';
 }
 
-export const items: Record<string, Array<EquipmentItem>> = {
+export const EQ_ITEMS: Record<string, Array<EquipmentItem>> = {
     'ds1': DS1_EQ_ITEMS,
     'ds2': DS2_EQ_ITEMS,
     'ds3': DS3_EQ_ITEMS,

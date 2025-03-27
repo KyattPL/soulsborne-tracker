@@ -1,15 +1,15 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { ChevronRight, Copy, Terminal, Award, Info } from 'lucide-react';
+import { ChevronRight, Terminal, Award, Info, Package } from 'lucide-react';
 
-import { bosses } from '@/data/bosses';
-import { DEFAULT_PROGRESSES } from '@/data/defaultProgresses';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import BossList from './BossList';
+import StatsInfo from './StatsInfo';
+import EquipmentList from './EquipmentList';
 
 const SCROLL_OFFSET_PX = 50;
 
@@ -60,131 +60,8 @@ export default function CommandsPage() {
         setTimeout(() => setCopiedText(''), 2000);
     };
 
-    const renderBossList = (gameId: string) => {
-        const gameBosses = bosses[gameId] || [];
-        return (
-            <div className="space-y-4">
-                <div className="flex justify-between mb-4">
-                    <h3 className="text-lg font-medium text-amber-300">Total bosses: {gameBosses.length}</h3>
-                    <Button
-                        variant="outline"
-                        size="sm"
-                        className="text-xs text-zinc-200 bg-zinc-700 border-zinc-800"
-                        onClick={() => copyToClipboard(JSON.stringify(gameBosses), 'bosses')}
-                    >
-                        <Copy className="w-3 h-3 mr-1" />
-                        {copiedText === 'bosses' ? 'Copied!' : 'Copy all'}
-                    </Button>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {gameBosses.map((boss) => (
-                        <div key={boss.id} className="bg-zinc-800/50 p-3 rounded border border-zinc-700/50 flex justify-between items-center">
-                            <div>
-                                <p className="font-medium text-zinc-200">{boss.name}</p>
-                                <p className="text-xs text-zinc-400">{boss.location}</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <code className="bg-zinc-900 text-amber-300 px-2 py-1 rounded text-xs">{boss.id}</code>
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="h-7 w-7 p-0"
-                                    onClick={() => copyToClipboard(boss.id, `boss-${boss.id}`)}
-                                >
-                                    <Copy className="h-3 w-3" />
-                                </Button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        );
-    };
-
-    const renderStatsInfo = (gameId: string) => {
-        const gameProgress = DEFAULT_PROGRESSES[gameId];
-        if (!gameProgress) return <p>No stats available</p>;
-
-        const { playerStats, charStats } = gameProgress;
-
-        return (
-            <div className="space-y-6">
-                <div>
-                    <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-lg font-medium text-amber-300">Player Stats</h3>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            className="text-xs text-zinc-200 bg-zinc-700 border-zinc-800"
-                            onClick={() => copyToClipboard(JSON.stringify(playerStats), 'playerStats')}
-                        >
-                            <Copy className="w-3 h-3 mr-1" />
-                            {copiedText === 'playerStats' ? 'Copied!' : 'Copy keys'}
-                        </Button>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {Object.keys(playerStats).filter(key => key !== 'game').map((statKey) => (
-                            <div key={statKey} className="bg-zinc-800/50 p-3 rounded border border-zinc-700/50 flex justify-between items-center">
-                                <div className="text-zinc-200 capitalize">
-                                    {statKey.replace(/([A-Z])/g, ' $1').trim()}
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <code className="bg-zinc-900 text-amber-300 px-2 py-1 rounded text-xs">{statKey}</code>
-                                    <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        className="h-7 w-7 p-0"
-                                        onClick={() => copyToClipboard(statKey, `stat-${statKey}`)}
-                                    >
-                                        <Copy className="h-3 w-3" />
-                                    </Button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div>
-                    <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-lg font-medium text-amber-300">Character Stats</h3>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            className="text-xs text-zinc-200 bg-zinc-700 border-zinc-800"
-                            onClick={() => copyToClipboard(JSON.stringify(charStats), 'charStats')}
-                        >
-                            <Copy className="w-3 h-3 mr-1" />
-                            {copiedText === 'charStats' ? 'Copied!' : 'Copy keys'}
-                        </Button>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {Object.keys(charStats).map((statKey) => (
-                            <div key={statKey} className="bg-zinc-800/50 p-3 rounded border border-zinc-700/50 flex justify-between items-center">
-                                <div className="text-zinc-200 capitalize">
-                                    {statKey.replace(/([A-Z])/g, ' $1').trim()}
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <code className="bg-zinc-900 text-amber-300 px-2 py-1 rounded text-xs">{statKey}</code>
-                                    <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        className="h-7 w-7 p-0"
-                                        onClick={() => copyToClipboard(statKey, `char-${statKey}`)}
-                                    >
-                                        <Copy className="h-3 w-3" />
-                                    </Button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        );
-    };
-
     return (
-        <ScrollArea type="auto" ref={contentRef} onScrollCapture={checkScroll}>
+        <ScrollArea type="auto" ref={contentRef} onScrollCapture={checkScroll} className='w-screen'>
             <div
                 className="absolute top-0 h-4 w-full bg-gradient-to-b from-black to-transparent pointer-events-none z-10 transition-opacity duration-300"
                 style={{ opacity: showTopGradient ? 1 : 0 }}
@@ -193,7 +70,7 @@ export default function CommandsPage() {
                 className="absolute bottom-0 h-4 w-full bg-gradient-to-t from-black to-transparent pointer-events-none z-10 transition-opacity duration-300"
                 style={{ opacity: showBottomGradient ? 1 : 0 }}
             />
-            <div className="container mx-auto py-8 px-4 space-y-8">
+            <div className="h-full w-2/3 mx-auto py-8 px-4 space-y-8">
                 <div className="text-center space-y-4 mb-8">
                     <h1 className="text-3xl font-bold">Twitch Commands Reference</h1>
                     <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
@@ -281,11 +158,11 @@ export default function CommandsPage() {
                         <CardTitle className="flex items-center">
                             <Info className="w-5 h-5 mr-2 text-amber-400" />
                             <span className='text-amber-500'>
-                                Command Reference
+                                IDs Reference
                             </span>
                         </CardTitle>
                         <CardDescription>
-                            Browse identifiers for bosses and stats by game
+                            Browse identifiers for bosses, stats and equipment by game
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -320,12 +197,22 @@ export default function CommandsPage() {
                                                 <ChevronRight className="w-4 h-4 mr-2" />
                                                 Stats
                                             </TabsTrigger>
+                                            <TabsTrigger
+                                                value="equipment"
+                                                className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
+                                            >
+                                                <Package className="w-4 h-4 mr-2" />
+                                                Equipment
+                                            </TabsTrigger>
                                         </TabsList>
                                         <TabsContent value="bosses" className="mt-4">
-                                            {renderBossList(gameId)}
+                                            <BossList gameId={gameId} copiedText={copiedText} copyToClipboard={copyToClipboard} />
                                         </TabsContent>
                                         <TabsContent value="stats" className="mt-4">
-                                            {renderStatsInfo(gameId)}
+                                            <StatsInfo gameId={gameId} copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                        </TabsContent>
+                                        <TabsContent value="equipment" className="mt-4">
+                                            <EquipmentList gameId={gameId} copiedText={copiedText} copyToClipboard={copyToClipboard} />
                                         </TabsContent>
                                     </Tabs>
                                 </TabsContent>

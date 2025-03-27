@@ -12,8 +12,8 @@ export default function Todo() {
                         <li>NPCs met / missions</li>
                         <li>Bonfire / lantern / archstone tracking</li>
                         <li>Popup to clarify when connected to Twitch</li>
-                        <li>/commands squished page</li>
                         <li>add tools & multiplayer to EQ items for consumables</li>
+                        <li>add commands for EQ</li>
                     </ul>
                 </div>
                 <div>
