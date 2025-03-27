@@ -14,6 +14,7 @@ import ResetProgressButton from '@/components/buttons/ResetProgressButton';
 import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
+import DesTendency from '@/components/DesTendency';
 
 export default function DESPage() {
 
@@ -63,6 +64,9 @@ export default function DESPage() {
                                 <TabsTrigger value="equipment" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Equipment
                                 </TabsTrigger>
+                                <TabsTrigger value="tendency" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Tendency
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -99,6 +103,15 @@ export default function DESPage() {
                                 <Suspense fallback={<div>Loading equipment...</div>}>
                                     <ScrollableCard title="Equipment">
                                         <Equipment gameKey='des' />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
+                            {/* Tendency Tab */}
+                            <TabsContent value="tendency" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading tendency...</div>}>
+                                    <ScrollableCard title="Tendency">
+                                        <DesTendency />
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>
