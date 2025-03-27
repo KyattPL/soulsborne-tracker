@@ -145,6 +145,7 @@ export interface EldenRingProgress extends GameSpecificProgress {
 export interface DemonsSoulsProgress extends GameSpecificProgress {
     game: "Demon's Souls";
     equipment: DemonsSoulsEquipment;
+    tendencies: Array<{ id: string; value: number }>;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;

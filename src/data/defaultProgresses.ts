@@ -125,6 +125,14 @@ const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
 const DES_DEFAULT_PROGRESS: DemonsSoulsProgress = {
     game: "Demon's Souls",
     equipment: {},
+    tendencies: [
+        { id: 'boletaria', value: 0 },
+        { id: 'stonefang', value: 0 },
+        { id: 'latria', value: 0 },
+        { id: 'storms', value: 0 },
+        { id: 'defilement', value: 0 },
+        { id: 'character', value: 0 }
+    ],
     playerStats: {
         soulLevel: 1,
         newGamePlusCount: 0,

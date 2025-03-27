@@ -4,6 +4,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, } from '@/com
 import { ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useProgress } from './ProgressProvider';
 import Image from 'next/image';
+import { isDemonsSoulsProgress } from '@/utils/progressGuards';
 
 const TENDENCY_REGIONS = [
     { id: 'boletaria', name: 'Boletarian Palace', archstone: 'Archstone of the Covetous King' },
@@ -27,7 +28,7 @@ export default function DesTendency() {
     const { progress, isSharedLink, updateProgress } = useProgress();
 
     const modifyTendency = (regionId: string, increment: boolean) => {
-        if (isSharedLink) return;
+        if (isSharedLink || !isDemonsSoulsProgress(progress)) return;
 
         const newTendencies = [...(progress.tendencies || [])];
         const existingIndex = newTendencies.findIndex(t => t.id === regionId);
@@ -57,6 +58,8 @@ export default function DesTendency() {
     };
 
     const getTendencyValue = (regionId: string): number => {
+        if (!isDemonsSoulsProgress(progress)) return 0;
+
         const tendency = progress.tendencies?.find(t => t.id === regionId);
         return tendency?.value || 0;
     };
