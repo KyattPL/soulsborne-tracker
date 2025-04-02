@@ -13,16 +13,7 @@ export default function Todo() {
                         <li>Bonfire / lantern / archstone tracking</li>
                         <li>Popup to clarify when connected to Twitch</li>
                         <li>add tools & multiplayer to EQ items for consumables</li>
-                        <li>add commands for EQ</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 className="text-6xl my-4">
-                        Demon&apos;s Souls:
-                    </h2>
-                    <ul className="list-disc list-inside text-2xl">
-                        <li>World tendency</li>
-                        <li>Character tendency (maybe displayed prettier idk)</li>
+                        <li>add commands for EQ / tendency</li>
                     </ul>
                 </div>
                 <div>
