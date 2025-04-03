@@ -79,6 +79,7 @@ const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
 const BB_DEFAULT_PROGRESS: BloodborneProgress = {
     game: 'Bloodborne',
     equipment: {},
+    chalices: [],
     bloodGems: {
         weapon: [{ type: null, gemId: null }, { type: null, gemId: null }, { type: null, gemId: null }],
         firearm: [{ type: null, gemId: null }]

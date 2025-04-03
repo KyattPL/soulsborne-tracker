@@ -1,3 +1,4 @@
+import { ChaliceName } from "@/data/chalices";
 import {
     DarkSouls1Equipment, DarkSouls2Equipment, DarkSouls3Equipment,
     DemonsSoulsEquipment, BloodborneEquipment, EldenRingEquipment
@@ -114,6 +115,7 @@ export interface BloodborneProgress extends GameSpecificProgress {
     game: 'Bloodborne';
     equipment: BloodborneEquipment;
     bloodGems: WeaponGems;
+    chalices: ChaliceName[];
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;

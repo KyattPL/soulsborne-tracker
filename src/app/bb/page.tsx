@@ -15,6 +15,7 @@ import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
 import BloodGemsTab from '@/components/BloodGems';
+import ChaliceDungeonMap from '@/components/ChaliceDungeonMap';
 
 export default function BBPage() {
 
@@ -67,6 +68,9 @@ export default function BBPage() {
                                 <TabsTrigger value="bloodGems" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Blood Gems
                                 </TabsTrigger>
+                                <TabsTrigger value="chalice" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Chalice Dungeons
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -112,6 +116,15 @@ export default function BBPage() {
                                 <Suspense fallback={<div>Loading blood gems...</div>}>
                                     <ScrollableCard title="Blood Gems">
                                         <BloodGemsTab />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
+                            {/* Chalice Dungeons Tab */}
+                            <TabsContent value="chalice" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading chalice dungeons...</div>}>
+                                    <ScrollableCard title="Chalice Dungeons">
+                                        <ChaliceDungeonMap />
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>
