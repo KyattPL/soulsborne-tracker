@@ -13,7 +13,7 @@ export default function Todo() {
                         <li>Bonfire / lantern / archstone tracking</li>
                         <li>Popup to clarify when connected to Twitch</li>
                         <li>add tools & multiplayer to EQ items for consumables</li>
-                        <li>add commands for EQ / tendency</li>
+                        <li>add commands for EQ / tendency / blood gems</li>
                     </ul>
                 </div>
                 <div>
@@ -22,7 +22,6 @@ export default function Todo() {
                     </h2>
                     <ul className="list-disc list-inside text-2xl">
                         <li>Handle chalice dungeons</li>
-                        <li>Track blood gems</li>
                     </ul>
                 </div>
                 <div>

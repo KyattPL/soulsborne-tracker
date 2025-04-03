@@ -100,9 +100,20 @@ export interface DarkSouls3Progress extends GameSpecificProgress {
     };
 }
 
+interface BloodGemSlot {
+    type: 'radial' | 'triangle' | 'waning' | 'circle' | null;
+    gemId: string | null;
+}
+
+interface WeaponGems {
+    weapon: [BloodGemSlot, BloodGemSlot, BloodGemSlot];
+    firearm: [BloodGemSlot];
+}
+
 export interface BloodborneProgress extends GameSpecificProgress {
     game: 'Bloodborne';
     equipment: BloodborneEquipment;
+    bloodGems: WeaponGems;
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;

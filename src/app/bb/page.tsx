@@ -14,6 +14,7 @@ import ResetProgressButton from '@/components/buttons/ResetProgressButton';
 import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
+import BloodGemsTab from '@/components/BloodGems';
 
 export default function BBPage() {
 
@@ -63,6 +64,9 @@ export default function BBPage() {
                                 <TabsTrigger value="equipment" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Equipment
                                 </TabsTrigger>
+                                <TabsTrigger value="bloodGems" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Blood Gems
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -99,6 +103,15 @@ export default function BBPage() {
                                 <Suspense fallback={<div>Loading equipment...</div>}>
                                     <ScrollableCard title="Equipment">
                                         <Equipment gameKey='bb' />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
+                            {/* Blood Gems Tab */}
+                            <TabsContent value="bloodGems" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading blood gems...</div>}>
+                                    <ScrollableCard title="Blood Gems">
+                                        <BloodGemsTab />
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>

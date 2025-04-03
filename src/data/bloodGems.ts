@@ -1,11 +1,11 @@
-interface BloodGem {
+export interface BloodGem {
     id: string;
     name: string;
     category: string;
     icon: string;
 };
 
-export const bloodGems: BloodGem[] = [
+export const bloodGemData: BloodGem[] = [
     { "id": "gold-blood-gem", "name": "Gold Blood Gem", "category": "radial", "icon": "gold" },
     { "id": "red-blood-gem", "name": "Red Blood Gem", "category": "droplet", "icon": "red" },
     { "id": "tear-blood-gem", "name": "Tear Blood Gem", "category": "droplet", "icon": "tear" },
