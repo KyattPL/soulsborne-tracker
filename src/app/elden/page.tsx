@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import BossList from '@/components/BossList';
 import CharacterStats from '@/components/CharacterStats';
 import EldenMap from '@/components/EldenMap';
 import CustomTrackers from '@/components/CustomTrackers';
@@ -14,6 +13,7 @@ import ResetProgressButton from '@/components/buttons/ResetProgressButton';
 import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
+import EldenBossList from '@/components/EldenBossList';
 
 export default function EldenPage() {
     return (
@@ -73,8 +73,8 @@ export default function EldenPage() {
                             {/* Bosses Tab */}
                             <TabsContent value="bosses" className='overflow-auto'>
                                 <Suspense fallback={<div>Loading bosses...</div>}>
-                                    <ScrollableCard title='Boss tracker'>
-                                        <BossList gameKey='elden' />
+                                    <ScrollableCard title='Bosses'>
+                                        <EldenBossList />
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>

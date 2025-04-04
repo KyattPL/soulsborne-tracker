@@ -16,15 +16,6 @@ export default function Todo() {
                         <li>add commands for EQ / tendency / blood gems / chalice dungeons</li>
                     </ul>
                 </div>
-                <div>
-                    <h2 className="text-6xl my-4">
-                        Elden Ring:
-                    </h2>
-                    <ul className="list-disc list-inside text-2xl">
-                        <li>Handle all bosses (many minor ones)</li>
-                        <li>Track Ashes of War</li>
-                    </ul>
-                </div>
             </div>
         </ScrollArea>
     );
