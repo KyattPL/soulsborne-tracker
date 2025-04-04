@@ -14,6 +14,7 @@ import ResetProgressButton from '@/components/buttons/ResetProgressButton';
 import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
+import BonfireList from '@/components/BonfireList';
 
 export default function DS1Page() {
 
@@ -63,6 +64,9 @@ export default function DS1Page() {
                                 <TabsTrigger value="equipment" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Equipment
                                 </TabsTrigger>
+                                <TabsTrigger value="bonfires" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Bonfires
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -102,6 +106,16 @@ export default function DS1Page() {
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>
+
+                            {/* Bonfires Tab */}
+                            <TabsContent value="bonfires" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading bonfires...</div>}>
+                                    <ScrollableCard title="Bonfires">
+                                        <BonfireList gameKey='ds1' />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
 
                             {/* Custom Tab */}
                             <TabsContent value="custom" className="mt-2">

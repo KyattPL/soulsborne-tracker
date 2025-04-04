@@ -6,6 +6,7 @@ import {
 
 const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
     game: 'Dark Souls 1',
+    bonfires: [],
     equipment: {},
     playerStats: {
         soulLevel: 1,
@@ -28,6 +29,7 @@ const DS1_DEFAULT_PROGRESS: DarkSouls1Progress = {
 
 const DS2_DEFAULT_PROGRESS: DarkSouls2Progress = {
     game: 'Dark Souls 2',
+    bonfires: [],
     equipment: {},
     playerStats: {
         soulLevel: 1,
@@ -53,6 +55,7 @@ const DS2_DEFAULT_PROGRESS: DarkSouls2Progress = {
 
 const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
     game: 'Dark Souls 3',
+    bonfires: [],
     equipment: {},
     playerStats: {
         soulLevel: 1,
@@ -78,6 +81,7 @@ const DS3_DEFAULT_PROGRESS: DarkSouls3Progress = {
 
 const BB_DEFAULT_PROGRESS: BloodborneProgress = {
     game: 'Bloodborne',
+    bonfires: [],
     equipment: {},
     chalices: [],
     bloodGems: {
@@ -104,6 +108,7 @@ const BB_DEFAULT_PROGRESS: BloodborneProgress = {
 
 const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
     game: 'Elden Ring',
+    bonfires: [],
     equipment: {},
     playerStats: {
         soulLevel: 1,
@@ -129,6 +134,7 @@ const ELDEN_DEFAULT_PROGRESS: EldenRingProgress = {
 
 const DES_DEFAULT_PROGRESS: DemonsSoulsProgress = {
     game: "Demon's Souls",
+    bonfires: [],
     equipment: {},
     tendencies: [
         { id: 'boletaria', value: 0 },

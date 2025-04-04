@@ -15,6 +15,7 @@ import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
 import DesTendency from '@/components/DesTendency';
+import BonfireList from '@/components/BonfireList';
 
 export default function DESPage() {
 
@@ -67,6 +68,9 @@ export default function DESPage() {
                                 <TabsTrigger value="tendency" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Tendency
                                 </TabsTrigger>
+                                <TabsTrigger value="bonfires" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Archstones
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -112,6 +116,15 @@ export default function DESPage() {
                                 <Suspense fallback={<div>Loading tendency...</div>}>
                                     <ScrollableCard title="Tendency">
                                         <DesTendency />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
+                            {/* Bonfires Tab */}
+                            <TabsContent value="bonfires" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading archstones...</div>}>
+                                    <ScrollableCard title="Archstones">
+                                        <BonfireList gameKey='des' />
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>

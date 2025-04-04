@@ -17,7 +17,6 @@ export default function EldenBossList() {
     const { progress, isSharedLink, updateProgress } = useProgress();
     const [showDLC, setShowDLC] = useState(false);
 
-    // Toggle between main game and DLC
     const toggleDLCView = () => {
         setShowDLC(!showDLC);
     };

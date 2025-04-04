@@ -16,6 +16,7 @@ import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
 import BloodGemsTab from '@/components/BloodGems';
 import ChaliceDungeonMap from '@/components/ChaliceDungeonMap';
+import BonfireList from '@/components/BonfireList';
 
 export default function BBPage() {
 
@@ -71,6 +72,9 @@ export default function BBPage() {
                                 <TabsTrigger value="chalice" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Chalice Dungeons
                                 </TabsTrigger>
+                                <TabsTrigger value="bonfires" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Lamps
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -125,6 +129,15 @@ export default function BBPage() {
                                 <Suspense fallback={<div>Loading chalice dungeons...</div>}>
                                     <ScrollableCard title="Chalice Dungeons">
                                         <ChaliceDungeonMap />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
+                            {/* Lamps Tab */}
+                            <TabsContent value="bonfires" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading lamps...</div>}>
+                                    <ScrollableCard title="Lamps">
+                                        <BonfireList gameKey='bb' />
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>

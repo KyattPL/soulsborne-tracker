@@ -9,8 +9,6 @@ export default function Todo() {
                         Overall:
                     </h2>
                     <ul className="list-disc list-inside text-2xl">
-                        <li>NPCs met / missions</li>
-                        <li>Bonfire / lantern / archstone tracking</li>
                         <li>Popup to clarify when connected to Twitch</li>
                         <li>add tools & multiplayer to EQ items for consumables</li>
                         <li>add commands for EQ / tendency / blood gems / chalice dungeons</li>

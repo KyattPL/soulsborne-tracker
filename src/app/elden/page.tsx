@@ -14,6 +14,7 @@ import { TwitchChatMonitor } from '@/components/twitch/TwitchChatMonitor';
 import TwitchConnectButton from '@/components/twitch/TwitchConnectButton';
 import Equipment from '@/components/equipment/Equipment';
 import EldenBossList from '@/components/EldenBossList';
+import EldenBonfireList from '@/components/EldenBonfireList';
 
 export default function EldenPage() {
     return (
@@ -62,6 +63,9 @@ export default function EldenPage() {
                                 <TabsTrigger value="equipment" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Equipment
                                 </TabsTrigger>
+                                <TabsTrigger value="bonfires" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
+                                    Sites
+                                </TabsTrigger>
                                 <TabsTrigger value="custom" className="px-6 py-3 data-[state=active]:bg-zinc-800/50 data-[state=active]:border-b-2 data-[state=active]:border-amber-500/90 data-[state=active]:text-amber-500 rounded-none">
                                     Custom
                                 </TabsTrigger>
@@ -98,6 +102,15 @@ export default function EldenPage() {
                                 <Suspense fallback={<div>Loading equipment...</div>}>
                                     <ScrollableCard title="Equipment">
                                         <Equipment gameKey='elden' />
+                                    </ScrollableCard>
+                                </Suspense>
+                            </TabsContent>
+
+                            {/* Sites of Grace Tab */}
+                            <TabsContent value="bonfires" className="mt-2 overflow-auto">
+                                <Suspense fallback={<div>Loading sites of grace...</div>}>
+                                    <ScrollableCard title="Sites of grace">
+                                        <EldenBonfireList />
                                     </ScrollableCard>
                                 </Suspense>
                             </TabsContent>

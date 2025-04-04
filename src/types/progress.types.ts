@@ -13,12 +13,20 @@ export type GameTitle =
     | 'Sekiro'
     | "Demon's Souls";
 
+interface Bonfire {
+    id: number;
+    name: string;
+    location: string;
+    unlocked: boolean;
+}
+
 // Base interface that can be extended for each game
 export interface GameSpecificProgress {
     game: GameTitle;
     charStats: object;
     playerStats: object;
     equipment: object;
+    bonfires: Bonfire[];
     bossesAttempts: Array<{
         id: string;
         name: string;
