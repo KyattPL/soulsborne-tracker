@@ -13,6 +13,7 @@ export function getChatCommands(handlers: {
     toggleBossDone: (bossId: string) => void;
     modifyCustomTracker: (id: string, amount: number) => void;
     sendShareableLink: () => void;
+    modifyEquipment: (slotId: string, itemId: string) => void;
 }): ChatCommand[] {
     return [
         {
@@ -67,6 +68,15 @@ export function getChatCommands(handlers: {
             description: "Get shareable link for streamer's progress. Usage: !getprogress",
             execute: (_user, _args) => {
                 handlers.sendShareableLink();
+            }
+        },
+        {
+            name: "eq",
+            description: "Modify equipment. Usage: !eq <slot-id> <item-id>. Set <item-id> to 'none' to leave slot empty",
+            execute: (_user, args) => {
+                const [slotId, itemId] = args;
+                if (!slotId || !itemId) return;
+                handlers.modifyEquipment(slotId, itemId);
             }
         }
     ];

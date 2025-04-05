@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 
 import { EQ_ITEMS } from '@/data/equipmentItems';
 import { Select, SelectContent, SelectTrigger, SelectValue, SelectItem } from '@/components/ui/select';
+import { KeyToEquipmentSections } from '@/types/equipment.types';
 
 interface EquipmentListProps {
     gameId: string;
@@ -17,12 +18,15 @@ export default function EquipmentList({ gameId, copiedText, copyToClipboard }: E
     const [category, setCategory] = useState('');
     const gameEquipment = EQ_ITEMS[gameId] || [];
 
+    const eqSections = KeyToEquipmentSections[gameId];
+    const eqSlots = eqSections.flatMap(sec => sec.slots).map(o => o.key);
+
     const availableCategories = [
         ...new Set(gameEquipment.map(item => item.category))
     ];
 
     // Filter equipment based on search term
-    const filteredEquipment = (searchTerm.length >= 3 || category !== '') ? gameEquipment.filter(item =>
+    const filteredEquipment = (searchTerm.length >= 3 && category !== '') ? gameEquipment.filter(item =>
         (searchTerm.length < 3 ||
             item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.id.toLowerCase().includes(searchTerm.toLowerCase())) &&
@@ -31,6 +35,38 @@ export default function EquipmentList({ gameId, copiedText, copyToClipboard }: E
 
     return (
         <div className="space-y-4">
+            <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-medium text-amber-300">Equipment slots</h3>
+                <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-xs text-zinc-200 bg-zinc-700 border-zinc-800"
+                    onClick={() => copyToClipboard(JSON.stringify(eqSlots), 'eqSlots')}
+                >
+                    <Copy className="w-3 h-3 mr-1" />
+                    {copiedText === 'eqSlots' ? 'Copied!' : 'Copy keys'}
+                </Button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {eqSlots.map((slotKey) => (
+                    <div key={slotKey} className="bg-zinc-800/50 p-3 rounded border border-zinc-700/50 flex justify-between items-center">
+                        <div className="text-zinc-200 capitalize">
+                            {slotKey.replace(/([A-Z])/g, ' $1').trim()}
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <code className="bg-zinc-900 text-amber-300 px-2 py-1 rounded text-xs">{slotKey}</code>
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-7 w-7 p-0"
+                                onClick={() => copyToClipboard(slotKey, `slot-${slotKey}`)}
+                            >
+                                <Copy className="h-3 w-3" />
+                            </Button>
+                        </div>
+                    </div>
+                ))}
+            </div>
             <div className="flex items-center space-x-2 mb-4">
                 <div className="relative flex-grow">
                     <Input
@@ -69,40 +105,44 @@ export default function EquipmentList({ gameId, copiedText, copyToClipboard }: E
 
             {(searchTerm.length > 0 && searchTerm.length < 3 && category === '') && (
                 <p className="text-zinc-400 text-center">
-                    Please enter at least 3 characters or select a category
+                    Please enter at least 3 characters AND select a category
                 </p>
             )}
 
-            {filteredEquipment.length === 0 && (searchTerm.length >= 3 || category !== '') ? (
-                <p className="text-zinc-400 text-center">No equipment found</p>
-            ) : filteredEquipment.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {filteredEquipment.map((item) => (
-                        <div
-                            key={item.id}
-                            className="bg-zinc-800/50 p-3 rounded border border-zinc-700/50 flex justify-between items-center"
-                        >
-                            <div>
-                                <p className="font-medium text-zinc-200">{item.name}</p>
-                                <p className="text-xs text-zinc-400">{item.category[0].toUpperCase() + item.category.slice(1)}</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <code className="bg-zinc-900 text-amber-300 px-2 py-1 rounded text-xs">
-                                    {item.id}
-                                </code>
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="h-7 w-7 p-0"
-                                    onClick={() => copyToClipboard(item.id, `equip-${item.id}`)}
+            {filteredEquipment.length === 0 && searchTerm.length >= 3 && category !== '' ?
+                (
+                    <p className="text-zinc-400 text-center">No equipment found</p>
+                ) : filteredEquipment.length === 0 && category === '' ?
+                    (
+                        <p className="text-zinc-400 text-center">Select a category</p>
+                    ) : filteredEquipment.length > 0 ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {filteredEquipment.map((item) => (
+                                <div
+                                    key={item.id}
+                                    className="bg-zinc-800/50 p-3 rounded border border-zinc-700/50 flex justify-between items-center"
                                 >
-                                    <Copy className="h-3 w-3" />
-                                </Button>
-                            </div>
+                                    <div>
+                                        <p className="font-medium text-zinc-200">{item.name}</p>
+                                        <p className="text-xs text-zinc-400">{item.category[0].toUpperCase() + item.category.slice(1)}</p>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <code className="bg-zinc-900 text-amber-300 px-2 py-1 rounded text-xs">
+                                            {item.id}
+                                        </code>
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            className="h-7 w-7 p-0"
+                                            onClick={() => copyToClipboard(item.id, `equip-${item.id}`)}
+                                        >
+                                            <Copy className="h-3 w-3" />
+                                        </Button>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            ) : null}
+                    ) : null}
         </div>
     );
 }

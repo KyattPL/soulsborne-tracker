@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Copy } from 'lucide-react';
 
 import { bosses } from '@/data/bosses';
+import { useState } from 'react';
 
 interface BossListProps {
     gameId: string;
@@ -10,9 +11,29 @@ interface BossListProps {
 }
 
 export default function BossList({ gameId, copiedText, copyToClipboard }: BossListProps) {
-    const gameBosses = bosses[gameId] || [];
+    let gameBosses = bosses[gameId] || [];
+    const [isDLC, setIsDLC] = useState(false);
+    let eldenSoteButton = null;
+
+    if (gameId === 'elden') {
+        const style = isDLC ? 'bg-amber-800 border-amber-700 text-amber-100' : 'text-zinc-200 bg-zinc-700 border-zinc-800';
+
+        eldenSoteButton = <Button
+            variant="outline"
+            size="lg"
+            className={`text-lg ${style}`}
+            onClick={() => setIsDLC(prev => !prev)}
+        >
+            {isDLC ? 'SOTE (DLC)' : 'Base game'}
+        </Button>;
+
+        gameBosses = gameBosses.filter(b => b.sote === isDLC || (!isDLC && b.sote === undefined));
+    }
+
     return (
+
         <div className="space-y-4">
+            {eldenSoteButton}
             <div className="flex justify-between mb-4">
                 <h3 className="text-lg font-medium text-amber-300">Total bosses: {gameBosses.length}</h3>
                 <Button

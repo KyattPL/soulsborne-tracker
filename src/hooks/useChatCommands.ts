@@ -65,12 +65,25 @@ export function useChatCommands() {
         ComfyJS.Say(encode(JSON.stringify(progress), true), null);
     }
 
+    function modifyEquipment(slotId: string, itemId: string) {
+        const eqObj = progress.equipment;
+
+        if (itemId === 'none') {
+            eqObj[slotId] = undefined;
+        } else {
+            eqObj[slotId] = itemId;
+        }
+
+        updateProgress({ ...progress, equipment: eqObj });
+    }
+
     return {
         modifyCharStat,
         modifyPlayerStat,
         modifyBossAttempt,
         toggleBossDone,
         modifyCustomTracker,
-        sendShareableLink
+        sendShareableLink,
+        modifyEquipment
     };
 }

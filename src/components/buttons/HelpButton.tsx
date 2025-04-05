@@ -62,7 +62,7 @@ export default function HelpButton() {
                                 allows you to link your progress tracker to a specific Twitch channel.
                             </p>
                             <p>
-                                This enables the tracker to receive commands sent via chat:
+                                This enables the tracker to receive commands sent via chat, for example:
                             </p>
                             <ul className="list-disc pl-6 space-y-1 text-zinc-300">
                                 <li>!charstat - Modify a character stat. Usage: !charstat vitality +2</li>
