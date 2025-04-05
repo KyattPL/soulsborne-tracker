@@ -45,8 +45,10 @@ const TwitchConnectButton = () => {
                 <X className="w-4 h-4" />
                 Disconnect Twitch
             </Button>
-            <div className="text-sm text-zinc-400">
-                Connected to Twitch chat: <span className="text-purple-400">{twitchChannel}</span>
+            <div className="text-sm text-zinc-400 flex items-center gap-2">
+                <span className="flex items-center">
+                    Connected to Twitch chat: <span className="text-purple-400 ml-1">{twitchChannel}</span>
+                </span>
             </div>
         </div>
     ) : (
