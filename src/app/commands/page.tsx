@@ -1,15 +1,20 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { ChevronRight, Terminal, Award, Info, Package } from 'lucide-react';
+import { ChevronRight, Terminal, Award, Info, Package, Earth, Gem, Martini, FlameKindling } from 'lucide-react';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
+
 import BossList from './BossList';
 import StatsInfo from './StatsInfo';
 import EquipmentList from './EquipmentList';
+import TendencyIds from './TendencyIds';
+import BloodGemIds from './BloodGemIds';
+import ChaliceIds from './ChaliceIds';
+import BonfireIds from './BonfireIds';
 
 const SCROLL_OFFSET_PX = 50;
 
@@ -93,6 +98,23 @@ export default function CommandsPage() {
                     <CardContent className="space-y-4">
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1" className="border-zinc-800">
+                                <AccordionTrigger className="hover:text-amber-300 text-amber-500">Bloodborne Commands</AccordionTrigger>
+                                <AccordionContent>
+                                    <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
+                                        <div className="flex items-start gap-4">
+                                            <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!bloodgem &lt;slot-id&gt; &lt;type&gt; &gt;gem-id&gt;</code>
+                                            <p className="text-zinc-300">Set blood gem. Usage: !bloodgem weapon-1 radial gold-blood-gem. Set &apos;gem-id&apos;
+                                                to &apos;none&apos; to keep the slot empty (but with selected type!).
+                                            </p>
+                                        </div>
+                                        <div className="flex items-start gap-4">
+                                            <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!chalice &lt;chalice-id&lt;</code>
+                                            <p className="text-zinc-300">Toggle gathered chalice status. Usage: !chalice hintertomb.</p>
+                                        </div>
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-2" className="border-zinc-800">
                                 <AccordionTrigger className="hover:text-amber-300 text-amber-500">Boss Commands</AccordionTrigger>
                                 <AccordionContent>
                                     <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
@@ -107,7 +129,7 @@ export default function CommandsPage() {
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
-                            <AccordionItem value="item-2" className="border-zinc-800">
+                            <AccordionItem value="item-3" className="border-zinc-800">
                                 <AccordionTrigger className="hover:text-amber-300 text-amber-500">Stats Commands</AccordionTrigger>
                                 <AccordionContent>
                                     <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
@@ -122,8 +144,8 @@ export default function CommandsPage() {
                                     </div>
                                 </AccordionContent>
                             </AccordionItem>
-                            <AccordionItem value="item-3" className="border-zinc-800">
-                                <AccordionTrigger className="hover:text-amber-300 text-amber-500">Tracker Commands</AccordionTrigger>
+                            <AccordionItem value="item-4" className="border-zinc-800">
+                                <AccordionTrigger className="hover:text-amber-300 text-amber-500">General Commands</AccordionTrigger>
                                 <AccordionContent>
                                     <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
                                         <div className="flex items-start gap-4">
@@ -133,17 +155,28 @@ export default function CommandsPage() {
                                                 tracker will change the id of the second one to &apos;1&apos;).
                                             </p>
                                         </div>
-                                    </div>
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem value="item-4" className="border-zinc-800">
-                                <AccordionTrigger className="hover:text-amber-300 text-amber-500">General Commands</AccordionTrigger>
-                                <AccordionContent>
-                                    <div className="space-y-2 pl-4 border-l-2 border-zinc-800">
                                         <div className="flex items-start gap-4">
                                             <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!getprogress</code>
                                             <p className="text-zinc-300">Get link to the progress site. Usage: !getprogress (link should be sent to
                                                 to chat assuming user Authorized Twitch on the home page).
+                                            </p>
+                                        </div>
+                                        <div className="flex items-start gap-4">
+                                            <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!eq &lt;slot-id&gt; &lt;item-id&gt;</code>
+                                            <p className="text-zinc-300">Modify equipment. Usage: !eq armorHead wanderer-hood. Set &lt;item-id&gt;
+                                                to &quot;none&quot; to unequip the item / leave the slot empty.
+                                            </p>
+                                        </div>
+                                        <div className="flex items-start gap-4">
+                                            <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!tendency &lt;id&gt; &lt;value&gt;</code>
+                                            <p className="text-zinc-300">Modify world or player tendency. Usage: !tendency boletaria +2. Plus makes it whiter,
+                                                minus makes it darker. Set id to &quot;character&quot; to modify player tendency.
+                                            </p>
+                                        </div>
+                                        <div className="flex items-start gap-4">
+                                            <code className="bg-zinc-800 text-amber-300 px-2 py-1 rounded">!bonfire &lt;bonfire-num&gt;</code>
+                                            <p className="text-zinc-300">Toggle bonfire / lamp / archstone / site of grace unlocked. Usage:
+                                                !bonfire 25.
                                             </p>
                                         </div>
                                     </div>
@@ -178,45 +211,82 @@ export default function CommandsPage() {
                                     </TabsTrigger>
                                 ))}
                             </TabsList>
-
-                            {Object.keys(gameNames).map((gameId) => (
-                                <TabsContent key={gameId} value={gameId} className="mt-6">
-                                    <Tabs defaultValue="bosses">
-                                        <TabsList className="bg-zinc-800/50">
-                                            <TabsTrigger
-                                                value="bosses"
-                                                className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
-                                            >
-                                                <Award className="w-4 h-4 mr-2" />
-                                                Bosses
-                                            </TabsTrigger>
-                                            <TabsTrigger
-                                                value="stats"
-                                                className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
-                                            >
-                                                <ChevronRight className="w-4 h-4 mr-2" />
-                                                Stats
-                                            </TabsTrigger>
-                                            <TabsTrigger
-                                                value="equipment"
-                                                className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
-                                            >
-                                                <Package className="w-4 h-4 mr-2" />
-                                                Equipment
-                                            </TabsTrigger>
-                                        </TabsList>
-                                        <TabsContent value="bosses" className="mt-4">
-                                            <BossList gameId={gameId} copiedText={copiedText} copyToClipboard={copyToClipboard} />
-                                        </TabsContent>
-                                        <TabsContent value="stats" className="mt-4">
-                                            <StatsInfo gameId={gameId} copiedText={copiedText} copyToClipboard={copyToClipboard} />
-                                        </TabsContent>
-                                        <TabsContent value="equipment" className="mt-4">
-                                            <EquipmentList gameId={gameId} copiedText={copiedText} copyToClipboard={copyToClipboard} />
-                                        </TabsContent>
-                                    </Tabs>
-                                </TabsContent>
-                            ))}
+                            <TabsContent key={activeGame} value={activeGame} className="mt-6">
+                                <Tabs defaultValue="bosses">
+                                    <TabsList className="bg-zinc-800/50">
+                                        <TabsTrigger
+                                            value="bosses"
+                                            className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
+                                        >
+                                            <Award className="w-4 h-4 mr-2" />
+                                            Bosses
+                                        </TabsTrigger>
+                                        <TabsTrigger
+                                            value="stats"
+                                            className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
+                                        >
+                                            <ChevronRight className="w-4 h-4 mr-2" />
+                                            Stats
+                                        </TabsTrigger>
+                                        <TabsTrigger
+                                            value="equipment"
+                                            className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
+                                        >
+                                            <Package className="w-4 h-4 mr-2" />
+                                            Equipment
+                                        </TabsTrigger>
+                                        <TabsTrigger
+                                            value="bonfire"
+                                            className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
+                                        >
+                                            <FlameKindling className="w-4 h-4 mr-2" />
+                                            Bonfire
+                                        </TabsTrigger>
+                                        {activeGame === 'des' ? <TabsTrigger
+                                            value="tendency"
+                                            className="data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100"
+                                        >
+                                            <Earth className="w-4 h-4 mr-2" />
+                                            Tendency
+                                        </TabsTrigger> : <></>}
+                                        {activeGame === 'bb' ? <TabsTrigger
+                                            value="bloodGem"
+                                            className='data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100'
+                                        >
+                                            <Gem className='w-4 h-4 mr-2' />
+                                            Blood Gems
+                                        </TabsTrigger> : <></>}
+                                        {activeGame === 'bb' ? <TabsTrigger
+                                            value="chalice"
+                                            className='data-[state=active]:bg-amber-900/50 data-[state=active]:text-amber-100'
+                                        >
+                                            <Martini className='w-4 h-4 mr-2' />
+                                            Chalices
+                                        </TabsTrigger> : <></>}
+                                    </TabsList>
+                                    <TabsContent value="bosses" className="mt-4">
+                                        <BossList gameId={activeGame} copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                    </TabsContent>
+                                    <TabsContent value="stats" className="mt-4">
+                                        <StatsInfo gameId={activeGame} copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                    </TabsContent>
+                                    <TabsContent value="equipment" className="mt-4">
+                                        <EquipmentList gameId={activeGame} copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                    </TabsContent>
+                                    <TabsContent value="bonfire" className="mt-4">
+                                        <BonfireIds gameId={activeGame} copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                    </TabsContent>
+                                    {activeGame === 'des' ? <TabsContent value="tendency" className='mt-4'>
+                                        <TendencyIds copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                    </TabsContent> : <></>}
+                                    {activeGame === 'bb' ? <TabsContent value="bloodGem" className='mt-4'>
+                                        <BloodGemIds copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                    </TabsContent> : <></>}
+                                    {activeGame === 'bb' ? <TabsContent value="chalice" className='mt-4'>
+                                        <ChaliceIds copiedText={copiedText} copyToClipboard={copyToClipboard} />
+                                    </TabsContent> : <></>}
+                                </Tabs>
+                            </TabsContent>
                         </Tabs>
                     </CardContent>
                 </Card>

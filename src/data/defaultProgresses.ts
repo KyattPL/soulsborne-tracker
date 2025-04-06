@@ -148,7 +148,6 @@ const DES_DEFAULT_PROGRESS: DemonsSoulsProgress = {
         soulLevel: 1,
         newGamePlusCount: 0,
         weaponUpgradeLvl: 0,
-        charTendency: 3,
     },
     charStats: {
         vitality: 10,

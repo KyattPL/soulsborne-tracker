@@ -1,7 +1,7 @@
 export interface BloodGem {
     id: string;
     name: string;
-    category: string;
+    category: 'radial' | 'droplet' | 'circle' | 'waning' | 'triangle';
     icon: string;
 };
 

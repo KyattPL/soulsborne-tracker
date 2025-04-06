@@ -123,4 +123,10 @@ const rootChalices = {
 
 // Combine all ritual requirements
 export const allRequirements = { ...ritualRequirements, ...rootChalices };
-export type ChaliceName = RootChaliceName | RegularChaliceName;
+export type TChaliceName = RootChaliceName | RegularChaliceName;
+
+export const CHALICE_NAMES = ["Pthumeru Labyrinth", "Central Pthumeru", "Lower Pthumeru", "Hintertomb", "Sinister Lower Pthumeru"
+    , "Sinister Lower Hintertomb", "Short Ritual Chalice", "Defiled Pthumeru", "Great Pthumeru Ihyll", "Great Isz"
+    , "Lower Hintertomb", "Ailing Loran", "Lower Ailing Loran", "Pthumeru Root Labyrinth", "Central Pthumeru Root", "Lower Pthumeru Root", "Hintertomb Root", "Isz Root"
+    , "Lower Hintertomb Root", "Cursed and Defiled Pthumeru Root", "Ailing Loran Root", "Pthumeru Ihyll Root", "Lower Ailing Loran Root"
+    , "Sinister Pthumeru Ihyll Root", "Sinister Lower Loran Root", "Sinister Isz Root"];

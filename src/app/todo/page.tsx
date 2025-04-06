@@ -10,7 +10,6 @@ export default function Todo() {
                     </h2>
                     <ul className="list-disc list-inside text-2xl">
                         <li>add tools & multiplayer to EQ items for consumables</li>
-                        <li>add commands for EQ / tendency / blood gems / chalice dungeons / bonfires</li>
                     </ul>
                 </div>
             </div>

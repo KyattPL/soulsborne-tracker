@@ -1,4 +1,4 @@
-import { ChaliceName } from "@/data/chalices";
+import { TChaliceName } from "@/data/chalices";
 import {
     DarkSouls1Equipment, DarkSouls2Equipment, DarkSouls3Equipment,
     DemonsSoulsEquipment, BloodborneEquipment, EldenRingEquipment
@@ -123,7 +123,7 @@ export interface BloodborneProgress extends GameSpecificProgress {
     game: 'Bloodborne';
     equipment: BloodborneEquipment;
     bloodGems: WeaponGems;
-    chalices: ChaliceName[];
+    chalices: TChaliceName[];
     playerStats: {
         soulLevel: number;
         newGamePlusCount: number;
@@ -171,7 +171,6 @@ export interface DemonsSoulsProgress extends GameSpecificProgress {
         soulLevel: number;
         newGamePlusCount: number;
         weaponUpgradeLvl: number;
-        charTendency: number;
     };
     charStats: {
         vitality: number;
@@ -275,7 +274,6 @@ const DemonsSoulsKeyToStatName: Record<string, string> = {
     'magic': 'Magic',
     'faith': 'Faith',
     'luck': 'Luck',
-    'charTendency': 'Char Tendency',
 };
 
 export const KeyToStatName: Record<string, Record<string, string>> = {

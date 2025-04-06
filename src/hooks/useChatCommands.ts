@@ -1,9 +1,11 @@
 import ComfyJS from "comfy.js";
 import { useProgress } from "@/components/ProgressProvider";
 
-import { updateCharStatGuarded, updatePlayerStatGuarded } from "@/utils/progressGuards";
+import { isBloodborneProgress, isDemonsSoulsProgress, updateCharStatGuarded, updatePlayerStatGuarded } from "@/utils/progressGuards";
 import { bosses } from "@/data/bosses";
 import { encode } from "js-base64";
+import { TChaliceName } from "@/data/chalices";
+import { bonfires } from "@/data/bonfires";
 
 
 export function useChatCommands() {
@@ -77,6 +79,78 @@ export function useChatCommands() {
         updateProgress({ ...progress, equipment: eqObj });
     }
 
+    function modifyTendency(tendencyId: string, value: number) {
+        if (!isDemonsSoulsProgress(progress)) return;
+
+        const tendencyArr = progress.tendencies;
+        const tendIndex = tendencyArr.findIndex(t => t.id === tendencyId);
+
+        if (tendIndex !== -1) {
+            let a = tendencyArr[tendIndex].value + value;
+            if (a > 3) a = 3;
+            if (a < -3) a = -3;
+            tendencyArr[tendIndex].value = a;
+            updateProgress({ ...progress, tendencies: tendencyArr });
+        }
+    }
+
+    function modifyBloodGem(slotId: string, slotType: string, gemId: string) {
+        if (!isBloodborneProgress(progress)) return;
+        if (!['weapon-1', 'weapon-2', 'weapon-3', 'firearm'].includes(slotId)) return;
+        if (!['radial', 'circle', 'waning', 'triangle'].includes(slotType)) return;
+
+        const bgs = progress.bloodGems;
+        const guardedGemId = gemId === 'none' ? null : gemId;
+
+        if (slotId === 'weapon-1') {
+            bgs['weapon'][0].type = slotType as "radial" | "circle" | "waning" | "triangle" | null;
+            bgs['weapon'][0].gemId = guardedGemId;
+        } else if (slotId === 'weapon-2') {
+            bgs['weapon'][1].type = slotType as "radial" | "circle" | "waning" | "triangle" | null;
+            bgs['weapon'][1].gemId = guardedGemId;
+        } else if (slotId === 'weapon-3') {
+            bgs['weapon'][2].type = slotType as "radial" | "circle" | "waning" | "triangle" | null;
+            bgs['weapon'][2].gemId = guardedGemId;
+        } else if (slotId === 'firearm') {
+            bgs['firearm'][0].type = slotType as "radial" | "circle" | "waning" | "triangle" | null;
+            bgs['firearm'][0].gemId = guardedGemId;
+        } else {
+            return;
+        }
+
+        updateProgress({ ...progress, bloodGems: bgs });
+    }
+
+    function toggleChalice(chaliceId: string) {
+        if (!isBloodborneProgress(progress)) return;
+
+        const chaliceName = chaliceId.replace('-', ' ').split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+
+        if (progress.chalices.includes(chaliceName as TChaliceName)) {
+            const chals = progress.chalices.filter(c => c !== chaliceName);
+            updateProgress({ ...progress, chalices: chals });
+        } else {
+            updateProgress({ ...progress, chalices: [...progress.chalices, chaliceName as TChaliceName] });
+        }
+    }
+
+    function toggleBonfire(bonfireId: number) {
+        const bonfireIndex = progress.bonfires.findIndex(b => b.id === bonfireId);
+
+        if (bonfireIndex === -1) {
+            const bonfireArr = Object.values(bonfires).find(bonfire => bonfire.find(b => b.id === bonfireId));
+            const foundBonfire = bonfireArr?.find(b => b.id === bonfireId);
+            const newBonfire = { id: foundBonfire!.id, name: foundBonfire!.name, unlocked: true, location: foundBonfire!.location };
+
+            updateProgress({ ...progress, bonfires: [...progress.bonfires, newBonfire] });
+        } else {
+            const newArr = progress.bonfires;
+            newArr[bonfireIndex].unlocked = !newArr[bonfireId].unlocked;
+
+            updateProgress({ ...progress, bonfires: newArr });
+        }
+    }
+
     return {
         modifyCharStat,
         modifyPlayerStat,
@@ -84,6 +158,10 @@ export function useChatCommands() {
         toggleBossDone,
         modifyCustomTracker,
         sendShareableLink,
-        modifyEquipment
+        modifyEquipment,
+        modifyTendency,
+        modifyBloodGem,
+        toggleChalice,
+        toggleBonfire
     };
 }

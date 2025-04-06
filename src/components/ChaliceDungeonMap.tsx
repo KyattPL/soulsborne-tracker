@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Card } from '@/components/ui/card';
 
-import { ColorType, ChaliceName, allRequirements } from '@/data/chalices';
+import { ColorType, TChaliceName, allRequirements } from '@/data/chalices';
 import { useProgress } from './ProgressProvider';
 import { isBloodborneProgress } from '@/utils/progressGuards';
 
@@ -16,7 +16,7 @@ const dungeonColors = {
 };
 
 interface DungeonBlockProps {
-    name: ChaliceName;
+    name: TChaliceName;
     type: ColorType;
     hasArrow?: boolean;
     isArrowBottom?: boolean;
@@ -29,9 +29,9 @@ const ChaliceDungeonMap = () => {
 
     const initChalices = isBloodborneProgress(progress) ? progress.chalices : [];
 
-    const [collectedChalices, setCollectedChalices] = useState<ChaliceName[]>(initChalices);
+    const [collectedChalices, setCollectedChalices] = useState<TChaliceName[]>(initChalices);
 
-    const toggleCollectedChalice = (name: ChaliceName) => {
+    const toggleCollectedChalice = (name: TChaliceName) => {
         if (isSharedLink || !isBloodborneProgress(progress)) return;
 
         if (collectedChalices.includes(name)) {
