@@ -281,6 +281,28 @@ const consumables: EquipmentItem[] = [
     { "id": "dried-root", "name": "Dried Root", "category": "consumables" },
     { "id": "brightbug", "name": "Brightbug", "category": "consumables" },
     { "id": "smelter-wedge", "name": "Smelter Wedge", "category": "consumables" },
+    { "id": "aged-feather", "name": "Aged Feather", "category": "consumables" },
+    { "id": "binoculars", "name": "Binoculars", "category": "consumables" },
+    { "id": "black-separation-crystal", "name": "Black Separation Crystal", "category": "consumables" },
+    { "id": "bone-of-order", "name": "Bone of Order", "category": "consumables" },
+    { "id": "champions-tablet", "name": "Champions Tablet", "category": "consumables" },
+    { "id": "cracked-blue-eye-orb", "name": "Cracked Blue Eye Orb", "category": "consumables" },
+    { "id": "cracked-red-eye-orb", "name": "Cracked Red Eye Orb", "category": "consumables" },
+    { "id": "crushed-eye-orb", "name": "Crushed Eye Orb", "category": "consumables" },
+    { "id": "darksign", "name": "Darksign", "category": "consumables" },
+    { "id": "dragon-eye", "name": "Dragon Eye", "category": "consumables" },
+    { "id": "dragon-head-stone", "name": "Dragon Head Stone", "category": "consumables" },
+    { "id": "dragon-torso-stone", "name": "Dragon Torso Stone", "category": "consumables" },
+    { "id": "dried-fingers", "name": "Dried Fingers", "category": "consumables" },
+    { "id": "hello-carving", "name": "Hello Carving", "category": "consumables" },
+    { "id": "im-sorry-carving", "name": "I'm Sorry Carving", "category": "consumables" },
+    { "id": "red-sign-soapstone", "name": "Red Sign Soapstone", "category": "consumables" },
+    { "id": "seed-of-a-tree-of-giants", "name": "Seed of a Tree of Giants", "category": "consumables" },
+    { "id": "small-white-sign-soapstone", "name": "Small White Sign Soapstone", "category": "consumables" },
+    { "id": "thank-you-carving", "name": "Thank You Carving", "category": "consumables" },
+    { "id": "torch", "name": "Torch", "category": "consumables" },
+    { "id": "very-good-carving", "name": "Very Good! Carving", "category": "consumables" },
+    { "id": "white-sign-soapstone", "name": "White Sign Soapstone", "category": "consumables" }
 ];
 
 const projectiles: EquipmentItem[] = [

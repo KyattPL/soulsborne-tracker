@@ -326,6 +326,11 @@ const consumables: EquipmentItem[] = [
     { "id": "kunai", "name": "Kunai", "category": "consumables" },
     { "id": "stealth-throwing-dagger", "name": "Stealth Throwing Dagger", "category": "consumables" },
     { "id": "throwing-knife", "name": "Throwing Knife", "category": "consumables" },
+    { "id": "black-eye-stone", "name": "Black Eye Stone", "category": "consumables" },
+    { "id": "blue-eye-stone", "name": "Blue Eye Stone", "category": "consumables" },
+    { "id": "red-eye-stone", "name": "Red Eye Stone", "category": "consumables" },
+    { "id": "white-eye-stone", "name": "White Eye Stone", "category": "consumables" },
+    { "id": "nexial-binding", "name": "Nexial Binding", "category": "consumables" },
 ];
 
 const ammunition: EquipmentItem[] = [

@@ -6,10 +6,10 @@ export default function Todo() {
             <div>
                 <div>
                     <h2 className="text-6xl mb-4">
-                        Overall:
+                        Elden Ring:
                     </h2>
                     <ul className="list-disc list-inside text-2xl">
-                        <li>add tools & multiplayer to EQ items for consumables</li>
+                        <li>Maybe add physic flask mix & great rune</li>
                     </ul>
                 </div>
             </div>

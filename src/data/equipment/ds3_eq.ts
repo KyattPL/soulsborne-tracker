@@ -279,6 +279,28 @@ const consumables: EquipmentItem[] = [
     { "id": "rope-firebomb", "name": "Rope Firebomb", "category": "consumables" },
     { "id": "rope-black-firebomb", "name": "Rope Black Firebomb", "category": "consumables" },
     { "id": "church-guardian-shiv", "name": "Church Guardian Shiv", "category": "consumables" },
+    { "id": "binoculars", "name": "Binoculars", "category": "consumables" },
+    { "id": "black-separation-crystal", "name": "Black Separation Crystal", "category": "consumables" },
+    { "id": "coiled-sword-fragment", "name": "Coiled Sword Fragment", "category": "consumables" },
+    { "id": "cracked-red-orb", "name": "Cracked Red Orb", "category": "consumables" },
+    { "id": "darksign", "name": "Darksign", "category": "consumables" },
+    { "id": "dragon-head-stone", "name": "Dragon Head Stone", "category": "consumables" },
+    { "id": "dragon-torso-stone", "name": "Dragon Torso Stone", "category": "consumables" },
+    { "id": "dried-fingers", "name": "Dried Fingers", "category": "consumables" },
+    { "id": "forked-pale-tongue", "name": "Forked Pale Tongue", "category": "consumables" },
+    { "id": "hello-carving", "name": "Hello Carving", "category": "consumables" },
+    { "id": "help-me-carving", "name": "Help Me! Carving", "category": "consumables" },
+    { "id": "im-sorry-carving", "name": "I'm Sorry Carving", "category": "consumables" },
+    { "id": "proof-of-a-concord-well-kept", "name": "Proof of a Concord Well Kept", "category": "consumables" },
+    { "id": "red-eye-orb", "name": "Red Eye Orb", "category": "consumables" },
+    { "id": "red-sign-soapstone", "name": "Red Sign Soapstone", "category": "consumables" },
+    { "id": "roster-of-knights", "name": "Roster of Knights", "category": "consumables" },
+    { "id": "thank-you-carving", "name": "Thank You Carving", "category": "consumables" },
+    { "id": "twinkling-dragon-head-stone", "name": "Twinkling Dragon Head Stone", "category": "consumables" },
+    { "id": "twinkling-dragon-torso-stone", "name": "Twinkling Dragon Torso Stone", "category": "consumables" },
+    { "id": "very-good-carving", "name": "Very Good! Carving", "category": "consumables" },
+    { "id": "way-of-white-circlet", "name": "Way of White Circlet", "category": "consumables" },
+    { "id": "white-sign-soapstone", "name": "Whitestone", "category": "consumables" }
 ];
 
 const shields: EquipmentItem[] = [

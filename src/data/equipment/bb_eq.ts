@@ -72,6 +72,14 @@ const consumables: EquipmentItem[] = [
     { "id": "one-third-of-umbilical-cord", "name": "One Third of Umbilical Cord", "category": "consumables" },
     { "id": "tear-stone", "name": "Tear Stone", "category": "consumables" },
     { "id": "vermin", "name": "Vermin", "category": "consumables" },
+    { "id": "beckoning-bell", "name": "Beckoning Bell", "category": "consumables" },
+    { "id": "league-staff", "name": "League Staff", "category": "consumables" },
+    { "id": "notebook", "name": "Notebook", "category": "consumables" },
+    { "id": "old-hunter-bell", "name": "Old Hunter Bell", "category": "consumables" },
+    { "id": "silencing-blank", "name": "Silencing Blank", "category": "consumables" },
+    { "id": "sinister-bell", "name": "Sininster Bell", "category": "consumables" },
+    { "id": "small-resonant-bell", "name": "Small Resonant Bell", "category": "consumables" },
+    { "id": "vileblood-register", "name": "Vileblood Register", "category": "consumables" },
 ];
 
 const projectiles: EquipmentItem[] = [
